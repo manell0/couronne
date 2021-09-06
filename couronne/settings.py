@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-r!^mqseqy5^!x%vlc7oa$^8w(=6n1_-w4@ni^#o5^_8fs8bc1c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -77,6 +77,9 @@ TEMPLATES = [
         },
     },
 ]
+
+WSGI_APPLICATION = 'couronne.wsgi.application'  # ???
+
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',

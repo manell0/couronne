@@ -11,17 +11,35 @@
 
 
 {% block content %}
-    <div class="contariner h-75">
+    <div class="h-10"></div>
+    <div class="contariner h-75 m-5">
         <div class="row h-100">
             <div class="col-7 col-md-6 mx-auto my-auto">
-                <h1 class="display-6 logo-font text-danger">
-                    Couronne is the shit!
-                </h1>
-                <!--<div class="my-5 my-auto mx-auto my-auto">
+                
+                <div class="my-5 my-auto mx-auto my-auto">
                     <h4>
-                        <a href="" class="shop-now-button btn btn-lg rounded 0 text-uppercase py-3">Go to ranking</a>
+                        <a href="{% url 'home:reg_match' %}" class="shop-now-button btn btn-lg rounded 0 text-uppercase py-3">Register Match</a>
                     </h4>
-                </div>-->
+                </div>
+                {{ user }}
+                
+                {% if all_objects %}
+                {% for person in all_objects %}
+                    {% if forloop.counter < 4 %}
+                        <table class="table table-striped">
+                            <th style="width:70px; padding:1px;"><h5><font color="black"><b>{{ forloop.counter }}.{{ person.user }}</font></th>
+                            <td style="width:70px; padding:1px;"><h5>Spelat: <font color="black"><b>{{ person.rating }}</font></td>
+                            <td style="width:100px; padding:1px;"><h5>Vunna: <font color="green"><b> {{ person.antal_vunna}}</font></b></h5></td>
+                            <td style="width:100px; padding:1px;"><h5>Rating: <font color="black"><b>{{person.ratingf|floatformat:3}}</font></b></h5></td>
+                        </table>
+
+            
+           
+
+                    {% endif %}
+                    
+                    {% endfor %}
+                    {% endif %}
             </div>
         </div>
     </div>

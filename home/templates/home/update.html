@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+
+  <div style="width:900px;"style="padding:10px;" class="panel panel-primary halfOpacity">
+     
+    <div class="alert alert-secondary">
+      
+    
+
+        <br>
+      {% if registered and reg %}
+    
+        <h1>Najs med uppdatering</h1>
+        <meta http-equiv="REFRESH" content="0;url=http://127.0.0.1:8000/">
+
+
+      {% elif registered %}
+         <h1>Uppdaterad och klar!</h1>
+        <a class="nav-item nav-link" href="{% url 'couronne_app:user_login' %}">☺ &#128566 Login</a>   
+      {% else %}
+        <div class="alert alert-dark">
+        {{user}}<h3>Uppdatera </h3>
+        </div>
+        <form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {{ upp_form.as_ul }}
+
+          {{ profile_form.as_ul }}
+          <input class="btn btn-outline-dark" type="submit" name="" value="Uppdatera">
+    
+          
+        
+        
+        </form>
+        <br>
+        
+        <a class="btn btn-outline-dark"  href="javascript:history.back()"> ← Tillbaka </a>
+      {% endif %}
+      
+    </div>
+    
+  </div>
+{% endblock %}
+
+
+
+

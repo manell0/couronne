@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+
+
+
+    
+  {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-light">
+      <div class="alert alert-danger" role="alert">
+        {{ message }} <font color="green"> ↑ {{ searchWord }} </font> ↔ <font color="red"> {{ user }} ↓</font> 
+      </div>
+    </div>  
+    {% endfor %}
+  {% endif %}   
+      
+<a name="Upp"></a>
+
+  {% if user.is_authenticated %}
+    <div style="width:900px;"style="padding:10px;" class="panel panel-primary halfOpacity">
+    
+      <div style="width:445px; float:left;padding:10px;" class="jumbotron">
+        <!--<div class="alert alert-danger">-->
+        <div class="alert alert-dark"style="padding:10px;">
+          <div class="alert alert-light"style="padding:10px;">
+
+            <center><h3 id='colors'>Matchresultat</h3>
+            <div class="alert alert-success"style="padding:10px;">
+            
+            <form method="post" action="{% url 'home:edit' %}">
+             <center>{{ searchWord }}: <thead><tr><th><font color="green"> <b></font> </th>
+             <td> <font color="green"> ⇧ {{ sum_pro|floatformat:3 }}</b></font> </td> </td></tr></thead>
+             </div> 
+              <center><font color="green"> <b> ⇧ </b></font><a class="btn btn-outline-dark" href="{% url 'home:reg_match' %}"> Klar </a><font color="red"> <b> ⇩ </b></font></center>
+              
+             <br> 
+             <div class="alert alert-danger"style="padding:10px;"> 
+              {{ user.username }}:<thead><tr><th><font color="red"> <b></font> </th><td> <font color="red"> ⇩ {{ sum_pro|floatformat:3 }}</b> </td></tr></thead></font></center>
+              <ul><li><h5>Du förlorade mot: <font color="green"><b>{{ searchWord }}</b></green> <font color="red">&nbsp;&nbsp;<b> ⇩ {{ sum_pro|floatformat:3 }}</b> ratigpoäng.</h5></li></ul> 
+            </center>
+              {% csrf_token %}
+           </form>
+            
+              
+          </div>
+          </div>
+          {% if user.is_authenticated %}
+      </div>
+
+<!-------------------------------------------------------------------------------------------     COURONNE LIGAN        --------------->
+
+      <div style="width:445px; float:right;padding:10px;" class="jumbotron">   
+        <div class="alert alert-dark"style="padding:10px;">
+        
+          <div class="alert alert-light"style="padding:10px;">
+            <h3 id='two'>Couronne Ligan </h3>
+            </div>
+          {% if all_objects %}
+
+          
+            {% for person in all_objects %}
+              
+                  <abbr title="{{ person.user }}: {{ person.matcher }} │ Klubb: {{ person.club_location }} │ klicka för upp {{user}}..." > <a href="#Upp"><a class="nav-item nav-link" href="#">
+            
+                <table class="table table-striped">
+                
+                  <font color="black"><tr><h5>{{ forloop.counter }}. {{ person.user }}:</tr></font>
+
+                  <!--<tr><th><h5>Spelat: <font color="black"><b>{{ person.rating }}</th><td>Snitt: </td><td>Rating: </td></font></h5></tr>
+                  <tr><th><h5>Vunna: <font color="green"><b>{{ person.rating }}</th><td>{{ person.snitt|floatformat:3 }}</td><td>→ {{person.ratingf|floatformat:3}}</td></font></h5></tr>-->
+                  <tr></tr>
+                  <td><h5>Spelat: <font color="black"><b>{{ person.rating }}</font>
+                  <h5>Vunna: <font color="green"><b> {{ person.antal_vunna}}</font></b></h5></td>
+                  <td><h5>Snitt: <font color="black"><br><b>{{ person.snitt|floatformat:3 }}</font></b></h5></td>
+                  <td><h5>Rating:<font color="black"><br><b>→ {{person.ratingf|floatformat:3}}</font></b></h5></td>
+                  
+                 
+                 
+                </table></abbr></a>
+
+
+                  <div id='one'></div>
+                  <script src="{% static 'css/js/z_my.js' %}"></script>       
+                 
+            {% endfor %}
+            
+          {% endif %}
+      
+   
+  
+    {%endif%}
+    
+  {%endif%}
+  
+{% endblock %}
+
