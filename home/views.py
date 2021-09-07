@@ -426,6 +426,72 @@ def couronne_info(request):
 def successView(request):
     return HttpResponse("<br><br><h2><center><font color="'green'"><h1> Tack för ditt meddelande</h1> Vi åtrkommer snarast<br><br> <a href=http://127.0.0.1:8000/> → Tillbaka ← </a></font></h2>")
 
+def register(request):
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> REGISTER')
+    registered = False
+    
+    if request.method == 'POST':
+        # Get info from "both" forms
+        # It appears as one form to the user on the .html page
+        user_form = UserForm(data=request.POST)
+        profile_form = UserProfileInfoForm(data=request.POST)
+
+        # Check to see both forms are valid
+        if user_form.is_valid() and profile_form.is_valid():
+            print('>>>>>>>>>>>#####------'+ user_form.cleaned_data['username'])
+
+            # Save User Form to Database
+           
+            user = user_form.save()
+
+            user.first_name = user_form.cleaned_data['username']
+            print('  <<<<<<<<<<<<<>>>>>>>>>>> user: ', user.first_name)
+            
+            # Hash the password
+            user.set_password(user.password)  
+
+            # Update with Hashed password
+            user.save()
+    #  ('>> user.save(): ',user.save())        
+
+            # Now we deal with the extra info!
+
+            # Can't commit yet because we still need to manipulate
+            profile = profile_form.save(commit=False)
+            
+            # Set One to One relationship between
+            # UserForm and UserProfileInfoForm
+            profile.user = user
+            
+
+            # Check if they provided a profile picture
+            if 'profile_pic' in request.FILES:
+                print('>> found it')
+                # If yes, then grab it from the POST form reply
+                profile.profile_pic = request.FILES['profile_pic']
+
+            # Now save model
+            
+            profile.save()
+            
+            # Registration Successful!
+            registered = True
+            
+        else:
+            # One of the forms was invalid if this else gets called.
+            print('>> ERROR: ',user_form.errors, profile_form.errors)
+
+    else:
+        # Was not an HTTP post so we just render the forms as blank.
+        user_form = UserForm()
+        profile_form = UserProfileInfoForm()
+
+    # This is the render and context dictionary to feed
+    # back to the registration.html file page.
+    return render(request,'home/registration.html',
+                          {'user_form':user_form,
+                           'profile_form':profile_form,
+                           'registered':registered})
 
 def upp(request):
     """ A view to return the index page """

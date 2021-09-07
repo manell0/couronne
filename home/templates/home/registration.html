@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+  
+    <div class="jumbotron">
+    <div  class="alert alert-light">
+    
+    <div class="alert alert-dark ">
+
+      {% if registered and reg %}
+        <h1>Najs med uppdatering</h1>
+        <meta http-equiv="REFRESH" content="0;url=http://127.0.0.1:8000/">
+
+      {% elif registered %}
+         <h1>Tack för att du registrerat dig!</h1>
+        <a class="nav-item nav-link" href="{% url 'home:user_login' %}">&#128566 Login</a>   
+      {% else %}
+        <h3>Registrera här</h3>
+        <form enctype="multipart/form-data" method="POST">
+          {{ user_form.as_ul }}
+          {% csrf_token %}
+          <!--{{ profile_form.as_ul }} -->
+          <input type="submit" name="" value="Register">
+          <h1> </h1>
+          <h1> </h1>
+          <h1> </h1>
+          <h5>Din rating startar på: 100</h5>
+        </form>
+        
+      {% endif %}
+    </div>
+    <a class="btn btn-outline-dark"  href="javascript:history.back()"> ← Tillbaka </a><h3> </h3>
+    </div>  
+    
+    </div>
+    
+  </div>
+{% endblock %}

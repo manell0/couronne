@@ -1,157 +1,177 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+{#% if user.is_superuser %#}
+<!--<meta http-equiv="REFRESH" content="url=http://127.0.0.1:8000/admin">-->
+{#% endif %#}
+{% if user.is_authenticated %}
+<!--<div class="container">-->
+<a name="Upp"></a>
+<div class="container my-container">
+    <div class="row my-row justify-content-center">
+        <div class="col-lg-6 col-md-11">
+            
+    <!-------------------------------------------------------------------------------------------         REGISTRERA RESULTAT            -->
+    <div  class="alert alert-dark my-col-reg">
+        <!--<div class="alert alert-secondary ">-->
+        <h3 id='colors'>Registrera resultat</h3>
+        <div  class="alert alert-warning ">
+            <form action="{% url 'home:edit' %}" method="post">
+                {% csrf_token %}    
+                <input id="search" name="search" type="text" class="query-search" Placeholder='Skriv in vinnarens namn här...'>
+                <h5 id='one'>Endast registrerade namn uppdateras!</h5>
+                <input class="btn btn-outline-dark btn-sm"type="submit" value="Registrera match">
+            </form>
         </div>
     </div>
-{% endblock %}
-
-{% block content %}
-
-{% if user.is_superuser %}
-  <meta http-equiv="REFRESH" content="url=http://127.0.0.1:8000/admin">
-{% endif %}
-
-{% if user.is_authenticated %}
-
-<div class="container">
-<a name="Upp"></a>
-<div style="width:900px;"style="padding:10px;" class="panel panel-primary halfOpacity">
-
-    <div style="width:445px; float:left;padding:10px;" class="jumbotron">
-    
-     
-      <!-------------------------------------------------------------------------------------------         REGISTRERA RESULTAT            -->
-    
-    <div  class="alert alert-dark "style="padding:10px;">
-      <!--<div class="alert alert-secondary ">-->
-
-        <h3 id='colors'>Registrera resultat</h3>
-
-
-          
-       <div  class="alert alert-warning "style="padding:10px;">   
-        <form action="{% url 'home:edit' %}" method="post">
-          {% csrf_token %}    
-          <input id="search" name="search" type="text" class="query-search" Placeholder='Skriv in vinnarens namn här...'>
-          <h5 id='one'>Endast registrerade namn uppdateras!</h5>
-          <input class="btn btn-outline-dark btn-sm"type="submit" value="Registrera match">
-          
-        </form>
+    <!--</div>-->
+    <div  class="alert alert-dark">
+        <h3>Din profil</h3>
+        <div class="alert alert-light ">
+            <!-------------------------------------------------------------------------------------------         DIN PROFIL            -->
+            <a class="btn btn-outline-dark btn-sm"href="{% url 'home:update' %}">Uppdatera din profil</a>
         </div>
-      </div>
-      <!--</div>-->
-       
-        
-    <div  class="alert alert-dark"style="padding:10px;">
-    <h3>Din profil</h3>
-      <div class="alert alert-light "style="padding:10px;">
-<!-------------------------------------------------------------------------------------------         DIN PROFIL            -->
-            
+        {% if all_objects %}
+        {% for person in all_objects %}
+        {% if person.user == user %}
+        <table class="table table-striped">
+            <abbr title="Din senast registrerade match...  👀 ">
+                <h5>&nbsp;{{ person.match_uppdate }}</h5>
+            </abbr>
+            <tr>
+                <th>Användarnamn:</th>
+                <td>{{ user }} </td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <td>{{ user.email }} </td>
+            </tr>
+            <tr>
+                <th>Spelställe:</th>
+                <td>{{ person.club_location }} </td>
+            </tr>
+            <tr>
+                <th>Medlem sedan:</th>
+                <td>{{ user.date_joined.date }} </td>
+            </tr>
+            <!--<thead><tr><th>Flagga:</th><td>{{ person.game_flag }} </td></tr></thead>-->
+        </table>
+        <align-right>
+        <h5>
+            Spelade: <b>{{ person.rating }}</b>
+            Vunna: <b>{{ person.antal_vunna }}</b>
+            Snitt: <b>{{ person.snitt|floatformat:3 }}</b>
+        </h5>
+        <table>
+            <td><b>Rating: {{ person.ratingf|floatformat:3 }}</b></td>
+        </table>
+    </div>
+    {% endif %}  
+    {% endfor %}
+    <a class="btn btn-outline-dark btn-sm" href="javascript:history.back()"> ← Tillbaka </a>
+    <a class="btn btn-outline-dark btn-sm" href="{% url 'home:couronne_info' %}">Info</a>
+    </div>
 
-              <a class="btn btn-outline-dark btn-sm"href="{% url 'home:update' %}">Uppdatera din profil</a>
-              </div>
-           {% if all_objects %}
-              {% for person in all_objects %}
-                {% if person.user == user %}
-                  <table class="table table-striped">
-                    <center><abbr title="Din senast registrerade match...  👀 "><h5>&nbsp;<font color="grey"><b>{{ person.match_uppdate }}</b></font></h5></abbr></center>
-                    <tr><th>Användarnamn:</th><td>{{ user }} </td></tr>
-                    <tr><th>Email:</th><td>{{ user.email }} </td></tr>
-                    <tr><th>Spelställe:</th><td>{{ person.club_location }} </td></tr>
-                    <tr><th>Medlem sedan:</th><td>{{ user.date_joined.date }} </td></tr>
-                    <!--<thead><tr><th>Flagga:</th><td>{{ person.game_flag }} </td></tr></thead>-->
-                  </table>
-                  <align-right><h5> Spelade<font color="black">: <b>{{ person.rating }}</b>
-                  </font> Vunna<font color="black">: <b>{{ person.antal_vunna }}</b>
-                  </font> Snitt<font color="black">: <b>{{ person.snitt|floatformat:3 }}</b></h5>
-                  <table>
-                  </font> <td><b>Rating: <font color="black">{{ person.ratingf|floatformat:3 }}</b></td>
-                  
-                  </table>
-                  </font>
-                </div>
-                {% endif %}  
-              {% endfor %}
-         <a class="btn btn-outline-dark btn-sm" href="javascript:history.back()"> ← Tillbaka </a>
-         <a class="btn btn-outline-dark btn-sm" href="{% url 'home:couronne_info' %}">Info</a>
-          </div>
+        <div class="col-lg-6 col-md-11 my-col">
+            2 of 2
+            <div class="alert alert-light">
+                <table>
+                    <tr>
+                        <th>1. {{ ett }}</th>
+                        <td>
+                            <abbr title="Ligaledaren 2019-12-13 då säsongen avslutas, vinner ligan och tjänar 50 ratingpoäng (RP) samt vinner symbolen ♔ &nbsp;&nbsp;&nbsp; Just nu: {{ ett }}">+ 50 RP</abbr>
+                        </td>
+                        <td><b>rating ➪ {{ rat_ett|floatformat:1 }}</th>
+                    </tr>
+                    <tr>
+                        <th>2. {{ tva }}</th>
+                        <td>
+                            <abbr title="Två:an tjänar 40 (RP) efter säsongens slut. &nbsp; Just nu: {{ tva }} ">+ 40 RP</abbr>
+                        </td>
+                        <td><b> ⇾ {{ rat_tva|floatformat:1 }}</td>
+                    </tr>
+                    <tr>
+                        <th>3. {{ tre }}</th>
+                        <td>
+                            <abbr title="Tre:an ökar sin rating med 30 efter säsongens slut. &nbsp; Just nu: {{ tre }} ">+ 30 RP</abbr>
+                        </td>
+                        <td><b> ⇾ {{ rat_tre|floatformat:1 }}</td>
+                    </tr>
+                    <tr>
+                        <th>4. {{ fyra }}</th>
+                        <td>
+                            <abbr title="Fyr:an ökar sin rating med 10 efter säsongens slut. &nbsp; Just nu: {{ fyra }} ">+ 10 RP</abbr>
+                        </td>
+                        <td><b> ⇾ {{ rat_fyra|floatformat:1 }}</td>
+                    </tr>
+                    <tr>
+                        <th>5. {{ fem }}</th>
+                        <td>
+                            <abbr title="Fem:an ökar sin rating med 5 efter säsongens slut. &nbsp; Just nu: {{ fem }} ">+ &nbsp; 5 RP</abbr>
+                        </td>
+                        <td>
+                            <b>
+                                ⇾ {{ rat_fem|floatformat:1 }}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <div style="width:445px; float:right;padding:10px;" class="jumbotron">   
-      <div class="alert alert-dark "style="padding:10px;">
+<!--<div class="panel panel-primary halfOpacity">-->
+
+
+
+<div class="jumbotron">
+<div class="alert alert-dark ">
 <!-------------------------------------------------------------------------------------------         COURONNE LIGAN  TOP 3    ----------->
-          
-          <h3 id='two'> Couronne Ligan ♔</h3>
-          
-          
-              <abbr title="Ledaren 2019-12-13 vinner 50 extra ratingpoäng (RP)"><h5><b>{{ person.match_uppdate }}</b></h5></abbr>
-
-          <div class="alert alert-light"style="padding:1px;">
-            <center><table style="padding:1px;">
-              <tr><th style="width:100px; padding:1px"><font color="black">1. {{ ett }}</th>
-              <td style="width:80px;padding:1px;font-size:9px; text-align:left;">
-              <abbr title="Ligaledaren 2019-12-13 då säsongen avslutas, vinner ligan och tjänar 50 ratingpoäng (RP) samt vinner symbolen ♔ &nbsp;&nbsp;&nbsp; Just nu: {{ ett }}">+ 50 RP</abbr></td>
-              <td style="width:120px;padding:1px"><font color="black"><b>rating ➪ {{ rat_ett|floatformat:1 }}</th></tr>
-
-              <tr><th style="width:100px; padding:1px"><font color=grey>2. {{ tva }}</th> 
-              <td style="width:80px;padding:1px;font-size:9px; text-align:left;">
-              <abbr title="Två:an tjänar 40 (RP) efter säsongens slut. &nbsp; Just nu: {{ tva }} ">+ 40 RP</abbr></td>
-              <td style="width:100px;padding:1px"><font color=grey><b> ⇾ {{ rat_tva|floatformat:1 }}</td></tr>
-
-              <tr><th style="width:100px; padding:1px"><font color="black">3. {{ tre }}</th>
-              <td style="width:80px;padding:1px;font-size:9px; text-align:left;">
-              <abbr title="Tre:an ökar sin rating med 30 efter säsongens slut. &nbsp; Just nu: {{ tre }} ">+ 30 RP</abbr></td>
-              <td style="width:100px;padding:1px"><font color="black"><b> ⇾ {{ rat_tre|floatformat:1 }}</td></tr>
-
-              <tr><th style="width:100px; padding:1px"><font color="grey">4. {{ fyra }}</th> 
-              <td style="width:80px;padding:1px;font-size:9px; text-align:left;">
-              <abbr title="Fyr:an ökar sin rating med 10 efter säsongens slut. &nbsp; Just nu: {{ fyra }} ">+ 10 RP</abbr></td>
-              <td style="width:100px;padding:1px"><font color="grey"><b> ⇾ {{ rat_fyra|floatformat:1 }}</td></tr>
-
-              <tr><th style="width:100px; padding:1px"><font color="black">5. {{ fem }}</th> 
-              <td style="width:80px;padding:1px;font-size:9px; text-align:left;">
-              <abbr title="Fem:an ökar sin rating med 5 efter säsongens slut. &nbsp; Just nu: {{ fem }} ">+ &nbsp; 5 RP</abbr></td>
-              <td style="width:100px;padding:1px"><font color="black"><b> ⇾ {{ rat_fem|floatformat:1 }}</td></tr>
-              
-            </table></center>
-
-
-          </div>
+<h3 id='two'> Couronne Ligan ♔</h3>
+<abbr title="Ledaren 2019-12-13 vinner 50 extra ratingpoäng (RP)">
+    <h5><b>{{ person.match_uppdate }}</b></h5>
+</abbr>
 
 <!-------------------------------------------------------------------------------------------         COURONNE LIGAN            ---------------------------------------------->
-
-        <a href="../couronne_info/#CL"> <abbr title=" ♔ Ligavinnare 2018: carro">♔</abbr></a>
-        <center><h4><font color="broun">➪ Pågår till 2019-12-13. <b>135</b> extra<b> (RP)</b> till top <b>5</b></font></h4></center>
-                        
-          {% if all_objects %}
-
-            {% for person in all_objects %}
-              
-            <abbr title="{{ person.user }}: {{ person.matcher }} │ Klubb: {{ person.club_location }} │ klicka för upp {{user}}..." > <a href="#Upp"><a class="nav-item nav-link" href="#">
-                <table class="table table-striped">
-                  
-                  <tr></tr>
-                  
-                  <th style="width:50px;padding:1px"><h5>{{ forloop.counter }} <font color="grey"><b>{{ person.user }}</font> <h5><font color="green"></b> {{ person.matcher }}</font></h5></th>
-                  <td style="width:50px;padding:1px"><h5>Spelat: <font color="grey"><b>{{ person.rating }}</font> <h5>Vunna: <font color="green"><b> {{ person.antal_vunna}}</font></b></h5></td>
-                  <td style="width:50px;padding:1px"><h5>Snitt: <font color="black"><br><b>{{ person.snitt|floatformat:3 }}</font></b></h5></td>
-                  <td style="width:50px;padding:1px;"><h5>Rating:<font color="black"><br><b>{{person.ratingf|floatformat:3}}</font></b></h5></td>
-
-                </table></abbr></a>
-  
-                  <script src="{% static 'js/color_change.js' %}"></script>       
-              
-            {% endfor %}
-            
-          {% endif %}
-      
-   
-  
-    {%endif%}
-    
-  {%endif%}
-  
+<a href="../couronne_info/#CL"> <abbr title=" ♔ Ligavinnare 2018: carro">♔</abbr></a>
+<h4> ➪ Pågår till 2019-12-13. <b>135</b> extra<b> (RP)</b> till top <b>5</b></h4>
+{% if all_objects %}
+{% for person in all_objects %}
+<abbr title="{{ person.user }}: {{ person.matcher }} │ Klubb: {{ person.club_location }} │ klicka för upp {{user}}..." >
+<a href="#Upp">
+<a class="nav-item nav-link" href="#">
+<table class="table table-striped">
+<tr></tr>
+<th style="width:50px;padding:1px">
+<h5>
+{{ forloop.counter }} 
+{{ person.user }}
+<h5></b> {{ person.matcher }}</h5>
+</th>
+<td>
+<h5>
+Spelat: {{ person.rating }} 
+<h5>Vunna: <b> {{ person.antal_vunna}}</b></h5>
+</td>
+<td>
+<h5>Snitt: <b>{{ person.snitt|floatformat:3 }}</b></h5>
+</td>
+<td>
+<h5>Rating:<b>{{person.ratingf|floatformat:3}}</b></h5>
+</td>
+</table>
+</abbr>
+</a>
+<script src="{% static 'js/color_change.js' %}"></script>       
+{% endfor %}
+{% endif %}
+{%endif%}
+{%endif%}
 {% endblock %}

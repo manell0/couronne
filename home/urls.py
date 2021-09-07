@@ -10,5 +10,6 @@ urlpatterns = [
     path('edit/', views.edit, name='edit'),
     path('update/', views.update, name='update'),
     path('upp/', views.upp, name='upp'),
-    path('couronne_info/',views.couronne_info,name="couronne_info"),
+    path('couronne_info/',views.couronne_info, name="couronne_info"),
+    path('register/',views.register, name="register"),
 ]

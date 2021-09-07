@@ -11,35 +11,60 @@
 
 
 {% block content %}
-    <div class="h-10"></div>
-    <div class="contariner h-75 m-5">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 mx-auto my-auto">
+    <div class="h-10" ></div>
+    
+    <div class="contariner h-75 m-5 my-container">
+        <div class="row justify-content-center my-row">
+        <!--<div class="row h-100 my-row">-->
+            <div  class="alert alert-dark ">
+            <div class="col-11 my-col">
                 
-                <div class="my-5 my-auto mx-auto my-auto">
-                    <h4>
-                        <a href="{% url 'home:reg_match' %}" class="shop-now-button btn btn-lg rounded 0 text-uppercase py-3">Register Match</a>
-                    </h4>
-                </div>
+                
                 {{ user }}
                 
                 {% if all_objects %}
                 {% for person in all_objects %}
                     {% if forloop.counter < 4 %}
-                        <table class="table table-striped">
-                            <th style="width:70px; padding:1px;"><h5><font color="black"><b>{{ forloop.counter }}.{{ person.user }}</font></th>
-                            <td style="width:70px; padding:1px;"><h5>Spelat: <font color="black"><b>{{ person.rating }}</font></td>
-                            <td style="width:100px; padding:1px;"><h5>Vunna: <font color="green"><b> {{ person.antal_vunna}}</font></b></h5></td>
-                            <td style="width:100px; padding:1px;"><h5>Rating: <font color="black"><b>{{person.ratingf|floatformat:3}}</font></b></h5></td>
-                        </table>
-
-            
+                        <!--<table class="table text-right table-striped table-hover">
+                            <th>{{ forloop.counter }} .{{ person.user }}</th>
+                            <td>Spelat: {{ person.rating }}</td>
+                            <td>Vunna: {{ person.antal_vunna}}</td>
+                            <td>{{person.ratingf|floatformat:3}}</td>
+                        </table>-->
+                        
+                            <table class="table table-light text-right table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Plac</th>
+                                        <th scope="col">UserName</th>
+                                        <th scope="col">Played</th>
+                                        <th scope="col">Win</th>
+                                        <th scope="col">Rating</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">{{ forloop.counter }}</th>
+                                        <td>{{ person.user }}</td>
+                                        <td>{{ person.antal_vunna}}</td>
+                                        <td>{{ person.rating }}</td>
+                                        <td>{{person.ratingf|floatformat:3}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        
            
 
                     {% endif %}
                     
                     {% endfor %}
                     {% endif %}
+                    <div class="my-5 my-auto mx-auto my-auto">
+                        <h4>
+                            <a href="{% url 'home:reg_match' %}" class="shop-now-button btn btn-sm rounded 0 text-uppercase py-3">Register Match</a>
+                        </h4>
+                    </div>
+            </div>
             </div>
         </div>
     </div>
