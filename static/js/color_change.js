@@ -13,7 +13,7 @@ headOne.addEventListener('mouseover',function(){
 })
 
 headOne.addEventListener('mouseout',function(){
-    headOne.textContent = "OBS kan ej ta tillbaka registrerat resultat!!!"; 
+    headOne.textContent = "Endast registrerade namn uppdateras!"; 
     headOne.style.color = 'darkred';
 })
 

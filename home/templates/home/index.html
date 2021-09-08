@@ -9,62 +9,52 @@
     </div>
 {% endblock %}
 
-
 {% block content %}
-    <div class="h-10" ></div>
     
-    <div class="contariner h-75 m-5 my-container">
-        <div class="row justify-content-center my-row">
-        <!--<div class="row h-100 my-row">-->
-            <div  class="alert alert-dark ">
-            <div class="col-11 my-col">
+    <div class="contariner h-100 my-container">
+        <div class="row h-100 justify-content-center my-row">
+            <div class="col-10 my-col">
                 
+            {{ user }}
                 
-                {{ user }}
-                
-                {% if all_objects %}
+            {% if all_objects %}
                 {% for person in all_objects %}
                     {% if forloop.counter < 4 %}
-                        <!--<table class="table text-right table-striped table-hover">
-                            <th>{{ forloop.counter }} .{{ person.user }}</th>
-                            <td>Spelat: {{ person.rating }}</td>
-                            <td>Vunna: {{ person.antal_vunna}}</td>
-                            <td>{{person.ratingf|floatformat:3}}</td>
-                        </table>-->
-                        
-                            <table class="table table-light text-right table-striped table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Plac</th>
-                                        <th scope="col">UserName</th>
-                                        <th scope="col">Played</th>
-                                        <th scope="col">Win</th>
-                                        <th scope="col">Rating</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">{{ forloop.counter }}</th>
-                                        <td>{{ person.user }}</td>
-                                        <td>{{ person.antal_vunna}}</td>
-                                        <td>{{ person.rating }}</td>
-                                        <td>{{person.ratingf|floatformat:3}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        
-           
+                    <table class="table table-light text-right table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Plac</th>
+                                <th scope="col">UserName</th>
+                                <th scope="col">Played</th>
+                                <th scope="col">Win</th>
+                                <th scope="col">Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">{{ forloop.counter }}</th>
+                                <td>{{ person.user }}</td>
+                                <td>{{ person.antal_vunna}}</td>
+                                <td>{{ person.rating }}</td>
+                                <td>{{person.ratingf|floatformat:3}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--<table class="table text-right table-striped table-hover">
+                        <th>{{ forloop.counter }} .{{ person.user }}</th>
+                        <td>Spelat: {{ person.rating }}</td>
+                        <td>Vunna: {{ person.antal_vunna}}</td>
+                        <td>{{person.ratingf|floatformat:3}}</td>
+                    </table>-->
 
                     {% endif %}
-                    
-                    {% endfor %}
-                    {% endif %}
-                    <div class="my-5 my-auto mx-auto my-auto">
-                        <h4>
-                            <a href="{% url 'home:reg_match' %}" class="shop-now-button btn btn-sm rounded 0 text-uppercase py-3">Register Match</a>
-                        </h4>
-                    </div>
-            </div>
+                {% endfor %}
+            {% endif %}
+                <div class="my-5 my-auto mx-auto my-auto">
+                    <h4>
+                        <a href="{% url 'home:reg_match' %}" class="shop-now-button btn btn-sm rounded 0 text-uppercase py-3">Register Match</a>
+                    </h4>
+                </div>
             </div>
         </div>
     </div>

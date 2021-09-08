@@ -262,8 +262,8 @@ def edit(request):
                                 nu = datetime.datetime.now()
                                 datum = nu.date()
                                 print(datum, ' och så nu: ',nu)
-                                opponent.match_uppdate = ' ⭐ Vinnst mot: ' + str(profile) + ' ￪ ' + str(datum) + ' ✔ '
-                                profile.match_uppdate = ' 💀 Förlust mot: ' + str(opponent) + ' ￬ ' + str(datum) + ' 😡 ' 
+                                opponent.match_uppdate = ' ⭐ Win against: ' + str(profile) + ' ￪ ' + str(datum) + ' ✔ '
+                                profile.match_uppdate = ' 💀 Loss against: ' + str(opponent) + ' ￬ ' + str(datum) + ' 😡 ' 
 #-------------------------------------------
                                 
                                 flag.save()
