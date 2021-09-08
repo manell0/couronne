@@ -87,7 +87,10 @@ body {
 @media (max-width: 440px){
     .hides{
     display: none;
-}
+    }
+    .font-size-small{
+        font-size: 8px;
+    }
 }
 
 /* Slightly larger container on xl screens */
@@ -95,6 +98,7 @@ body {
   .container {
     max-width: 80%;
   }
+  
 }
 
 .header-container {

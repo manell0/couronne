@@ -8,12 +8,12 @@ var header = document.querySelector('#colors')
 console.log('va fan da och kontakt')
 // Hover (mouseover and mouseout)
 headOne.addEventListener('mouseover',function(){
-    headOne.textContent = "Registrerat resultat kan ej att tas bort!";
+    headOne.textContent = "Registered result can not be changed!";
     headOne.style.color = 'red';
 })
 
 headOne.addEventListener('mouseout',function(){
-    headOne.textContent = "Endast registrerade namn uppdateras!"; 
+    headOne.textContent = "Registered results cannot be deleted!"; 
     headOne.style.color = 'darkred';
 })
 

@@ -27,64 +27,51 @@
         <!--<div class="alert alert-danger">-->
         <div class="alert alert-dark"style="padding:10px;">
           <div class="alert alert-light"style="padding:10px;">
-            <center><h3 id='colors'>Matchresultat</h3>
+            <center><h3 id='colors'>Match result</h3>
             <div class="alert alert-success"style="padding:10px;">
               <form method="post" action="{% url 'home:edit' %}">
                 <center>{{ searchWord }}: <thead><tr><th><font color="green"> <b></font> </th>
                 <td> <font color="green"> ⇧ {{ sum_pro|floatformat:3 }}</b></font> </td> </td></tr></thead>
             </div> 
-            <center><font color="green"> <b> ⇧ </b></font><a class="btn btn-outline-dark" href="{% url 'home:reg_match' %}"> Klar </a><font color="red"> <b> ⇩ </b></font></center>
+            <center><font color="green"> <b> ⇧ </b></font><a class="btn btn-outline-dark" href="{% url 'home:reg_match' %}"> Finish! </a><font color="red"> <b> ⇩ </b></font></center>
             <br> 
             <div class="alert alert-danger"style="padding:10px;"> 
               {{ user.username }}:<thead><tr><th><font color="red"> <b></font> </th><td> <font color="red"> ⇩ {{ sum_pro|floatformat:3 }}</b> </td></tr></thead></font></center>
-              <ul>
-                <li>
-                  Du förlorade mot: <font color="green"><b>{{ searchWord }}</b></green> <font color="red">&nbsp;&nbsp;<b> ⇩ {{ sum_pro|floatformat:3 }}</b> ratigpoäng.
-                </li>
-              </ul> 
-            </center>
+                <p class="text-center">You lost against: <font color="green"><b>{{ searchWord }}</b></green> 😡 </p>
               {% csrf_token %}
             </form>
           </div>
         </div>
       </div>
     </div>
-    
     <!-------------------------------------------------------------------------------------------     COURONNE LIGAN        --------------->
-    
     {% if user.is_authenticated %}
       <div class="jumbotron">   
         <div class="alert alert-dark"style="padding:10px;">
           <div class="alert alert-light"style="padding:10px;">
-            <h3 id='two'>Couronne Ligan </h3>
+            <h4 id='two'>Couronne League </h4>
           </div>
           {% if all_objects %}
-          <table class="table table-striped text-right">
+          <table class="table table-striped text-right font-size-small">
             <th class="text-left">Player</th>
-            <th>Won</th>
             <th class="hides">Played</th>
-            <th class="hides">Average</th>
+            <th class="hides">Won</th>
+            <th>Average</th>
             <th>Rating</th>
             {% for person in all_objects %}
             <tr>
-              <td class="text-left">{{ person.user }}</td>
-              <td class="hides">{{ person.antal_vunna}}</td>
+              <td class="text-left">{{ forloop.counter }}. {{ person.user }}</td>
               <td class="hides">{{ person.rating }}</td>
+              <td class="hides text-success"><strong>{{ person.antal_vunna}}</strong></td>
               <td>{{ person.snitt|floatformat:3 }}</td>
-              <td>{{person.ratingf|floatformat:3}}</td>
+              <td><strong>{{person.ratingf|floatformat:3}}</strong></td>
             </tr>
             {% endfor %}
           </table>
-          
         {% endif %}
-               
         </div>
       </div>      
-                
-                
-              
             <script src="{% static 'js/color_change.js' %}"></script>
-            
     {%endif%}
   {%endif%}
 {% endblock %}

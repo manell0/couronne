@@ -20,29 +20,29 @@
     <div class="contariner h-100 my-container">
         <div class="row h-100 justify-content-center my-row">
             <div class="col-12 my-col">
-                <h5 id='colors'>Registrera resultat</h5>
+                <h5 id='colors'>Register Results</h5>
                 <div  class="alert alert-warning ">
                     <form action="{% url 'home:edit' %}" method="post">
                         {% csrf_token %}    
-                        <input id="search" name="search" type="text" class="query-search" Placeholder='Vinnarens namn här...'>
-                        <h6 id='one'>Endast registrerade namn uppdateras!</h6>
-                        <input class="btn btn-outline-dark btn-sm"type="submit" value="Registrera match">
+                        <input id="search" name="search" type="text" class="query-search" Placeholder="Winner's name here ...">
+                        <h6 class="font-size-small" id='one'>Only registered users are updated!</h6>
+                        <input class="btn btn-outline-dark btn-sm"type="submit" value="Register match">
                     </form>
                 </div>
                 <div  class="alert alert-dark">
-                    <h3>Din profil</h3>
+                    <h3>Your profile</h3>
                     <div class="alert alert-light "> 
-                        <a class="btn btn-outline-dark btn-sm"href="{% url 'home:update' %}">Uppdatera din profil</a>
+                        <a class="btn btn-outline-dark btn-sm"href="{% url 'home:update' %}">Update Your Profile</a>
                     </div>
                     {% if all_objects %}
                         {% for person in all_objects %}
                             {% if person.user == user %}
                                 <table class="table table-striped">
-                                <abbr title="Din senast registrerade match...  👀 ">
+                                <abbr title="Your last registered match ...  👀 ">
                                     &nbsp;{{ person.match_uppdate }}
                                 </abbr>
                                 <tr>
-                                    <th>Användarnamn:</th>
+                                    <th>User Name:</th>
                                     <td>{{ user }} </td>
                                 </tr>
                                 <!--<tr>
@@ -50,25 +50,25 @@
                                     <td>{{ user.email }} </td>
                                 </tr>-->
                                 <tr>
-                                    <th>Spelställe:</th>
+                                    <th>Venue / Club:</th>
                                     <td>{{ person.club_location }} </td>
                                 </tr>
                                 <tr>
-                                    <th>Medlem sedan:</th>
+                                    <th>Member since:</th>
                                     <td>{{ user.date_joined.date }} </td>
                                 </tr>
                                 </table>
-                                Spelade: <b>{{ person.rating }}</b>
-                                Vunna: <b>{{ person.antal_vunna }}</b>
-                                Snitt: <b>{{ person.snitt|floatformat:3 }}</b>
+                                Played: <b>{{ person.rating }}</b>
+                                Won: <b>{{ person.antal_vunna }}</b>
+                                Average: <b>{{ person.snitt|floatformat:3 }}</b>
                             
                                 <table>
-                                    <td><b>Rating: {{ person.ratingf|floatformat:3 }}</b></td>
+                                    <td class="text-success"><b>Rating: {{ person.ratingf|floatformat:3 }}</b></td>
                                 </table>
                                 {% endif %}  
                             {% endfor %}
                         {% endif %}  
-                        <a class="btn btn-outline-dark btn-sm" href="javascript:history.back()"> ← Tillbaka </a>
+                        <a class="btn btn-outline-dark btn-sm" href="javascript:history.back()"> ← Back </a>
                         <a class="btn btn-outline-dark btn-sm" href="{% url 'home:couronne_info' %}">Info</a>
                 </div>
             </div>

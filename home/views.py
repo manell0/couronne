@@ -199,7 +199,7 @@ def edit(request):
                     if xx.game_flag == True:
                         print('-----------------------------------------efter if xx --------------------------------------')
                         
-                        messages.success(request,"Matchresultatet är nu sparat och går inte att ångra!")
+                        messages.success(request,"The match result is now saved and can not be undone!")
                     
                         all_objects = UserProfileInfo.objects.order_by('-ratingf')
                         for x in all_objects:
@@ -262,8 +262,8 @@ def edit(request):
                                 nu = datetime.datetime.now()
                                 datum = nu.date()
                                 print(datum, ' och så nu: ',nu)
-                                opponent.match_uppdate = ' ⭐ Win against: ' + str(profile) + ' ￪ ' + str(datum) + ' ✔ '
-                                profile.match_uppdate = ' 💀 Loss against: ' + str(opponent) + ' ￬ ' + str(datum) + ' 😡 ' 
+                                opponent.match_uppdate = ' ⭐ Win Against: ' + str(profile) + ' ￪ ' + str(datum) + ' ✔ '
+                                profile.match_uppdate = ' 💀 Lost Against: ' + str(opponent) + ' ￬ ' + str(datum) + ' 😡 ' 
 #-------------------------------------------
                                 
                                 flag.save()
