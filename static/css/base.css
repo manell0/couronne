@@ -82,7 +82,13 @@ body {
 }
 
 
+
 /* -------------------------------- Media Queries */
+@media (max-width: 440px){
+    .hides{
+    display: none;
+}
+}
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {

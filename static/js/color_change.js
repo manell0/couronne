@@ -45,7 +45,7 @@ function getRandomColor(){
   }
   
   // Now perform the action over intervals (milliseocnds):
-  setInterval("changeHeaderColor()",8000);
+  setInterval("changeHeaderColor()",800);
 
 
 
