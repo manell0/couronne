@@ -493,7 +493,7 @@ def register(request):
                            'profile_form':profile_form,
                            'registered':registered})
 
-def upp(request):
+def donate(request):
     """ A view to return the index page """
     all_objects = UserProfileInfo.objects.order_by('ratingf')
     return render(request, 'home/index.html', {'all_objects': all_objects})
