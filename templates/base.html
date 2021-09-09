@@ -1,7 +1,7 @@
 {% load static %}
 
 <!doctype html>
-<html lang="en">
+<html lang="US-en">
     <head>
         {% block meta %}
             <!-- Required meta tags -->
@@ -21,6 +21,7 @@
         {% endblock %}
 
         {% block extra_css %}
+            <link rel="stylesheet" href="{% static 'donate/static/css/donate.css' %}">
         {% endblock %}
 
         {% block corejs %}
@@ -35,6 +36,8 @@
         {% endblock %}
 
         {% block extra_js %}
+            <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+            <script src="https://js.stripe.com/v3/"></script>
         {% endblock %}
 
         <title>Couronne {% block extra_title %}{% endblock %}</title>

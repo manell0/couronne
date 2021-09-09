@@ -1,6 +1,3 @@
-from django.shortcuts import render
-
-# Create your views here.
 import json
 import stripe
 from django.core.mail import send_mail
@@ -40,7 +37,10 @@ class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
         product_id = self.kwargs["pk"]
         product = Product.objects.get(id=product_id)
-        YOUR_DOMAIN = "http://127.0.0.1:8000"
+
+        print(product)
+
+        YOUR_DOMAIN = "http://127.0.0.1:8000"  # Hmm change in production
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
             line_items=[
