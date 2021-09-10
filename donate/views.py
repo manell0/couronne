@@ -24,7 +24,7 @@ class ProductLandingPageView(TemplateView):
     template_name = "donate/landing.html"
 
     def get_context_data(self, **kwargs):
-        product = Product.objects.get(name="Test Product")
+        product = Product.objects.get(name="Donate $10")
         context = super(ProductLandingPageView, self).get_context_data(**kwargs)
         context.update({
             "product": product,
@@ -40,7 +40,7 @@ class CreateCheckoutSessionView(View):
 
         print(product)
 
-        YOUR_DOMAIN = "http://127.0.0.1:8000"  # Hmm change in production
+        YOUR_DOMAIN = "https://8000-lime-cod-wnrz8yeu.ws-eu16.gitpod.io/donate"  # Hmm change in production
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
             line_items=[
@@ -50,7 +50,7 @@ class CreateCheckoutSessionView(View):
                         'unit_amount': product.price,
                         'product_data': {
                             'name': product.name,
-                            # 'images': ['https://i.imgur.com/EHyR2nP.png'],
+                            #  'images': ['https://i.imgur.com/EHyR2nP.png'],
                         },
                     },
                     'quantity': 1,
@@ -98,7 +98,7 @@ def stripe_webhook(request):
             subject="Here is your product",
             message=f"Thanks for your purchase. Here is the product you ordered. The URL is {product.url}",
             recipient_list=[customer_email],
-            from_email="matt@test.com"
+            from_email="couronne@test.com"
         )
 
         # TODO - decide whether you want to send the file or the URL
@@ -118,7 +118,7 @@ def stripe_webhook(request):
             subject="Here is your product",
             message=f"Thanks for your purchase. Here is the product you ordered. The URL is {product.url}",
             recipient_list=[customer_email],
-            from_email="matt@test.com"
+            from_email="couronne@test.com"
         )
 
     return HttpResponse(status=200)
