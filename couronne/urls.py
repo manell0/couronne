@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 #  --------------- STRIPE -------------------
-
+# from donate.views import stripe_webhook
 #  ----------------------------------------------
 
 urlpatterns = [
@@ -27,5 +27,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),
     path('donate/', include('donate.urls')),
-
+    # path('webhooks/stripe/', stripe_webhook, name='stripe-webhook'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
