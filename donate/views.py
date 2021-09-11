@@ -70,13 +70,29 @@ class CreateCheckoutSessionView(View):
 
 @csrf_exempt
 def stripe_webhook(request):
-  payload = request.body
+    payload = request.body
+    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+    event = None
 
-  # For now, you only need to print out the webhook payload so you can see
-  # the structure.
-  # print(payload)
+    try:
+      event = stripe.Webhook.construct_event(
+        payload, sig_header, settings.STRIPE_WEBHOOK_SECRET
+      )
+    except ValueError as e:
+      # Invalid payload
+      return HttpResponse(status=400)
+    except stripe.error.SignatureVerificationError as e:
+      # Invalid signature
+      return HttpResponse(status=400)
+    
+    # Handle the checkout.session.completed event
+    if event['type'] == 'checkout.session.completed':
+        session = event['data']['object']
+        print(session)
+    # Passed signature verification
+    return HttpResponse(status=200)
+    
 
-  return HttpResponse(status=200)
 # @csrf_exempt
 # def stripe_webhook(request):
 #     payload = request.body
