@@ -10,6 +10,12 @@ body {
     color: #555;
     font-family: 'Prompt', sans-serif;
 }
+
+.opacity {
+    
+    background-color: rgba(121, 31, 31, 0.1) !important;
+} 
+
 /*------------------ Colors -------------*/
 /*.text-white{
     color: #fff;
