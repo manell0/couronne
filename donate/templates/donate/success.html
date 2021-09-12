@@ -1,1 +1,27 @@
-Success!
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %} 
+ 
+
+{% block content %}
+<div class="container ">
+    <div class="row bg-light">
+        <div class="col-md-12">
+           <h2 class="text-info">Donation Done!</h2>
+           <p>Thank you very mutch, a mail have been sent to you for verefication and the "fun game link".</p> 
+        </div>
+        <div class="col-md-12 text-center">
+            <h4><a href="{% url 'home:home' %}" >	
+                &#129044;Home</a></h4>
+        </div>
+    </div>
+</div>
+{% endblock %}

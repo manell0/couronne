@@ -6,56 +6,28 @@
         <div class="row">
             <div class="col"></div>
         </div>
-    </div>
+    </div>{{ user }}
 {% endblock %}
 
 {% block content %}
-    
-    <div class="contariner h-100 my-container">
-        <div class="row h-100 justify-content-center my-row">
-            <div class="col-10 my-col">
-                
-            {{ user }}
-                
-            {% if all_objects %}
-                {% for person in all_objects %}
-                    {% if forloop.counter < 4 %}
-                    <table class="table table-light text-right table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">Plac</th>
-                                <th scope="col">UserName</th>
-                                <th scope="col">Played</th>
-                                <th scope="col">Win</th>
-                                <th scope="col">Rating</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">{{ forloop.counter }}</th>
-                                <td>{{ person.user }}</td>
-                                <td>{{ person.antal_vunna}}</td>
-                                <td>{{ person.rating }}</td>
-                                <td>{{person.ratingf|floatformat:3}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!--<table class="table text-right table-striped table-hover">
-                        <th>{{ forloop.counter }} .{{ person.user }}</th>
-                        <td>Spelat: {{ person.rating }}</td>
-                        <td>Vunna: {{ person.antal_vunna}}</td>
-                        <td>{{person.ratingf|floatformat:3}}</td>
-                    </table>-->
-
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
-                <div class="my-5 my-auto mx-auto my-auto">
-                    <h4>
-                        <a href="{% url 'home:reg_match' %}" class="shop-now-button btn btn-sm rounded 0 text-uppercase py-3">Register Match</a>
-                    </h4>
-                </div>
-            </div>
+<div class="container ">
+    <div class="row bg-light">
+        <div class="col-md-6 my-col">
+           1 
+        </div>
+        <div class="col-md-6 my-col">
+            2
+        </div>
+        <hr>
+        <div class="col-md-12 text-center my-col">
+            <h4>
+                <a href="{% url 'home:reg_match' %}" class="shop-now-button btn btn-sm rounded 0 text-uppercase py-3">Register Match</a>
+            </h4>
         </div>
     </div>
+</div>    
+<!------------------------------------------------------------------>    
+<div class="my-5 my-auto mx-auto my-auto text-center">
+    
+</div>
 {% endblock %}

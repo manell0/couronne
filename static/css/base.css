@@ -81,7 +81,11 @@ body {
     background: #000 !important;
 }
 
-
+.font-little{
+    font-size: 8px;
+    line-height: 6px;
+    padding-top: 5px;
+}
 
 /* -------------------------------- Media Queries */
 @media (max-width: 440px){

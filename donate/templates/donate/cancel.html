@@ -1,1 +1,27 @@
-Cancelled!
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %} 
+ 
+
+{% block content %}
+<div class="container ">
+    <div class="row bg-light">
+        <div class="col-md-12">
+           <h2 class="text-danger">Donation Denyed?</h2>
+           <p>Ups, donation denyed, go back and try again!</p> 
+        </div>
+        <div class="col-md-12 text-center">
+            <h4><a href="{% url 'landing-page' %}" >	
+                &#129044;Back</a></h4>
+        </div>
+    </div>
+</div>
+{% endblock %}

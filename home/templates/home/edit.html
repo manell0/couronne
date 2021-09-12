@@ -32,7 +32,7 @@
                 <center>{{ searchWord }}: <thead><tr><th><font color="green"> <b></font> </th>
                 <td> <font color="green"> ⇧ {{ sum_pro|floatformat:3 }}</b></font> </td> </td></tr></thead>
             </div> 
-            <center><font color="green"> <b> ⇧ </b></font><a class="btn btn-outline-dark" href="{% url 'home:reg_match' %}"> Finish! </a><font color="red"> <b> ⇩ </b></font></center>
+            <center><font color="green"> <b> ⇧ </b></font><a class="btn btn-outline-dark" href="{% url 'home:reg_match' %}"> Done! </a><font color="red"> <b> ⇩ </b></font></center>
             <br> 
             <div class="alert alert-danger"style="padding:10px;"> 
               {{ user.username }}:<thead><tr><th><font color="red"> <b></font> </th><td> <font color="red"> ⇩ {{ sum_pro|floatformat:3 }}</b> </td></tr></thead></font></center>
