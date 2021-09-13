@@ -5,36 +5,31 @@ from django.utils.translation import gettext_lazy as _
 from django.core import validators
 
 class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput(), label='Lösenord', help_text='<h5>Håll reda på ditt löseord!</h5>')
+    password = forms.CharField(widget=forms.PasswordInput(), label='Password ')
     class Meta():
         model = User
         fields = ('username','password','email')
-
-        labels = {"username":"Användarnamn","email":"Email"}
-        help_texts = {'username': _(''),'email': _('<h5> Email krävs för att deltaga i couronne.se tävlingar och evenemang! T.ex SM i couronne.</h5>')}
-        
-
+        labels = {"username":"UserName","email":"EmailAdd "}
+        help_texts = {'username': _(''),'email': _('')}
 
         
 class UserProfileInfoForm(forms.ModelForm):
     class Meta():   
         model = UserProfileInfo
         fields = ['club_location']
-
-        labels = {"club_location":"Klubb"}
-        help_texts = {'club_location': _('<h5>Klubb / Spelställe (hemma eller skolan, jobbet) / Ort</h5>')}
-        error_messages = {'club_location': {'max_length': _("Nämen så där långt... Max 40 tecken!")}}
+        labels = {"club_location":"Club/Loc"}
+        help_texts = {'club_location': _('<br>Club / Venue (home or school, work) / Location')}
+        error_messages = {'club_location': {'max_length': _("Too long ... Max 40 characters!")}}
 
 
 class UppForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput(), label='Lösenord', help_text='<h5>Skriv in ditt löseord här... (eller om du vill byta lösenord så skriver du in det)!</h5>')
+    password = forms.CharField(widget=forms.PasswordInput(), label='Password', help_text='<br>Enter your new password (or the old password)')
     class Meta():
         model = User
         fields = ('password', 'email')
-
-        labels = {"username":"Användarnamn","email":"Email","first_name":"Ditt namn"}
-        help_texts = {'username': _(''),'email': _('<h5>Giltig emailadress krävs för giltiga ratingpoäng, samt att få delta i tävlingar och evenemang! T.ex couronne SM.</h5>')}
-        error_messages = {'username': {'max_length': _("Nämen så där långt... Max 40 tecken!")}}
+        labels = {"username":"User Name","email":"EmailAdd","first_name":"Your Name"}
+        help_texts = {'username': _(''),'email': _('<br>A valid email is required for valid rating points!')}
+        error_messages = {'username': {'max_length': _("Too long ... Max 40 characters!")}}
 
 class UserMatchForm(forms.ModelForm):
     class Meta():

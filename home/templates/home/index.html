@@ -10,33 +10,38 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="container">
     <div class="row bg-light ">
     <div class="row bg-light ">
         <div class="col-md-6 my-col">
-            <h3 class="text-danger">Explanatory Text</font></h3>
-            <p>lambdaakdslööakjaödsk adk fakdsfjöakldsf aödskjföaklds 
-                fakd faödskf aöds föadksf öakdsf aödskf aödskf adsökfl 
-                adsöfkla dsöfkaj sdfkads faökds föakds föalkdsfj akdlsf 
-                aödklsf aökdsfj aökdsf aödskf j</p>
+            <div class="row ">
+                <div class="col bg- text-info ">
+                    <h5 class="bg-dark padding-text">Join The League!</h5>
+                </div>
+            </div>
+            <p><strong class="text-dark">Join the Couronne league</strong> now and get 
+                the chance to participate in the Couronne World Championships!<br><a href="{% url 'home:register' %}">Register here ...</a>
+                If you are already logged in and want to register a match, click here ...<a href="{% url 'home:reg_match' %}"> click here ...</a></p>
+                <hr>
             <div  class="col">
-                <h3 class="text-danger">Launches!</font></h3>
+                <h3 class="text-brown">Launches! &#128495;</h3>
                 <table>
                     <tr>
-                        <td>
-                            •<font color="brown"> Table ➪ Solid Gold [2.0☆] <a href="#"><i> &nbsp;&nbsp;Launched...</i> ✰ </a></font>
+                        <td class="text-brown">
+                            • Table ➪ Solid Gold [2.0☆] <a href="#"><i> &nbsp;&nbsp;Launched...</i> ✰ </a>
 
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            •<font color="brown"> Que ➪ Plastc padding 155g <a href="#"><i> Launched...</i>✰ </a></font>
+                        <td class="text-brown">
+                            • Que ➪ Plastc padding 155g <a href="#"><i> Launched...</i>✰ </a>
 
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            •<font color="brown"> 'Ring' ➪ Total Compakt <a href="#"><i>&nbsp;&nbsp;&nbsp;&nbsp; Launched...</i> ✰ </a></font>
+                        <td class="text-brown">
+                            • 'Ring' ➪ Total Compakt <a href="#"><i>&nbsp;&nbsp;&nbsp;&nbsp; Launched...</i> ✰ </a></font>
 
                         </td>
                     </tr>
@@ -49,7 +54,7 @@
         <div class="col-md-6 my-col">
             <div class="row ">
                 <div class="col bg- text-info ">
-                    <h5 class="bg-dark ">Couronne League Top 3</h5>
+                    <h5 class="bg-dark padding-text">Couronne League Top 5</h5>
                 </div>
             </div>
         {% if all_objects %}
@@ -60,7 +65,7 @@
             <th>Average</th>
             <th>Rating</th>
             {% for person in all_objects %}
-                {% if forloop.counter < 4 %}
+                {% if forloop.counter <= 5  %}
                 <tr>
                   <td class="text-left">{{ forloop.counter }}. {{ person.user }}</td>
                   <td class="hides hideing">{{ person.rating }}</td>
@@ -73,6 +78,12 @@
           </table>
         {% endif %}
         </div>
+        <div class="alert alert-light" >
+            <h2><a href="couronne_info/#SM">Ghost of the Month 👻</a></h2>
+              <h5>The ghost of the month is the player who...
+                <a href="couronne_info/#SM">Read more here...</a>
+              </h5>
+          </div>
 <!----------------------------------------------------->
 <!----------------------------------------------------->
         <hr>
@@ -84,7 +95,6 @@
     </div>
 </div>    
 <!------------------------------------------------------------------>    
-<div class="my-5 my-auto mx-auto my-auto text-center">
     
 </div>
 {% endblock %}

@@ -11,15 +11,26 @@ body {
     font-family: 'Prompt', sans-serif;
 }
 
-.opacity {
+#id_long_desc {
+    width: 300px;
+    height: 200px;
+}
+
+.padding-text {
     
-    background-color: rgba(121, 31, 31, 0.1) !important;
+    padding-left: 1em;
 } 
 
 /*------------------ Colors -------------*/
-/*.text-white{
-    color: #fff;
-}*/
+.color-transparent{
+    opacity: 0.5;
+}
+
+
+
+.text-brown{
+    color:brown;
+}
 
 .color-beige{
     color: antiquewhite;
@@ -28,7 +39,7 @@ body {
 
 /*------------- Grid style  -------------*/
 .my-container{
-    border: 5px solid green;
+    
     display: flex;
     align-items: center;
     justify-content: center;

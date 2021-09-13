@@ -17,10 +17,11 @@
     
     {% if user.is_authenticated %}
     <a name="Upp"></a>
-    <div class="contariner h-100 my-container">
-        <div class="row h-100 justify-content-center my-row">
-            <div class="col-12 my-col">
-                <h5 id='colors'>Register Results</h5>
+    
+    <div class="contariner h-100 my-container ">
+        <div class="row h-100 justify-content-center">
+            <div class="col-12">
+                <h2 id='colors' class="text-dark text-center alert-warning border border-secondary">Register Result</h2>
                 <div  class="alert alert-warning ">
                     <form action="{% url 'home:edit' %}" method="post">
                         {% csrf_token %}    
@@ -74,8 +75,7 @@
             </div>
         </div>
     </div>
-        
-            
+    
     <script src="{% static 'js/color_change.js' %}"></script>       
     {%endif%}
 {% endblock %}

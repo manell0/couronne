@@ -148,7 +148,7 @@ def edit(request):
     searchWord = request.POST.get('search')
     if searchWord == user.username:
         print('sökork---user.fist_name--------',searchWord, '--------------- sökord')
-        return HttpResponse("<br><br><h2><center><font color="'#d30f0f'"><h1> Ööööö!!!</h1> </font>Försöker du ge poäng till dig själv?! Aja baja!<br><br> <a href=http://127.0.0.1:8000/home/reg_match/> → Tillbaka ← </a></h2>")
+        return HttpResponse("<br><br><h2><center><font color="'#d30f0f'"><h1> Ööööö!!!</h1> </font>Försöker du ge poäng till dig själv?! Aja baja!<br><br> <a href=https://8000-lime-cod-wnrz8yeu.ws-eu16.gitpod.io/reg_match/> → Tillbaka ← </a></h2>")
 
     if searchWord == '':
         print('sökork------ tomt -----',searchWord, '--------------- sökord')
@@ -297,7 +297,7 @@ def edit(request):
                           'user':user,
                           'snitt_pro':snitt_pro,
                           'snitt_opp':snitt_opp})
-        
+                    
                     #return HttpResponseRedirect('/edit/')
                     #return HttpResponseRedirect(reverse('users'))
     print(' --------------------------------------------  -------------------------------  EDIT -------------------------------------------- efter return render' )
@@ -426,9 +426,27 @@ def couronne_info(request):
 def successView(request):
     return HttpResponse("<br><br><h2><center><font color="'green'"><h1> Tack för ditt meddelande</h1> Vi åtrkommer snarast<br><br> <a href=http://127.0.0.1:8000/> → Tillbaka ← </a></font></h2>")
 
+def user_login(request):
+    pass
+    #return HttpResponse("<br><br><h2><center><font color="'#d30f0f'"><h1> Ööööö!!!</h1> </font>Försöker du ge poäng till dig själv?! Aja baja!<br><br> <a href=https://8000-lime-cod-wnrz8yeu.ws-eu16.gitpod.io/reg_match/> → Tillbaka ← </a></h2>")
+    return HttpResponseRedirect('/accounts/login')
+
 def register(request):
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> REGISTER')
     registered = False
+    # ------------------------------------------
+    # Check if user is logged in. If the user is logged in, 
+    # they will be forwarded to update the profile page
+    profile = UserProfileInfo.objects.all()
+    user = request.user
+
+    for p in profile:
+        if str(p) == str(user):
+            print(p)
+            #return render(request, 'home/couronne_info.html')
+            return HttpResponseRedirect('/update/')
+            #return HttpResponseRedirect(reverse('users'))
+    # ------------------------------------------
     
     if request.method == 'POST':
         # Get info from "both" forms
@@ -493,7 +511,7 @@ def register(request):
                            'profile_form':profile_form,
                            'registered':registered})
 
-def donate(request):
-    """ A view to return the index page """
-    all_objects = UserProfileInfo.objects.order_by('ratingf')
-    return render(request, 'home/index.html', {'all_objects': all_objects})
+#def donate(request):
+#    """ A view to return the index page """
+#    all_objects = UserProfileInfo.objects.order_by('ratingf')
+#    return render(request, 'home/index.html', {'all_objects': all_objects})

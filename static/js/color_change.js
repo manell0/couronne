@@ -5,7 +5,7 @@ var header = document.querySelector('#colors')
 
 
 
-console.log('va fan da och kontakt')
+
 // Hover (mouseover and mouseout)
 headOne.addEventListener('mouseover',function(){
     headOne.textContent = "Registered result can not be changed!";
@@ -45,7 +45,7 @@ function getRandomColor(){
   }
   
   // Now perform the action over intervals (milliseocnds):
-  setInterval("changeHeaderColor()",800);
+  setInterval("changeHeaderColor()",80);
 
 
 

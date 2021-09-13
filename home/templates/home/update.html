@@ -1,56 +1,45 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
-
 {% block content %}
-
-
-  <div style="width:900px;"style="padding:10px;" class="panel panel-primary halfOpacity">
-     
-    <div class="alert alert-secondary">
-      
+<div class="container">
+  <div class="jumbotron">
     
-
-        <br>
-      {% if registered and reg %}
-    
-        <h1>Najs med uppdatering</h1>
-        <meta http-equiv="REFRESH" content="0;url=http://127.0.0.1:8000/">
-
-
-      {% elif registered %}
-         <h1>Uppdaterad och klar!</h1>
-        <a class="nav-item nav-link" href="{% url 'couronne_app:user_login' %}">☺ &#128566 Login</a>   
-      {% else %}
+          <div class="alert alert-dark ">
+        {% if registered and reg %}
+        <h3>Update complete.</h3>
+        <a href="{% url 'home:user_login' %}" class="nav-link main-logo-link">
+            <h4 class="text-black"><strong>Log</strong>In here...</h4>
+        </a>
+        {% elif registered %}
+        <h3>Update is complete.</h3>
+        <a class="nav-item nav-link" href="{% url 'home:user_login' %}">☺ &#128566 Login</a>   
+        {% else %}
         <div class="alert alert-dark">
-        {{user}}<h3>Uppdatera </h3>
+          <h3>Uppdatera </h3>
+          {{user}}
         </div>
-        <form enctype="multipart/form-data" method="POST">
-          {% csrf_token %}
-          {{ upp_form.as_ul }}
+        
 
-          {{ profile_form.as_ul }}
-          <input class="btn btn-outline-dark" type="submit" name="" value="Uppdatera">
-    
-          
+          <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            {{ upp_form.as_ul }}
+            {{ profile_form.as_ul }}
+            <br>
+            <input class="btn btn-outline-dark" type="submit" name="" value="Update">
+          </form>
         
-        
-        </form>
-        <br>
-        
-        <a class="btn btn-outline-dark"  href="javascript:history.back()"> ← Tillbaka </a>
-      {% endif %}
-      
-    </div>
-    
-  </div>
+          {% endif %}
+        </div>
+        <a class="btn btn-outline-dark"  href="javascript:history.back()"> ← Back </a>
+</div>
+</div>
 {% endblock %}
 
 
