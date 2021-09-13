@@ -11,9 +11,8 @@ body {
     font-family: 'Prompt', sans-serif;
 }
 
-#id_long_desc {
-    width: 300px;
-    height: 200px;
+.margins{
+    margin: 1em;
 }
 
 .padding-text {

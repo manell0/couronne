@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-
-
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -9,40 +7,33 @@
     </div>
 </div>
 {% endblock %} 
- 
-
 {% block content %}
 <div class="container ">
-  <div class="row bg-light">
-      <div class="col-md-12 text-center">
-        <section>
-          <div class="product">
-              {% comment %} <img
-                  src="https://i.imgur.com/EHyR2nP.png"
-                  alt="The cover of Stubborn Attachments"
-                  /> {% endcomment %}
-              <div class="description">
-                  <h3>{{ product.name }}</h3>
-                  <h5>${{ product.get_display_price }}</h5>
-              </div>
-          </div>
-          
-          
-          
-      </section>
-     </div>
-      <div class="col-md-8 text-right">
-        <button type="button" id="checkout-button">Donate</button>
-      </div><hr />
-      <div class="col-md-4 text-right">
-        <h3><a class="text-dark text-center" href="{% url 'home:home' %}">&#129044;
-          Home</a>
-        </h3>
-      </div>
-  </div>
+    <div class="alert alert-dark ">
+        <div class="row bg-light">
+            <div class="col-md-12 text-center">
+                <section>
+                    <div class="product">
+                        {% comment %} <img
+                            src="https://i.imgur.com/EHyR2nP.png"
+                            alt="The cover of Stubborn Attachments"
+                            /> {% endcomment %}
+                        <div class="description">
+                            <h3>{{ product.name }}</h3>
+                            <h5>${{ product.get_display_price }}</h5>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-8 text-right">
+                <button  class="btn btn-outline-dark margins" type="button" id="checkout-button">Donate</button>
+            </div>
+            <hr>
+            <div class="col-md-4 text-right">
+            </div>
+        </div>
+    </div>
 </div>
-
-
 <!----------------------------------------------------------------------->
 {% csrf_token %}
 <script type="text/javascript">
