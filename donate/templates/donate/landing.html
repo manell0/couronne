@@ -2,9 +2,30 @@
 {% load static %}
 {% block page_header %}
 <div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
+  <div class="row">
+      <div class="col">
+          <p>
+            
+           
+              <a class="btn btn-outline-dark btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  Information About Donation
+              </a>
+              
+            </p>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                Donations to the Couronne website go in full to develop the website, 
+                create live tournaments and events! If you want to give more than $10, 
+                you can make repeated donations. How many you actually want! 
+                &#128521; At the moment you can only give $10 at a time, 
+                but that will of course change in the near future! 
+                (This is only a working test donation, so no money will be deducted 
+                from your account! Use account number 424242424242424.)
+
+              </div>
+            </div>
+      </div>
+  </div>
 </div>
 {% endblock %} 
 {% block content %}
@@ -22,13 +43,12 @@
                           
                             <h3>{{ product.name }}</h3>
                             <h5>${{ product.get_display_price }}</h5>
-                        </div>
+                          </div>
+                          <button  class="btn btn-outline-dark margins" type="button" id="checkout-button">Donate</button>
                     </div>
                 </section>
             </div>
-            <div class="col-md-8 text-right">
-                <button  class="btn btn-outline-dark margins" type="button" id="checkout-button">Donate</button>
-            </div>
+            
             <hr>
             <div class="col-md-4 text-right">
             </div>
