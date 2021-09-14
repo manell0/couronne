@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+    {#% if user.is_superuser %#}
+    <!--<meta http-equiv="REFRESH" content="url=http://127.0.0.1:8000/admin">-->
+    {#% endif %#}
+    
+    {% if user.is_authenticated %}
+    
+    <div class="contariner h-100 my-container ">
+        <div class="row h-100 justify-content-center">
+            <div class="col-12">
+
+                <div  class="alert alert-dark">
+                    <h3>Your profile</h3>
+                    <div class="alert alert-light "> 
+                        <a class="btn btn-outline-dark btn-sm"href="{% url 'home:update' %}">Update Your Profile</a>
+                    </div>
+                    {% if all_objects %}
+                        {% for person in all_objects %}
+                            {% if person.user == user %}
+                                <table class="table table-striped">
+                                <abbr title="Your last registered match ...  👀 ">
+                                    &nbsp;{{ person.match_uppdate }}
+                                </abbr>
+                                <tr>
+                                    <th>User Name:</th>
+                                    <td>{{ user }} </td>
+                                </tr>
+                                <tr>
+                                    <th>Email:</th>
+                                    <td>{{ user.email }} </td>
+                                </tr>
+                                <tr>
+                                    <th>Venue / Club:</th>
+                                    <td>{{ person.club_location }} </td>
+                                </tr>
+                                <tr>
+                                    <th>Member since:</th>
+                                    <td>{{ user.date_joined.date }} </td>
+                                </tr>
+                                </table>
+                                Played: <b>{{ person.rating }}</b>
+                                Won: <b>{{ person.antal_vunna }}</b>
+                                Average: <b>{{ person.snitt|floatformat:3 }}</b>
+                            
+                                <table>
+                                    <td class="text-success"><b>Rating: {{ person.ratingf|floatformat:3 }}</b></td>
+                                </table>
+                                {% endif %}  
+                            {% endfor %}
+                        {% endif %}  
+                        <a class="btn btn-outline-dark btn-sm" href="javascript:history.back()"> ← Back </a>
+                        <a class="btn btn-outline-dark btn-sm" href="{% url 'home:couronne_info' %}">Info</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{% static 'js/color_change.js' %}"></script>       
+    {%endif%}
+{% endblock %}

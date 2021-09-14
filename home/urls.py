@@ -12,4 +12,6 @@ urlpatterns = [
     path('couronne_info/',views.couronne_info, name="couronne_info"),
     path('register/',views.register, name="register"),
     path('user_login/',views.user_login, name="user_login"),
+    path('profile/',views.profile, name="profile"),
+    path('league_all/',views.league_all, name="league_all"),
 ]

@@ -10,7 +10,7 @@
                 Leader Bord
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">All Players</a>
+                <a href="{% url 'home:league_all' %}" class="dropdown-item">All Players</a>
                 <a href="" class="dropdown-item ">Qualified Players</a>
                 
             </div>
@@ -36,6 +36,12 @@
             <a href="{% url 'landing-page' %}" class="logo-font font-weight-bold nav-link text-black mr-5" >
                 
                 Donate
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a href="{% url 'home:reg_match' %}" class="logo-font font-weight-bold nav-link text-black mr-5" >
+                
+                Register Match
             </a>
         </li>
     </ul>

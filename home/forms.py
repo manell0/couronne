@@ -6,10 +6,11 @@ from django.core import validators
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(), label='Password ')
+    email = forms.EmailField(required=True, label='EmailAdd ')
     class Meta():
         model = User
         fields = ('username','password','email')
-        labels = {"username":"UserName","email":"EmailAdd "}
+        labels = {"username":"UserName"}
         help_texts = {'username': _(''),'email': _('')}
 
         

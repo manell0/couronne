@@ -80,7 +80,7 @@
                                     {% if request.user.is_superuser %}
                                         <a href="{% url 'admin:index' %}" class="dropdown-item ">Management</a>
                                     {% endif %}
-                                    <a href="{% url 'home:update' %}" class="dropdown-item">My Profile</a>
+                                    <a href="{% url 'home:profile' %}" class="dropdown-item">My Profile</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                                 {% else %}
                                     <a href="{% url 'home:register' %}" class="dropdown-item">Register</a>

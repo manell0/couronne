@@ -1,7 +1,6 @@
 from django.core.mail import send_mail, BadHeaderError
 from .forms import ContactForm
 
-from django.contrib import messages
 # Extra Imports for the Login and Logout Capabilities
 from django.contrib import messages
 from django.db import IntegrityError
@@ -23,190 +22,153 @@ def index(request):
     all_objects = UserProfileInfo.objects.order_by('-ratingf')
     return render(request, 'home/index.html', {'all_objects': all_objects})
 
+def league_all(request):
+     all_objects = UserProfileInfo.objects.order_by('-ratingf')
+     return render(request, 'home/league_all.html', {'all_objects':all_objects})
+
 @login_required
 def reg_match(request):
-    
-    
     user = request.user
-   
-    
-
-    print(' ----------------------------------------------------------------------- USER')
     all_objects = UserProfileInfo.objects.order_by('-ratingf')
     profile = UserProfileInfo.objects.all()
-    rf_len = len(profile)
-    print('---------------- ANTAL MEDLEMMAR! ---------------- →> ', rf_len)
-       
-    
-     
-    a = range(rf_len)
-    b = sum(a)
-    print('testar func sum() =',b, ' och avarabeln är: → ', a)
-    nu = datetime.datetime.now()
-    datum = nu.date() 
+    profile_len = len(profile)
+    now = datetime.datetime.now()
+    date = now.date() 
     rf_sum = 0.0
-    snurr_ett = 0
-    for x in all_objects:
-        if snurr_ett == 0:
-            ett = x.user
-            rat_ett = x.ratingf
-            snurr_ett = snurr_ett + 1
+    turn_one = 0
+    for object_x in all_objects:
+        if turn_one == 0:
+            one = object_x.user
+            rating_one = object_x.ratingf
+            turn_one = turn_one + 1
 
-            i = x.id
-            match = UserProfileInfo.objects.get(id=i)  
+            id_x = object_x.id
+            match = UserProfileInfo.objects.get(id=id_x)  
             match.matcher = 'Top plac 1:a'
             match.save()
 
 
-        elif snurr_ett == 1:
-            tva = x.user
-            rat_tva = x.ratingf
-            snurr_ett = snurr_ett + 1
+        elif turn_one == 1:
+            two = object_x.user
+            rating_two = object_x.ratingf
+            turn_one = turn_one + 1
 
-            i = x.id
-            match = UserProfileInfo.objects.get(id=i)         
+            id_x = object_x.id
+            match = UserProfileInfo.objects.get(id=id_x)         
             match.matcher = 'Top plac 2:a'
-            if x.matcher != 'Top plac 1:a':
+            if object_x.matcher != 'Top plac 1:a':
                 match.save()
 
-        elif snurr_ett == 2:
-            tre = x.user
-            rat_tre = x.ratingf
-            snurr_ett = snurr_ett + 1
+        elif turn_one == 2:
+            three = object_x.user
+            rating_three = object_x.ratingf
+            turn_one = turn_one + 1
 
-            i = x.id
-            match = UserProfileInfo.objects.get(id=i)         
+            id_x = object_x.id
+            match = UserProfileInfo.objects.get(id=id_x)         
             match.matcher = 'Top plac 3:a'
-            if x.matcher != 'Top plac 1:a' and x.matcher != 'Top plac 2:a':
+            if object_x.matcher != 'Top plac 1:a' and object_x.matcher != 'Top plac 2:a':
                 match.save()
 
-        elif snurr_ett == 3:
-            fyra = x.user
-            rat_fyra = x.ratingf
-            snurr_ett = snurr_ett + 1
+        elif turn_one == 3:
+            four = object_x.user
+            rating_four = object_x.ratingf
+            turn_one = turn_one + 1
 
-            i = x.id
-            match = UserProfileInfo.objects.get(id=i)         
+            id_x = object_x.id
+            match = UserProfileInfo.objects.get(id=id_x)         
             match.matcher = 'Top plac 4:a'
-            if x.matcher != 'Top plac 1:a' and x.matcher != 'Top plac 2:a' and x.matcher != 'Top plac 3:a':
+            if object_x.matcher != 'Top plac 1:a' and object_x.matcher != 'Top plac 2:a' and object_x.matcher != 'Top plac 3:a':
                 match.save()
 
-        elif snurr_ett == 4:
-            fem = x.user
-            rat_fem = x.ratingf
-            snurr_ett = snurr_ett + 1
+        elif turn_one == 4:
+            five = object_x.user
+            rating_five = object_x.ratingf
+            turn_one = turn_one + 1
 
-            i = x.id
-            match = UserProfileInfo.objects.get(id=i)         
+            id_x = object_x.id
+            match = UserProfileInfo.objects.get(id=id_x)         
             match.matcher = 'Top plac 5:a'
-            if x.matcher != 'Top plac 1:a' and x.matcher != 'Top plac 2:a' and x.matcher != 'Top plac 3:a' and x.matcher != 'Top plac 4:a':
+            if object_x.matcher != 'Top plac 1:a' and object_x.matcher != 'Top plac 2:a' and object_x.matcher != 'Top plac 3:a' and object_x.matcher != 'Top plac 4:a':
                 match.save()
 
-        rf_sum = rf_sum + x.ratingf
-        if x.user == request.user:
-            
-            
+        rf_sum = rf_sum + object_x.ratingf
+        if object_x.user == request.user:
 
-
-            if user.email == '' and x.rating > 3 and x.antal_vunna > 1:
+            if user.email == '' and object_x.rating > 3 and object_x.antal_vunna > 1:
                 return HttpResponseRedirect('/password_reset_uppmaning/')
 
-            i = x.id
-            print('  user     >>>:- ', user, '↔', x.user)
-            print('  id       >>>:- ', i)
-            print('  rating   >>>:- ', x.rating)
-            print('  flag   >>>:- ', x.game_flag)
-            print('  ratingf   >>>:- ', x.ratingf)
-
-            flag = UserProfileInfo.objects.get(id=i)         
+            id_x = object_x.id
+            flag = UserProfileInfo.objects.get(id=id_x)         
             flag.game_flag = True
             print(' -flaggan:', flag.game_flag)
             flag.save()
 
-    
-    print('------------------------------------------------------ /USER')
-    print(' ')    
     return render(request, 'home/reg_match.html',{'all_objects':all_objects,
                                                         'profile':profile,
                                                          'rf_sum':rf_sum,
-                                                         'ett':ett,
-                                                         'tva':tva,
-                                                         'tre':tre,
-                                                         'fyra':fyra,
-                                                         'fem':fem,
-                                                         'rat_ett':rat_ett,
-                                                         'rat_tva':rat_tva,
-                                                         'rat_tre':rat_tre,
-                                                         'rat_fyra':rat_fyra,
-                                                         'rat_fem':rat_fem})
+                                                         'one':one,
+                                                         'two':two,
+                                                         'three':three,
+                                                         'four':four,
+                                                         'five':five,
+                                                         'rating_one':rating_one,
+                                                         'rating_two':rating_two,
+                                                         'rating_three':rating_three,
+                                                         'rating_four':rating_four,
+                                                         'rating_five':rating_five})
 
 @login_required
 def edit(request):
     user = request.user
-    print(user, '----------------------------------------------------------------EDIT ÖVERST')
 
     searchWord = request.POST.get('search')
     if searchWord == user.username:
-        print('sökork---user.fist_name--------',searchWord, '--------------- sökord')
-        return HttpResponse("<br><br><h2><center><font color="'#d30f0f'"><h1> Ööööö!!!</h1> </font>Försöker du ge poäng till dig själv?! Aja baja!<br><br> <a href=https://8000-lime-cod-wnrz8yeu.ws-eu16.gitpod.io/reg_match/> → Tillbaka ← </a></h2>")
+        return HttpResponse("<br><br><h2><center><font color="'#d30f0f'"><h1> Ööööö!!!</h1> </font>Are you trying to score points for yourself ?! Big no no!<br><br> <a href=https://8000-lime-cod-wnrz8yeu.ws-eu16.gitpod.io/reg_match/> → Tillbaka ← </a></h2>")
 
     if searchWord == '':
-        print('sökork------ tomt -----',searchWord, '--------------- sökord')
         return HttpResponseRedirect('/reg_match/')
     
-    p = UserProfileInfo.objects.all()
-    for x in p:
-        if x.user == searchWord and x.game_flag == True:
-            print('if x.user == searchWord and x.game_flag == True:1')
+    user_profile_info = UserProfileInfo.objects.all()
+    for object_x in user_profile_info:
+        if object_x.user == searchWord and object_x.game_flag == True:
+            print('if object_x.user == searchWord and object_x.game_flag == True:1')
             print('- searchWord: ' , searchWord)
-            print('- x.game_flag: ' , searchWord)
+            print('- object_x.game_flag: ' , searchWord)
             
-        if str(searchWord) == str(x.user) and user != x.user and user == request.user:
-            print('if str(searchWord) == str(x.user) and user != x.user and user == request.user:2')
-            i_opponent = x.id
+        if str(searchWord) == str(object_x.user) and user != object_x.user and user == request.user:
+            print('if str(searchWord) == str(object_x.user) and user != object_x.user and user == request.user:2')
+            i_opponent = object_x.id
             opponent = UserProfileInfo.objects.get(id=i_opponent)
          
-            for xx in p:
-            #    i = xx.id
-            #    xx = UserProfileInfo.objects.get(id=i)
-            #    if xx.rating < 1:
-            #        xx.rating = xx.rating + 1
-            #        xx.save()
-            #        pass
+            for object_xx in user_profile_info:
 
-
-
-                if user == xx.user and str(searchWord) != str(user):
-                    print('if user == xx.user and str(searchWord) != str(user):3')
-                    i_profile = xx.id
+                if user == object_xx.user and str(searchWord) != str(user):
+                    i_profile = object_xx.id
                     profile = UserProfileInfo.objects.get(id=i_profile)
 
-                if user == xx.user:
-                    print('if user == xx.user:4')
-                    i_opponent = xx.id
+                if user == object_xx.user:
+                    print('if user == object_xx.user:4')
+                    i_opponent = object_xx.id
  
 
-                    opp_snitt = x.snitt # HÄR ÄR DB VAREABELN
-                    pro_snitt = xx.snitt # HÄR ÄR DB VAREABELN
+                    opp_snitt = object_x.snitt # HÄR ÄR DB VAREABELN
+                    pro_snitt = object_xx.snitt # HÄR ÄR DB VAREABELN
 
       
                     
                     snitt_pro = profile.snitt
                     snitt_opp = opponent.snitt
 
-
-                    print('---------------------------------------------innan if xx --------------------------------------')
-                    if xx.game_flag == True:
-                        print('-----------------------------------------efter if xx --------------------------------------')
-                        
-                        messages.success(request,"The match result is now saved and can not be undone!")
+                    if object_xx.game_flag == True:
+                        #messages.success(request,"The match result is now saved and can not be undone!")
                     
                         all_objects = UserProfileInfo.objects.order_by('-ratingf')
-                        for x in all_objects:
-                            if x.user == request.user and profile.game_flag == True:
-                                i = x.id
-                                flag = UserProfileInfo.objects.get(id=i)         
-                                game_flag = x.game_flag
+                        for object_x in all_objects:
+                            if object_x.user == request.user and profile.game_flag == True:
+                                id_x = object_x.id
+                                flag = UserProfileInfo.objects.get(id=id_x)         
+                                game_flag = object_x.game_flag
                                 
                                 flag.game_flag = False
                                 sum_pro = profile.ratingf * 0.01
@@ -259,28 +221,17 @@ def edit(request):
                                 print('opponent: ', opponent, 'opponent match uppdate: ', opponent.match_uppdate)
                                 print('profile: ', profile, 'user match uppdate: ', profile.match_uppdate)
                                 print(datetime.time())
-                                nu = datetime.datetime.now()
-                                datum = nu.date()
-                                print(datum, ' och så nu: ',nu)
-                                opponent.match_uppdate = ' ⭐ Win Against: ' + str(profile) + ' ￪ ' + str(datum) + ' ✔ '
-                                profile.match_uppdate = ' 💀 Lost Against: ' + str(opponent) + ' ￬ ' + str(datum) + ' 😡 ' 
+                                now = datetime.datetime.now()
+                                date = now.date()
+                                opponent.match_uppdate = ' ⭐ Win Against: ' + str(profile) + ' ￪ ' + str(date) + ' ✔ '
+                                profile.match_uppdate = ' 💀 Lost Against: ' + str(opponent) + ' ￬ ' + str(date) + ' 😡 ' 
 #-------------------------------------------
-                                
                                 flag.save()
                                 opponent.save()
                                 profile.save()
                                 
                                 change_game_flag(game_flag, request)
                                 
-                                print('--flaggan:', flag, ' game_flag efter spar: ',flag.game_flag,' game_flag innan spar: ', game_flag ) 
-                                print('------------------------------------------------------------------------------EDIT EFTER SPARAT')
-
-
-                                #print('game_flag: ', xx.game_flag, ' xx.user', xx.user, ' user: ', user)
-
-                    #print('→→→→→→→→→→→→→→→→ gottit tottit', 'mellanrum',i_opponent, x.game_flag, x.user, x.id, '←↔→', i_profile, 'mellanrum', xx.game_flag, xx.user, xx.id,' ←←←←←←←←←←←←←←←')
-                    print(' ')
-                    
                     all_objects = UserProfileInfo.objects.order_by('-ratingf')
                     user_match_form = UserMatchForm(instance=user)
                     user_match_form_opponent = UserMatchFormOpponent()
@@ -310,14 +261,10 @@ def edit(request):
 
 @login_required
 def update(request):
-    print(' >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> UPDATE')
     user = request.user
     profile = UserProfileInfo.objects.get(user=request.user)
-    #verify = VerForm.objects.get(user=request.user)
-
     registered = False
     reg = False
-    #password = request.user.password
 
     if request.method == 'POST':
         user_form = UppForm(data=request.POST, instance=user )
@@ -325,11 +272,9 @@ def update(request):
 
         # Check to see both forms are valid
         if user_form.is_valid() and profile_form.is_valid():
-            #print('>>>>>>>>>>>#####------'+ user_form.cleaned_data['user'])
            
             # Save User Form to Database
             user = user_form.save()
-            print('  <<<<<<<<<<<<<>>>>>>>>>>> user: ', user)
 
             # Hash the password
             user.set_password(user.password)
@@ -340,53 +285,39 @@ def update(request):
             # Now we deal with the extra info!
             # Can't commit yet because we still need to manipulate
     #---------------------------------------------------------------
-            p = UserProfileInfo.objects.all()
-            for x in p:
-                if x.user == request.user:
-                    i = x.id
-                    print('  ratingf   >>>:- ', i)    
+            user_profile_info = UserProfileInfo.objects.all()
+            for object_x in user_profile_info:
+                if object_x.user == request.user:
+                    id_x = object_x.id
     #---------------------------------------------------------------
             profile = profile_form.save(commit=False)
-            profile = UserProfileInfo.objects.get(id=i)
+            profile = UserProfileInfo.objects.get(id=id_x)
 
             # Set One to One relationship between
             # UserForm and UserProfileInfoForm
             profile.user = user
-            #profile.rating = profile.rating + 10
-
-            # Check if they provided a profile picture
-            if 'profile_pic' in request.FILES:
-                print('>> found it')
-                # If yes, then grab it from the POST form reply
-                profile.profile_pic = request.FILES['profile_pic']
-
-               
             profile.club_location = request.POST['club_location']
+            
             # Now save model
-           
             profile.save()
             
             # Registration Successful!
             registered = True
             reg = True
             
-        else:
+        #else:
             # One of the forms was invalid if this else gets called.
-            print('>> ERROR: ',user_form.errors, profile_form.errors)
+        #    print('>> ERROR: ',user_form.errors, profile_form.errors)
 
     else:
 
         # Was not an HTTP post so we just render the forms as blank.
-        # username = request.user
-        # password = user.password
-        # user = authenticate(username=username, password=password)
-        
         user_form = UppForm(instance=user)
         profile_form = UserProfileInfoForm(instance=profile)
         upp_form = user_form
 
     # This is the render and context dictionary to feed
-    # back to the registration.html file page.
+    # back to the uppdate.html file page.
     return render(request,'home/update.html',
                           {'upp_form':user_form,
                            'profile_form':profile_form,
@@ -394,21 +325,47 @@ def update(request):
                            'reg':reg})
 
 
+# --------------------------------------------------------
+# --------------------------------------------------------
+@login_required
+def profile(request):
+    user = request.user
+    all_objects = UserProfileInfo.objects.order_by('-ratingf')
+    profile = UserProfileInfo.objects.all()
+    profile_len = len(profile)
+     
+    now = datetime.datetime.now()
+    date = now.date() 
+    rf_sum = 0.0
+    turn_one = 0
+    
+    
+    print('------------------------------------------------------ /USER')
+    print(' ')    
+    return render(request, 'home/profile.html',{'all_objects':all_objects,
+                                                        'profile':profile,
+                                                         })
+
+# --------------------------------------------------------
+# --------------------------------------------------------
+
+
+
 def change_game_flag(game_flag, request):
     
     user= request.user
-    p = UserProfileInfo.objects.all()
+    user_profile_info = UserProfileInfo.objects.all()
     # If we have a user
     if user:
         #Check it the account is active
         if user.is_active:
-            for x in p:
-                if x.user == request.user:
-                    i = x.id
-                    p = x.user
-                    f = x.game_flag
+            for object_x in user_profile_info:
+                if object_x.user == request.user:
+                    id_x = object_x.id
+                    user_profile_info = object_x.user
+                    f = object_x.game_flag
                     
-            flag = UserProfileInfo.objects.get(id=i)         
+            flag = UserProfileInfo.objects.get(id=id_x)         
             if flag.game_flag == True:
                 flag.game_flag = False
             else:
@@ -440,9 +397,9 @@ def register(request):
     profile = UserProfileInfo.objects.all()
     user = request.user
 
-    for p in profile:
-        if str(p) == str(user):
-            print(p)
+    for user_profile_info in profile:
+        if str(user_profile_info) == str(user):
+            print(user_profile_info)
             #return render(request, 'home/couronne_info.html')
             return HttpResponseRedirect('/update/')
             #return HttpResponseRedirect(reverse('users'))
@@ -511,7 +468,3 @@ def register(request):
                            'profile_form':profile_form,
                            'registered':registered})
 
-#def donate(request):
-#    """ A view to return the index page """
-#    all_objects = UserProfileInfo.objects.order_by('ratingf')
-#    return render(request, 'home/index.html', {'all_objects': all_objects})
