@@ -34,6 +34,7 @@
             <script src="https://js.stripe.com/v3/"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
             <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+            <script src="{% static 'js/extra.js' %}"></script>
         {% endblock %}
 
         {% block extra_js %}
@@ -47,8 +48,8 @@
         <header class="container-fluid fixed-top">
             <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                    <a href="{% url 'home:home' %}" class="nav-link main-logo-link">    
-                        <h2 class="logo-font text-black my-0"><strong>Cour</strong>onne</h2>
+                    <a href="{% url 'home:home' %}" class="nav-link main-logo-link" data-toggle="tooltip" data-placement="bottom" title="Back to Start">    
+                        <h2 class="logo-font text-black my-0"><strong>Çour</strong>onne</h2>
                     </a>
                 </div>
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">

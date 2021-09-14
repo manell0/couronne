@@ -223,8 +223,8 @@ def edit(request):
                                 print(datetime.time())
                                 now = datetime.datetime.now()
                                 date = now.date()
-                                opponent.match_uppdate = ' ⭐ Win Against: ' + str(profile) + ' ￪ ' + str(date) + ' ✔ '
-                                profile.match_uppdate = ' 💀 Lost Against: ' + str(opponent) + ' ￬ ' + str(date) + ' 😡 ' 
+                                opponent.match_uppdate = ' Won Against: ' + str(profile) + ' ￪ ' + str(date) + ' 🤩 '
+                                profile.match_uppdate = ' Lost Against: ' + str(opponent) + ' ￬ ' + str(date) + ' 😡 ' 
 #-------------------------------------------
                                 flag.save()
                                 opponent.save()

@@ -10,16 +10,11 @@
 
 
 {% block content %}
-
-    {#% if user.is_superuser %#}
-    <!--<meta http-equiv="REFRESH" content="url=http://127.0.0.1:8000/admin">-->
-    {#% endif %#}
     
-    {% if user.is_authenticated %}
     
-    <div class="contariner h-100 my-container ">
+    <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col">{% if user.is_authenticated %}
                 <div class="border-bottom-0 border-big">
                 <div  class="alert alert-dark">
                     <h3>Your profile</h3>
@@ -27,11 +22,12 @@
                         <a class="btn btn-outline-dark btn-sm"href="{% url 'home:update' %}">Update Your Profile</a>
                     </div>
                     {% if all_objects %}
+                    <h6>Latest Match:</h6>
                         {% for person in all_objects %}
                             {% if person.user == user %}
-                                <table class="table table-striped">
-                                <abbr title="Your last registered match ...  👀 ">
-                                    &nbsp;{{ person.match_uppdate }}
+                                <table class="table table-striped ">
+                                <abbr class="font-size-smallest" title="Your last registered match ...  👀 ">
+                                    {{ person.match_uppdate }}
                                 </abbr>
                                 <tr>
                                     <th>User Name:</th>
