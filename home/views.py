@@ -15,44 +15,45 @@ import datetime
 
 from .forms import UserForm, UserProfileInfoForm, UppForm, UserMatchForm, UserMatchFormOpponent
 from .models import User, UserProfileInfo
-# Create your views here.
 
+# The home page.
 def index(request):
     """ A view to return the index page """
     all_objects = UserProfileInfo.objects.order_by('-ratingf')
     return render(request, 'home/index.html', {'all_objects': all_objects})
 
+# The All league page whit all registrated players
 def league_all(request):
      all_objects = UserProfileInfo.objects.order_by('-ratingf')
      return render(request, 'home/league_all.html', {'all_objects':all_objects})
 
+# The registration page where you can register matches that you have played
 @login_required
 def reg_match(request):
     user = request.user
-    all_objects = UserProfileInfo.objects.order_by('-ratingf')
+    all_objects = UserProfileInfo.objects.order_by('-ratingf') # ratingf is your total rating score
     profile = UserProfileInfo.objects.all()
     profile_len = len(profile)
     now = datetime.datetime.now()
     date = now.date() 
     rf_sum = 0.0
     turn_one = 0
+
+    # function to check a player's highest ranking (only top 5 checked)  
     for object_x in all_objects:
         if turn_one == 0:
-            one = object_x.user
-            rating_one = object_x.ratingf
+            one = object_x.user 
+            rating_one = object_x.ratingf 
             turn_one = turn_one + 1
-
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)  
             match.matcher = 'Top plac 1:a'
             match.save()
 
-
         elif turn_one == 1:
             two = object_x.user
             rating_two = object_x.ratingf
             turn_one = turn_one + 1
-
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)         
             match.matcher = 'Top plac 2:a'
@@ -63,7 +64,6 @@ def reg_match(request):
             three = object_x.user
             rating_three = object_x.ratingf
             turn_one = turn_one + 1
-
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)         
             match.matcher = 'Top plac 3:a'
@@ -74,7 +74,6 @@ def reg_match(request):
             four = object_x.user
             rating_four = object_x.ratingf
             turn_one = turn_one + 1
-
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)         
             match.matcher = 'Top plac 4:a'
@@ -85,7 +84,6 @@ def reg_match(request):
             five = object_x.user
             rating_five = object_x.ratingf
             turn_one = turn_one + 1
-
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)         
             match.matcher = 'Top plac 5:a'
@@ -95,13 +93,15 @@ def reg_match(request):
         rf_sum = rf_sum + object_x.ratingf
         if object_x.user == request.user:
 
-            if user.email == '' and object_x.rating > 3 and object_x.antal_vunna > 1:
-                return HttpResponseRedirect('/password_reset_uppmaning/')
 
+            #if user.email == '' and object_x.rating > 3 and object_x.antal_vunna > 1:
+                #return HttpResponseRedirect('/password_reset_uppmaning/')
+
+            # flag is a game flag (boolean) for check if a player is activated for match play
+            # flag sets to true 
             id_x = object_x.id
             flag = UserProfileInfo.objects.get(id=id_x)         
             flag.game_flag = True
-            print(' -flaggan:', flag.game_flag)
             flag.save()
 
     return render(request, 'home/reg_match.html',{'all_objects':all_objects,
@@ -118,23 +118,27 @@ def reg_match(request):
                                                          'rating_four':rating_four,
                                                          'rating_five':rating_five})
 
+# Function that makes all checks when a user tries to register a played match.
 @login_required
 def edit(request):
     user = request.user
 
+    # Check if the user is trying to score points for himself
     searchWord = request.POST.get('search')
     if searchWord == user.username:
         return HttpResponse("<br><br><h2><center><font color="'#d30f0f'"><h1> Ööööö!!!</h1> </font>Are you trying to score points for yourself ?! Big no no!<br><br> <a href=https://8000-lime-cod-wnrz8yeu.ws-eu16.gitpod.io/reg_match/> → Tillbaka ← </a></h2>")
 
+    # Check if the input is empty
     if searchWord == '':
         return HttpResponseRedirect('/reg_match/')
     
+
     user_profile_info = UserProfileInfo.objects.all()
     for object_x in user_profile_info:
-        if object_x.user == searchWord and object_x.game_flag == True:
-            print('if object_x.user == searchWord and object_x.game_flag == True:1')
-            print('- searchWord: ' , searchWord)
-            print('- object_x.game_flag: ' , searchWord)
+        # if object_x.user == searchWord and object_x.game_flag == True:
+        #     print('if object_x.user == searchWord and object_x.game_flag == True:1')
+        #     print('- searchWord: ' , searchWord)
+        #     print('- object_x.game_flag: ' , searchWord)
             
         if str(searchWord) == str(object_x.user) and user != object_x.user and user == request.user:
             print('if str(searchWord) == str(object_x.user) and user != object_x.user and user == request.user:2')
@@ -160,27 +164,24 @@ def edit(request):
                     snitt_pro = profile.snitt
                     snitt_opp = opponent.snitt
 
+                    # Here, the rating points are calculated for the match played and saved in DB
                     if object_xx.game_flag == True:
-                        #messages.success(request,"The match result is now saved and can not be undone!")
-                    
                         all_objects = UserProfileInfo.objects.order_by('-ratingf')
                         for object_x in all_objects:
                             if object_x.user == request.user and profile.game_flag == True:
                                 id_x = object_x.id
                                 flag = UserProfileInfo.objects.get(id=id_x)         
                                 game_flag = object_x.game_flag
-                                
                                 flag.game_flag = False
                                 sum_pro = profile.ratingf * 0.01
 
                                 if profile.rating == 0 and opponent.rating == 0:
                                     print('done')
-                                    #break
                                     snitt_pro = (profile.ratingf - 101) / (profile.rating  + 1 )
                                     snitt_opp = (opponent.ratingf - 99) / (opponent.rating + 1) 
                                     opponent.save()
                                     profile.save()
-                                    pass
+
                                 elif profile.rating == 0:
                                     print(' om jag är 0→ ', profile.user)
                                     snitt_pro = (profile.ratingf - 101) / (profile.rating + 1)
@@ -188,7 +189,6 @@ def edit(request):
                                     profile.save()
                                     opponent.save()
                                     
-                                    pass
                                 elif opponent.rating == 0:
                                     print(' om den andra är 0→ ', profile.user)
                                     snitt_opp = (opponent.ratingf - 99) / (opponent.rating + 1)
@@ -207,29 +207,24 @@ def edit(request):
                                 
                                 opponent.snitt = snitt_opp
                                 profile.snitt = snitt_pro
-#-----------------------------------------------
 
                                 opponent.ratingf = opponent.ratingf + sum_pro
-                                print(' --------------------------------------------Inte MITTEN ------------------------------------------')
                                 profile.ratingf = profile.ratingf - sum_pro
 
-                                opponent.rating = opponent.rating +1 # Spelade matcher
-                                profile.rating = profile.rating +1 # Spelade matcher
+                                opponent.rating = opponent.rating +1 # Games played
+                                profile.rating = profile.rating +1 # Games played
 
                                 opponent.antal_vunna = opponent.antal_vunna + 1
 
-                                print('opponent: ', opponent, 'opponent match uppdate: ', opponent.match_uppdate)
-                                print('profile: ', profile, 'user match uppdate: ', profile.match_uppdate)
-                                print(datetime.time())
                                 now = datetime.datetime.now()
                                 date = now.date()
+                                # The players leatest match
                                 opponent.match_uppdate = ' Won Against: ' + str(profile) + ' ￪ ' + str(date) + ' 🤩 '
                                 profile.match_uppdate = ' Lost Against: ' + str(opponent) + ' ￬ ' + str(date) + ' 😡 ' 
-#-------------------------------------------
                                 flag.save()
                                 opponent.save()
                                 profile.save()
-                                
+                                # call the game flag function
                                 change_game_flag(game_flag, request)
                                 
                     all_objects = UserProfileInfo.objects.order_by('-ratingf')
@@ -238,7 +233,6 @@ def edit(request):
 
                     #searchWord = ''
                     sum_pro = profile.ratingf * 0.01
-                    print('---------------------------------------------innan RENDER --------------------------------------')
                     return render(request,'home/edit.html',
                           {'user_match_form':user_match_form,
                           'user_match_form_opponent':user_match_form_opponent,
@@ -249,16 +243,10 @@ def edit(request):
                           'snitt_pro':snitt_pro,
                           'snitt_opp':snitt_opp})
                     
-                    #return HttpResponseRedirect('/edit/')
-                    #return HttpResponseRedirect(reverse('users'))
-    print(' --------------------------------------------  -------------------------------  EDIT -------------------------------------------- efter return render' )
-    print('' )
-
     if request.method == 'POST':
-        print('------------------------------------- LÄNGST NER, HttpResponseRedirect --------------------------/EDIT HEJ DÅ')
         return HttpResponseRedirect('/reg_match/')
 
-
+# The profile update page
 @login_required
 def update(request):
     user = request.user
@@ -270,7 +258,7 @@ def update(request):
         user_form = UppForm(data=request.POST, instance=user )
         profile_form = UserProfileInfoForm(request.POST, instance=profile)
 
-        # Check to see both forms are valid
+        # Check to see both forms from forms.py are valid
         if user_form.is_valid() and profile_form.is_valid():
            
             # Save User Form to Database
@@ -284,12 +272,11 @@ def update(request):
 
             # Now we deal with the extra info!
             # Can't commit yet because we still need to manipulate
-    #---------------------------------------------------------------
             user_profile_info = UserProfileInfo.objects.all()
             for object_x in user_profile_info:
                 if object_x.user == request.user:
                     id_x = object_x.id
-    #---------------------------------------------------------------
+
             profile = profile_form.save(commit=False)
             profile = UserProfileInfo.objects.get(id=id_x)
 
@@ -324,9 +311,7 @@ def update(request):
                            'registered':registered,
                            'reg':reg})
 
-
-# --------------------------------------------------------
-# --------------------------------------------------------
+# The profile page where you can see your profile and update
 @login_required
 def profile(request):
     user = request.user
@@ -339,18 +324,10 @@ def profile(request):
     rf_sum = 0.0
     turn_one = 0
     
-    
-    print('------------------------------------------------------ /USER')
-    print(' ')    
     return render(request, 'home/profile.html',{'all_objects':all_objects,
                                                         'profile':profile,
                                                          })
-
-# --------------------------------------------------------
-# --------------------------------------------------------
-
-
-
+# Function for set the game flag
 def change_game_flag(game_flag, request):
     
     user= request.user
@@ -371,27 +348,24 @@ def change_game_flag(game_flag, request):
             else:
                 flag.game_flag = True
             flag.save()
-    print(' ----->>>>>> CHANGE GAME FLAG to:', user, ' till ', flag.game_flag)
     return game_flag
 
+# The couronne info page
 def couronne_info(request):
-    #return HttpResponseRedirect('couronne_info')
-    #return HttpResponseRedirect('')
-    
     return render(request, 'home/couronne_info.html')
 
+# Resive email success
 def successView(request):
     return HttpResponse("<br><br><h2><center><font color="'green'"><h1> Tack för ditt meddelande</h1> Vi åtrkommer snarast<br><br> <a href=http://127.0.0.1:8000/> → Tillbaka ← </a></font></h2>")
 
 def user_login(request):
-    pass
-    #return HttpResponse("<br><br><h2><center><font color="'#d30f0f'"><h1> Ööööö!!!</h1> </font>Försöker du ge poäng till dig själv?! Aja baja!<br><br> <a href=https://8000-lime-cod-wnrz8yeu.ws-eu16.gitpod.io/reg_match/> → Tillbaka ← </a></h2>")
     return HttpResponseRedirect('/accounts/login')
 
+# Registration page that overwrites the original registration (all auth)
+# page for the connection between the tables to work.
 def register(request):
-    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> REGISTER')
     registered = False
-    # ------------------------------------------
+
     # Check if user is logged in. If the user is logged in, 
     # they will be forwarded to update the profile page
     profile = UserProfileInfo.objects.all()
@@ -400,11 +374,9 @@ def register(request):
     for user_profile_info in profile:
         if str(user_profile_info) == str(user):
             print(user_profile_info)
-            #return render(request, 'home/couronne_info.html')
+
             return HttpResponseRedirect('/update/')
-            #return HttpResponseRedirect(reverse('users'))
-    # ------------------------------------------
-    
+
     if request.method == 'POST':
         # Get info from "both" forms
         # It appears as one form to the user on the .html page
@@ -413,23 +385,17 @@ def register(request):
 
         # Check to see both forms are valid
         if user_form.is_valid() and profile_form.is_valid():
-            print('>>>>>>>>>>>#####------'+ user_form.cleaned_data['username'])
 
             # Save User Form to Database
-           
             user = user_form.save()
 
             user.first_name = user_form.cleaned_data['username']
-            print('  <<<<<<<<<<<<<>>>>>>>>>>> user: ', user.first_name)
             
             # Hash the password
             user.set_password(user.password)  
 
             # Update with Hashed password
             user.save()
-    #  ('>> user.save(): ',user.save())        
-
-            # Now we deal with the extra info!
 
             # Can't commit yet because we still need to manipulate
             profile = profile_form.save(commit=False)
@@ -452,9 +418,9 @@ def register(request):
             # Registration Successful!
             registered = True
             
-        else:
-            # One of the forms was invalid if this else gets called.
-            print('>> ERROR: ',user_form.errors, profile_form.errors)
+        #else:
+        #    # One of the forms was invalid if this else gets called.
+        #    print('>> ERROR: ',user_form.errors, profile_form.errors)
 
     else:
         # Was not an HTTP post so we just render the forms as blank.

@@ -10,8 +10,9 @@
 {% endblock %}
 
 {% block content %}
-  
-    <!-------------------------------------------------------------------------------------------     COURONNE LIGAN        --------------->
+<div class="container">
+  <div class="row">
+      <div class="col">
     {% if user.is_authenticated %}
       <div class="jumbotron">   
         <div class="alert alert-dark"style="padding:10px;">
@@ -40,7 +41,9 @@
       </div>      
       <script src="{% static 'js/color_change.js' %}"></script>
     {%endif%}
-  
+      </div>
+      </div>
+      </div>
 {% endblock %}
 
 
