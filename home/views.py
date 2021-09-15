@@ -327,7 +327,7 @@ def profile(request):
     return render(request, 'home/profile.html',{'all_objects':all_objects,
                                                         'profile':profile,
                                                          })
-# Function for set the game flag
+# Function for set the game flag for a user
 def change_game_flag(game_flag, request):
     
     user= request.user
@@ -362,7 +362,7 @@ def user_login(request):
     return HttpResponseRedirect('/accounts/login')
 
 # Registration page that overwrites the original registration (all auth)
-# page for the connection between the tables to work.
+# page for the connection between the DB tables to work.
 def register(request):
     registered = False
 
@@ -405,11 +405,11 @@ def register(request):
             profile.user = user
             
 
-            # Check if they provided a profile picture
-            if 'profile_pic' in request.FILES:
-                print('>> found it')
-                # If yes, then grab it from the POST form reply
-                profile.profile_pic = request.FILES['profile_pic']
+            #### Check if they provided a profile picture
+            ###if 'profile_pic' in request.FILES:
+            ###    print('>> found it')
+            ###    # If yes, then grab it from the POST form reply
+            ###    profile.profile_pic = request.FILES['profile_pic']
 
             # Now save model
             

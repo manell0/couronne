@@ -39,7 +39,9 @@ body {
     opacity: 0.5;
 }
 
-
+.text-white{
+    color:#fff;
+}
 
 .text-brown{
     color:brown;
@@ -159,6 +161,13 @@ body {
 }
 @media (max-width: 992px){
     .hideing{
+    display: none;
+    }
+    
+}
+
+@media (min-width: 992px){
+    .hideing-small{
     display: none;
     }
     

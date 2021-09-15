@@ -3,45 +3,75 @@
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
-        <div class="col"></div>
+        <div class="col">
+            <p>
+                <a class="btn btn-outline-dark btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Update information 
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    The update will take effect immediately! <br>
+                    The password you enter here will be your new password. After you have updated your information, 
+                    you will be <strong> logged out and need to log in again for the update to take effect.</strong>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
 {% block content %}
 <div class="container">
-  <div class="jumbotron">
-    
-          <div class="alert alert-dark ">
-        {% if registered and reg %}
-        <h3>Update complete.</h3>
-        <a href="{% url 'home:user_login' %}" class="nav-link main-logo-link">
-            <h4 class="text-black"><strong>Log</strong>In here...</h4>
-        </a>
-        {% elif registered %}
-        <h3>Update is complete.</h3>
-        <a class="nav-item nav-link" href="{% url 'home:user_login' %}">☺ &#128566 Login</a>   
-        {% else %}
-        <div class="alert alert-dark">
-          <h3>Uppdatera </h3>
-          {{user}}
+    <div class="jumbotron">
+        <div class="alert alert-dark ">
+            {% if registered and reg %}
+            <h3>Update complete.</h3>
+            <a href="{% url 'home:user_login' %}" class="nav-link main-logo-link">
+                <h4 class="text-black"><strong>Log</strong>In here...</h4>
+            </a>
+            {% elif registered %}
+            <h3>Update is complete.</h3>
+            <a class="nav-item nav-link" href="{% url 'home:user_login' %}">☺ &#128566 Login</a>   
+            {% else %}
+            <div class="alert alert-dark">
+                <h3>Update </h3>
+                {{user}}
+            </div>
+            <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                {{ upp_form.as_ul }}
+                {{ profile_form.as_ul }}
+                <br>
+                <a class="btn btn-outline-dark"  href="javascript:history.back()"> ← Back </a>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModalCenter">
+                Update
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-danger" id="exampleModalLongTitle"> Are you sure you want to update? </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                The update takes effect immediately and no more verifications are made! 
+                                <br><br>
+                                The password you enter here is updated and becomes your new password, so be careful ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <input class="btn btn-outline-dark" type="submit" name="" value="Update">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            {% endif %}
         </div>
-        
-
-          <form enctype="multipart/form-data" method="POST">
-            {% csrf_token %}
-            {{ upp_form.as_ul }}
-            {{ profile_form.as_ul }}
-            <br>
-            <a class="btn btn-outline-dark"  href="javascript:history.back()"> ← Back </a>
-            <input class="btn btn-outline-dark" type="submit" name="" value="Update">
-          </form>
-        
-          {% endif %}
-        </div>
-</div>
+    </div>
 </div>
 {% endblock %}
-
-
-
-

@@ -1,137 +1,119 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col">adsfadsf</div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
-
 {% block content %}
 {% if messages %}
-    {% for message in messages %}
-      <div class="alert alert-light">
-        <div class="alert alert-success text-center" role="alert">
-          {{ message }} 
-        </div>
-      </div>  
-    {% endfor %}
-  {% endif %}   
+{% for message in messages %}
+<div class="alert alert-light">
+    <div class="alert alert-success text-center" role="alert">
+        {{ message }} 
+    </div>
+</div>
+{% endfor %}
+{% endif %}   
 <div class="container">
     <div class="row bg-light">
-    <div class="row bg-light border-big">
-        <div class="col-md-6 col border-big">
-            <div class="row ">
-                <div class="col bg-info text-white ">
-                    <h4 class="bg-dark padding-text margins border">Join The League!</h4>
+        <div class="row bg-light border-big">
+            <div class="col-md-6 col border-big">
+                <div class="row ">
+                    <div class="col bg-info text-white ">
+                        <h4 class="bg-dark padding-text margins border">Join The League!</h4>
+                    </div>
+                </div>
+                <p><strong class="text-dark">Join the Couronne league!</strong> now and get 
+                    the chance to participate in the Couronne World Championships!<br><a href="{% url 'home:register' %}">Register here ...</a>
+                    If you are already logged in and want to register a match, click here ...<a href="{% url 'home:reg_match' %}"> click here ...</a>
+                </p>
+                <hr>
+                <div  class="col">
+                    <h3 class="text-brown">Launches! &#128495;</h3>
+                    <table>
+                        <tr>
+                            <td class="text-brown">
+                                • Table ➪ Solid Gold [2.0☆] <a href="#" data-toggle='modal' data-target='#exampleModalCenter' ><i> &nbsp;&nbsp;Launched...</i> ✰ </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-brown">
+                                • Que ➪ Plastc padding 155g <a href="#" data-toggle='modal' data-target='#exampleModalCenter' ><i> Launched...</i>✰ </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-brown">
+                                • 'Ring' ➪ Total Compakt <a href="#" data-toggle='modal' data-target='#exampleModalCenter' ><i>&nbsp;&nbsp;&nbsp;&nbsp; Launched...</i> ✰ </a></font>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <hr>
+            </div>
+            <div class="col-md-6 my-col border-big">
+                <div class="row ">
+                    <div class="col bg-info text-white ">
+                        <h4 class="bg-dark padding-text margins border text-white"><a class="text-white" href="{% url 'home:league_all' %}" data-toggle="tooltip" data-placement="bottom" title="See all the players in Couronne league...">League Top 5</a> </h4>
+                    </div>
+                </div>
+                {% if all_objects %}
+                <table class="table table-striped text-right font-size-small">
+                    <th class="text-left">Player</th>
+                    <th class="hides hideing">Played</th>
+                    <th class="hides">Won</th>
+                    <th>Average</th>
+                    <th>Rating</th>
+                    {% for person in all_objects %}
+                    {% if forloop.counter <= 5  %}
+                    <tr>
+                        <td class="text-left">{{ forloop.counter }}. {{ person.user }}</td>
+                        <td class="hides hideing">{{ person.rating }}</td>
+                        <td class="hides text-success"><strong>{{ person.antal_vunna}}</strong></td>
+                        <td>{{ person.snitt|floatformat:3 }}</td>
+                        <td><strong>{{person.ratingf|floatformat:3}}</strong></td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </table>
+                {% endif %}
+            </div>
+            <div class="alert alert-light col-md-6" >
+                <h2><a href="couronne_info/#SM">Ghost of the Month 👻</a></h2>
+                <h5>The ghost of the month is the player who...
+                    <a href="couronne_info/#SM">Read more here...</a>
+                </h5>
+            </div>
+            <div class="col-md-6 text-center my-col">
+                <h4>
+                    <a href="{% url 'home:reg_match' %}" class="shop-now-button btn btn-sm rounded 0 text-uppercase py-3">Register Match</a>
+                </h4>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-info" id="exampleModalLongTitle"> Launched... ✰</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            This links should go to an e-commerce page where you can buy AND sell stuff 
+                            that has to do with <strong> Couronne! <br> <br> Unfortunately</strong>, the e-commerce site is 
+                            not ready yet but it is underway in the near future!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <p><strong class="text-dark">Join the Couronne league</strong> now and get 
-                the chance to participate in the Couronne World Championships!<br><a href="{% url 'home:register' %}">Register here ...</a>
-                If you are already logged in and want to register a match, click here ...<a href="{% url 'home:reg_match' %}"> click here ...</a></p>
-                <hr>
-            <div  class="col">
-                <h3 class="text-brown">Launches! &#128495;</h3>
-                <table>
-                    <tr>
-                        <td class="text-brown">
-                            • Table ➪ Solid Gold [2.0☆] <a href="#" data-toggle='modal' data-target='#exampleModalCenter' ><i> &nbsp;&nbsp;Launched...</i> ✰ </a>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-brown">
-                            • Que ➪ Plastc padding 155g <a href="#" data-toggle='modal' data-target='#exampleModalCenter' ><i> Launched...</i>✰ </a>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-brown">
-                            • 'Ring' ➪ Total Compakt <a href="#" data-toggle='modal' data-target='#exampleModalCenter' ><i>&nbsp;&nbsp;&nbsp;&nbsp; Launched...</i> ✰ </a></font>
-
-                        </td>
-                    </tr>
-                  </table>
-                </div>
             <hr>
         </div>
-<!----------------------------------------------------->
-<!----------------- League ---------------------------->
-        <div class="col-md-6 my-col border-big">
-            <div class="row ">
-                <div class="col bg-info text-white ">
-                    <h4 class="bg-dark padding-text margins border">League Top 5</h4>
-                </div>
-            </div>
-        {% if all_objects %}
-          <table class="table table-striped text-right font-size-small">
-            <th class="text-left">Player</th>
-            <th class="hides hideing">Played</th>
-            <th class="hides">Won</th>
-            <th>Average</th>
-            <th>Rating</th>
-            {% for person in all_objects %}
-                {% if forloop.counter <= 5  %}
-                <tr>
-                  <td class="text-left">{{ forloop.counter }}. {{ person.user }}</td>
-                  <td class="hides hideing">{{ person.rating }}</td>
-                  <td class="hides text-success"><strong>{{ person.antal_vunna}}</strong></td>
-                  <td>{{ person.snitt|floatformat:3 }}</td>
-                  <td><strong>{{person.ratingf|floatformat:3}}</strong></td>
-                </tr>
-                {% endif %}
-            {% endfor %}
-          </table>
-        {% endif %}
-        </div>
-        <div class="alert alert-light col-md-12" >
-
-            <h2><a href="couronne_info/#SM">Ghost of the Month 👻</a></h2>
-              <h5>The ghost of the month is the player who...
-                <a href="couronne_info/#SM">Read more here...</a>
-              </h5>
-          </div>
-<!----------------------------------------------------->
-	
-<!-- Button trigger modal -->
-<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-    Launch demo modal
-  </button>-->
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title text-info" id="exampleModalLongTitle"> Launched... ✰</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          This links should go to an e-commerce page where you can buy AND sell stuff 
-          that has to do with <strong> Couronne! <br> <br> Unfortunately</strong>, the e-commerce site is 
-          not ready yet but it is underway in the near future!
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <!--<button type="button" class="btn btn-primary">Save changes</button>-->
-        </div>
-      </div>
     </div>
-  </div>
-<!----------------------------------------------------->
-        <hr>
-        <div class="col-md-12 text-center my-col">
-            <h4>
-                <a href="{% url 'home:reg_match' %}" class="shop-now-button btn btn-sm rounded 0 text-uppercase py-3">Register Match</a>
-            </h4>
-        </div>
-    </div>
-</div>    
-<!------------------------------------------------------------------>    
-    
 </div>
 {% endblock %}
