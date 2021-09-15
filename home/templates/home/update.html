@@ -37,6 +37,7 @@
                 <h3>Update </h3>
                 {{user}}
             </div>
+            <div id="myDiv">
             <form enctype="multipart/form-data" method="POST">
                 {% csrf_token %}
                 {{ upp_form.as_ul }}
@@ -70,8 +71,20 @@
                     </div>
                 </div>
             </form>
+            </div>
             {% endif %}
         </div>
     </div>
 </div>
+<!--  Does not allow users to use the enter key because then modal is not activated -->
+<script>
+    $(document).ready(function() {
+    $(window).keydown(function(event){
+      if(event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+      }
+    });
+  });
+</script>
 {% endblock %}
