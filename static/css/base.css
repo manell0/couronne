@@ -181,16 +181,18 @@ body {
         font-size: 8px;
     }
     .font-size-smallest{
-        font-size: 3px;
-    }
-}
-/*@media (max-width: 991px){
-    .my-row{
-        padding-top: 5em;
+        font-size: 5px;
     }
 }
 
-@media (max-width: 420px){
+/* Media Query HEIGHT*/
+@media (max-height: 350px){
+    .font-size-height{
+        font-size: 8px;
+    }
+}
+
+/*@media (max-width: 420px){
     .my-row{
         padding-top: 6em;
         border: 3px solid red;

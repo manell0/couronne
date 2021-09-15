@@ -1,210 +1,166 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
-
 {% block content %}
-
-<div style="width:900px;"style="padding:10px;" class="panel panel-primary halfOpacity">
-    <div class="jumbotron"style="padding:5px;">
-        <div class="alert alert-light"style="padding:10px;">
+<div class="container">
+    <div class="row">
+        <div class="col">
             <!--------------------------------------------------------------------------------------- INFORMATION  ---------------------------->
-            </a><h3> </h3>
-            <div class="alert alert-dark"style="padding:10px;padding-bottom:1px">
-                <div class="alert alert-secondary "style="padding:10px;padding-bottom:1px;">
-                <img  src="../../media/information.png" alt="Ups..." style="padding:1px;padding-bottom:1px;padding-top:1px">
-                    <div class="alert alert-light"style="padding:10px;padding-bottom:1px;">
-                        <center><table>
-                            <tr><th style=" padding:1px;width:100px;" <font color="#23343d"><h2> ○ <i></font><a href="#CL"><font color="#23343d"> Ligan </font></a></i></h2></th>
-                                <th style="width:100px; padding:1px"><font color="#76807e"><h2> ○ <i></font><a href="#TE"><font color="#76807e"> Event </font></a></i></h2></th>
-                            <th style="width:100px; padding:1px"><font color="#419789"><h2> ○ <i></font><a href="#FQ"><font color="#419789"> FAQ </font></a></i></h2></th>
-                                <th style="width:100px; padding:1px"><font color="#925f5f"><h2> ○ <i></font><a href="#FO"><font color="#925f5f"> Fusk </font></a></i></h2></th>
-                            <th style="width:100px; padding:1px"><font color="#76807e"><h2> ○ <i></font><a href="#OM"><font color="#76807e"> Om </font></a></i></h2></th>
-                                <th style="width:100px; padding:1px"><font color="#23343d"><h2> ○ <i></font><a href="#V"> Vilkor </font></a></i></h2></th></tr>
-                            
-                        </table></center>
+            <a  name="SM"></a>
+            <div class="alert alert-dark">
+                <div class="alert alert-secondary">
+                    <!--<img  src="../../media/information.png" alt="Ups..." >-->
+                    <h1>Information</h1>
+                    <div class="btn-group" role="group" aria-label=" Button group with nested dropdown">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Navigate
+                            </button>
+                            <div class="dropdown-menu font-size-height" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" href="#EVENT">Event</a>
+                                <a class="dropdown-item" href="#FAQ">FAQ</a>
+                                <a class="dropdown-item" href="#LEAGUE">League</a>
+                                <a class="dropdown-item" href="#CHEATING">Cheating</a>
+                                <a class="dropdown-item" href="#ABOUT">About Us</a>
+                                <a class="dropdown-item" href="#HISTORY">History & Curiosities</a>
+                                <a class="dropdown-item" href="#TERMS">Terms</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <a  name="SM"></a>
-<!-----------------------------------------------------------------------------------------------------   GÅ MED OCH VINN SM  -->
+                <!-----------------------------------------------------------------------------------------------------   GÅ MED OCH VINN SM  -->
                 <div class="alert alert-dark">
-               <a class="nav-item nav-link" href="{% url 'account_signup' %}"> 
-               <h3><b><font color="darkgreen">Vinn SM!</font></b></h3>
-                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                     <li><font color="darkgreen">Häng med i Couronneligan och kvalificera dig till Couronne SM!</li><i>Registrera dig...</i> ✰ </a></font><br>
-                     
-                      <ul><b> <h2>👻 Månadens spöke! </h2></b>Är en spelare som utmärker sig i Coronneligan eller på annat sätt bör hyllas!<br>
-                      Månadens spöke delas inte ut varje månad, utan endast om någon medlem sticker ut.</ul>
-                </div>      
-
-
-<!----------------------------------------------------------------------------------------------------- EVENT TE --------------------------------->
-
-                <a  name="TE"></a><br>
-                <div class="alert alert-secondary "style="padding:10px;padding-bottom:1px;">
-                    <i><h6 style="text-align:left;">○ Event</h6></i>
-                    <ul><p><b>Tävlingar & Evenemang!</b><br>
-                    <font color="green">Top 16 i Coruonneligan är vid säsongens slut (<i>lucia</i>) seedade och går direkt vidare till andra omgången i Couronne SM!.</font><br>
-                    Startfältet i SM är tänkt till 32 spelare med ett kval om de 4 sista platserna.<br>
-                    Top 16 seedas. Ligaplacering 17-28 är klara för SM. Kval om de 4 sista platsterna.<br> 
-                    SM kommer att gå av stapeln (osså ett datum och en plats kanske...)<br><br>
-                    Planeringen av Swedish open är igång och startfältet planeras till 64 spelare.<br><br>
-                    Egengjorda turneringar eller hemmaturneringars resultat kommer att läggas upp på hemsidan.<br>
-                    <a class="nav-item nav-link active" href="#">Sänd oss resultatet så lägger vi upp! <i>här...</i><span class="sr-only">(current)</span></a>
-                    </p></ul>
-                
-                    
-                    
-                    <abbr title=" Tillbaka upp... 💣 "><a href="#Upp">↑</a></abbr>
-                    
-                </div>
-
-<!----------------------------------------------------------------------------------------------------- FAQ FQ --------------------------------->     
-
-                <a name="FQ"></a><br><br>                 
-                <div class="alert alert-success "style="padding:10px;padding-bottom:1px;">
-                    <i><h6 style="text-align:left;">○ FAQ</h6></i>
-                        <ul>Då kan man ju skapa ett "fejkkonto" och ge poäng/rating till sig själv?
-                        <ul><li>Korrekt, men allt fusk finns på logg som kontrolleras kontinuerligt.<abbr title="Mer info om fusk och oegentligheter här..."><a href="#FO"> Läs mer...</a></abbr></li></ul></ul>
-
-                        
-                        <ul>Kan man bara spela riktig couronne här, inge dataspel?
-                        <ul><li>Bara och bara... Man vet aldrig vad som händer i framtiden, men just nu satsar vi "bara" på riktig couronne.<br></ul>
-                        <a href="http://www.flashgames555.com/Board-games/Couronne.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Men prova något från webben! Det är säkert jättekul...<br /></a>
-                        </li></ul></ul>
-
-                        <ul>Vad är måtten på pinnarna pluttarna och bordet i couronne? 
-                        <ul><li>kö till Couronnespel. Längd 65 cm. Diameter: 11,5 mm<br>
-                        Micki Couronne - Material: Trä - Ringdiameter: 34 mm - Ringhåldiameter: 13 mm - Färger: Röd, gul, grön...<br>
-                        Spelplan av masonit, sarg av plast. Levereras komplett med ringar och 2 köer. Spelet är 75 x 5 x 75 cm. Från 3 år...<br>
-
-
-                        
-                        </li></ul></ul>
-
-
-                    <abbr title="Tillbaka upp... 💤 "><a href="#Upp">↑</a></abbr>
-                     &nbsp;<a class="btn btn-outline-dark btn-sm" href="#"> Hem</a>
-                </div>
-
-<!----------------------------------------------------------------------------------------------------- LIGAN CL --------------------------------->
-
-                <a name="CL"></a><br><br>
-                <div class="alert alert-secondary "style="padding:10px;padding-bottom:1px;">
-                    <i><h6 style="text-align:left;">○ Ligan</h6></i>
-                    
-                    <ul><p>
-                        Couronneligan fungerar som <b>"herre på täppan".</b><br>
-
-                        Vid registrering startar man med rating 100 (eller 100 ratingpoäng (RP) som en del säger och är samma sak!).<br>
-                        Top 5 på ligan kommer att dela på 135 RP (ratingpoäng) då ligan räknas samman (2019-12-13 <i>lucia</i>).
-                        Därefter kan fler RP delas ut vid andra arrangemang (ex. Swedish Open och MaskeradCouronnen).<br>
-                        Dock aldrig mer än max 300 ratingpoäng (RP) per säsong. Säsongerna räknas från lucia till lucia!
-
-                        <b><li>Rating:</b> Alla startar med rating 100 (eller 100 ratingpoäng (RP) som är samma sak!).<br>
-                            <ul><p><font color="green">Vinnst: </font><br>Du tjänar 1% av motståndarens rating, samtidigt förlorar motståndaren motsvarande rating.<br>
-                                Ex: Om motståndaren har 120 i rating tjänar du 1.2 ratingpoäng av denne.<br>
-                                <font color="red">Förlust: </font><br>Du förlorar 1% av din egen rating samtidigt som motståndaren tjänar motsvarande rating.<br>
-                                Ex: Om du har 80 i rating så förlorar du 0.8 ratingpoäng till motståndaren.<br><br>
-
-                                <font color="grey">Snittet:</font><br>Vunnen eller förlorad rating dividerat med antal matcher med start efter två spelade matcher.<br>
-                                Rörigt, men så är det! 
-                    </p></ul></ul>
-                    <abbr title="Om du vill tillbaka högst upp på sidan så klicka lite..."><a href="#Upp">↑</a></abbr>
-                     &nbsp;<a class="btn btn-outline-dark btn-sm" href="#"> Hem</a>
-                </div>
-
-<!----------------------------------------------------------------------------------------------------- FUSK FO --------------------------------->
-
-                <a name="FO"></a><br><br>
-                <div class="alert alert-danger "style="padding:10px;padding-bottom:1px;">
-                    <i><h6 style="text-align:left;">○ Fusk</h6></i>
-                    <ul><p>
-                        Om couronne.se misstänker fusk genom fejkkonto eller på annat sätt manupulering av Couronneligan eller couronne.se, 
-                        blir vederbörande först kontaktad. Därefter bedöms om möjlig varning eller avstängning.<br>  
-                        <b>Allt fusk och oegentligheter ska och kommer att beivras!</b><br>
-                        <span style="text-align:left; display: block;">
-                        <img src="http://www.wieistmeineip.de/ip-address/"width="150" height="120" alt="SKUMT..." /><br /></span>
-                       
-                    </p></ul>
-                    <abbr title="Tillbaka högst upp på denna sida..."><a href="#Upp">↑</a></abbr>
-                     &nbsp;<a class="btn btn-outline-dark btn-sm" href="#"> Hem</a>
-                </div>   
-
-<!----------------------------------------------------------------------------------------------------- OM OSS OM --------------------------------->
-
-                <a name="OM"></a><br><br>
-                <div class="alert alert-secondary "style="padding:10px;padding-bottom:1px;">
-                    <table>
-                    
-                    <i><h6 style="text-align:left;">○ Om oss</h6></i>
-                    
-                    <ul><p>
-                        <b><img  src="../../static/images/test.png" alt="Ups..." style="padding:1px;padding-bottom:1px;padding-top:1px"></b><br>
-                        (Ç) är en oberoende instans och således fri att försöka göra något bra av couronnespelandet i Sverige!<br>
-                        Viktigt för oss är att ALLA känner sig välkomna!<br>
-                        Alla spelar på samma vilkor. Inga ålder
-                        etnicitet, könsidentiteter eller annat attribut har någon betydelse.<br>
-                        Couronne är för oss ett "cafespel", där alla är välkomna och känner sig likvärdigt behandlade.<br>
-                        Ett spel där alla spelar mot alla och på samma vilkor helt enkelt.<br>
-
-                        I tuneringsspel kan naturligtvis ett handicapsystem användas för att öka intresset att deltaga.
-                    </p></ul>
-                    <abbr title="Tillbaka upp igen..."><a href="#Upp">↑</a></abbr>
-                     &nbsp;<a class="btn btn-outline-dark btn-sm" href="#"> Hem</a>
-                    </table>
-
-                    <a name="#"></a><br><br>
-                <ul><div class="alert alert-dark ">
-                    <i><h6 style="text-align:left;">○ Historia och Kuriosa</h6></i>
-                    <ul><p style="padding:10px;padding-bottom:1px;">
-                        Satt inför julen 2018 och knappade in couronne.se på google för jag tänkte köpa ett couronnespel...<br>
-                        Tänkte att jag stavat fel då google svarade att sidan inte fanns? Provade två gånger till innan jag förstod. Det är ingen som äger domännamnet
-                        couronne.se.<br>
-                        Jag som älskar couronne, är hantverkare (smed) samt bär på epitetet datanörd, signade naturligtvis upp domänen omgående.<br>
-                        Och på den vägen är det. 
-
-                    </p></ul>
-                    <abbr title="Upp upp upp... "><a href="#Upp">↑</a></abbr>
-                    
-                </div></ul>
-                </div>
-
-<!----------------------------------------------------------------------------------------------------- VILKOR V --------------------------------->
-
-                <a name="V"></a><br><br>
-                <div class="alert alert-info "style="padding:10px;">
-                    <i><h6 style="text-align:left;">○ Vilkor</h6></i>
-                    <ul><b>Allmänna villkor tillämpas.</b>
-                        <h5>Alla courunne.se:s medlemmar accepterar dessa vilkor.</h5>
+                    <a class="nav-item nav-link" href="{% url 'account_signup' %}">
+                        <h3 class="text-success">Win the Swedish Championship!</h3>
+                    <a  name="EVENT"></a>  
+                    <p class="text-success">Join the Couronne League and qualify for the Couronne SM!</p>
+                    <h2>👻 Ghost of the Month! </h2>
                     <p>
-                        <b>couronne.se (Ç)</b> <br> 
-                        (Ç) tolererar ingen diskriminering, samt god kutym gäller.<br>
-                        (Ç) har för avsikt att handla efter sunt förnuft. Inte genom krångliga regler eller stadgar.<br>
-                        (Ç) målsättning är ett fungerande system som kan utvecklas med tiden.<br>
-                        (Ç) kommer följa sedvanliga regler som är i riktlinje med lagar och förordingar i samhälle samt lagbok.<br>
-
-                    </p></ul>
-                    <abbr title="Lite tillbaka upp då da... 💫 "><a href="#Upp">↑</a></abbr>
-                    &nbsp;<a class="btn btn-outline-dark btn-sm" href="#"> Hem</a>
-                    
-
-                    <!--<abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
-                    <ul title="Tillbaka upp igen..."><a href="#Upp">↑</a></ul>
-                    <p title="Free Web tutorials">W3Schools.com</p>-->
-            </div>    
-        </div>    
+                        Is a player who excels in the Couronne League or otherwise should be praised! 
+                        The ghost of the month is not distributed every month, but only if a member stands out.
+                    </p>
+                </div>
+                <!----------------------------------------------------------------------------------------------------- EVENT TE --------------------------------->
+                <div class="alert alert-secondary ">
+                    <h5 >Event </h5>
+                    <p><b>Competitions & Events!</b> 
+                    <p class="text-success">The top 16 in the Coruonne League is seeded at the end of the season (<i> lucia </i>) and goes straight to the second round of the Couronne Swedish Championship !.
+                        The starting field in the Swedish Championships is intended for 32 players with a qualifier for the last 4 places.
+                        Top 16 seedas. League rankings 17-28 are ready for the Swedish Championship. Qualification for the last 4 places.
+                        The Swedish Championship will be launched (also a date and a place maybe ...)
+                        The planning of the Swedish open is underway and the starting field is planned for 64 players.
+                        <a name="FAQ"></a>                   
+                        Custom tournaments or home tournament results will be posted on the website. 
+                    </p>
+                    <p>Send us the results and we will post the event on the website!</p>
+                    </p>
+                    <a class="btn btn-outline-dark btn-sm" href="#"> Up</a>
+                </div>
+                <!----------------------------------------------------------------------------------------------------- FAQ FQ --------------------------------->     
+                <div class="alert alert-success ">
+                    <h5 >FAQ </h5>
+                    <p> Then you can create a "fake account" and give points / ratings to yourself?
+                        Correct, but all cheating is on logs that are checked continuously.
+                        Can you just play real couronne here, submit computer games?
+                        Just and just ... You never know what will happen in the future, but right now we are "only" investing in real couronne.</p>
+                        <a name="LEAGUE"></a>  
+                    <p> What are the dimensions of the sticks plutters and the table in couronne? 
+                        Queue for Couronne Games. Length 65 cm. Diameter: 11.5 mm Micki Couronne - 
+                        Material: Wood - Ring diameter: 34 mm - Ring hole diameter: 13 mm - 
+                        Colors: Red, yellow, green ... Masonite playing field, plastic rim. 
+                        Comes complete with rings and 2 queues. The game is 75 x 5 x 75 cm. From 3 years ... 
+                    </p>
+                    <a class="btn btn-outline-dark btn-sm" href="#"> Up</a>
+                </div>
+                <!----------------------------------------------------------------------------------------------------- LIGAN CL --------------------------------->
+                <div class="alert alert-secondary ">
+                    <h5 >League </h5>
+                    <p>
+                        The Couronneligan acts as <b> "master of the plot". </b>
+                         When registering, you start with a rating of 100 (or 100 rating points (RP) as some say and are the same thing!).
+                         The top 5 in the league will share 135 RP (rating points) when the league is added together (2019-12-13 <i> lucia </i>).
+                         After that, more RP can be awarded at other events (eg Swedish Open and MaskeradCouronnen).
+                         However, never more than a maximum of 300 rating points (RP) per season. The seasons count from Lucia to Lucia!
+                         <b> Rating: </b> Everyone starts with a rating of 100 (or 100 rating points (RP) which is the same thing!). 
+                    <p class="text-success"><strong>wins:</strong> You earn 1% of the opponent's rating, at the same time the opponent loses the corresponding rating.
+                        Ex: If the opponent has a rating of 120, you earn 1.2 rating points from him.
+                    </p>
+                    <p class="text-danger"><strong>Loss:</strong>  You lose 1% of your own rating while the opponent earns the corresponding rating.
+                        <a name="CHEATING"></a>  
+                    </p>    Ex: If you have 80 in rating, you lose 0.8 rating points to the opponent.  
+                    <p>    <font color="grey">Average: Won or lost rating divided by the number of matches starting after two matches played.
+                        Messy, but that's it!</font> 
+                    </p>
+                    <a class="btn btn-outline-dark btn-sm" href="#"> Up</a>
+                </div>
+                <!----------------------------------------------------------------------------------------------------- FUSK FO --------------------------------->
+                <div class="alert alert-danger ">
+                    <h5 >Fusk </h5>
+                    <p>
+                        If couronne.se suspects fraud through a fake account or in any other way manipulation of Couronneligan or couronne.se,
+                         the person in question is first contacted. Then a possible warning or shutdown is assessed.
+                         <b> All cheating and irregularities should and will be prosecuted! </b>
+                        <a name="ABOUT"></a>  
+                        <span >
+                        <img src="http://www.wieistmeineip.de/ip-address/"width="150" height="120" alt="SKUMT..." />
+                        </span>
+                    </p>
+                    <a class="btn btn-outline-dark btn-sm" href="#"> Up</a>
+                </div>
+                <!----------------------------------------------------------------------------------------------------- OM OSS OM --------------------------------->
+                <div class="alert alert-secondary ">
+                    <table>
+                        <h5 >About us</h5>
+                        <p>
+                            (Ç) is an independent body and thus free to try to do something good with the crown game in Sweden!
+                             It is important to us that EVERYONE feels welcome!
+                             Everyone plays on the same terms. No age
+                             ethnicity, gender identities or other attributes have any significance.
+                             <a name="HISTORY"></a>  
+                             Couronne is for us a "cafe game", where everyone is welcome and feels equally treated.
+                             A game where everyone plays against everyone and on the same terms quite simply.
+                             In tuning games, of course, a handicap system can be used to increase the interest in participating.
+                        </p>
+                        <a class="btn btn-outline-dark btn-sm" href="#"> Up</a>
+                    </table>
+                </div>
+                <div class="alert alert-dark ">
+                    <h5 >History and Curiosities</h5>
+                    <p >
+                        Sat before Christmas 2018 and typed couronne.se on google because I was thinking of buying a couronne game ...
+                         Thought I spelled it wrong when google replied that the page did not exist? Tried twice more before I understood. No one owns the domain name
+                         couronne.se.
+                         I who love couronne, am a craftsman (blacksmith) and carry the epithet computer nerd, of course signed up the domain immediately.
+                         And that's the way it is.
+                    </p>
+                    <a class="btn btn-outline-dark btn-sm" href="#"> Up</a> 
+                </div>
+                <!----------------------------------------------------------------------------------------------------- VILKOR V --------------------------------->
+                <a name="TERMS"></a>  
+                <div class="alert alert-info ">
+                    <h5 >Terms </h5>
+                    <b>General conditions apply.</b>
+                    <h5>All courunne.se members accept these terms.</h5>
+                    <p>
+                        <b>couronne.se (Ç)</b>
+                        <ul>
+                           
+                            <li>(Ç) does not tolerate discrimination, and good practice applies.</li>
+                            <li>(Ç) intends to act according to common sense. Not through complicated rules or statutes.</li>
+                            <li>(Ç) goal setting is a functioning system that can be developed over time.</li>
+                            <li>(Ç) will follow the usual rules that are in line with laws and ordinances in society and the law book.</li> 
+                        </ul>
+                    </p>
+                    <a class="btn btn-outline-dark btn-sm" href="#"> Up</a>
+                </div>
+            </div>
+        </div>
     </div>
-    
-</div>  
-
 </div>
-
-
 {% endblock %}
