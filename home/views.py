@@ -19,7 +19,7 @@ from .models import User, UserProfileInfo
 # The home page.
 def index(request):
     """ A view to return the index page """
-    all_objects = UserProfileInfo.objects.order_by('-ratingf')
+    all_objects = UserProfileInfo.objects.order_by('-ratingf') # Sort by The player total rating
     return render(request, 'home/index.html', {'all_objects': all_objects})
 
 # The All league page whit all registrated players
@@ -39,10 +39,11 @@ def reg_match(request):
     rf_sum = 0.0
     turn_one = 0
 
-    # function to check a player's highest ranking (only top 5 checked)  
+    # function to check a player's highest ranking (only top 5 checked)
+    # to give them an extra "variable" that is saved in DB
     for object_x in all_objects:
         if turn_one == 0:
-            one = object_x.user 
+            one = object_x.user   
             rating_one = object_x.ratingf 
             turn_one = turn_one + 1
             id_x = object_x.id
@@ -126,7 +127,7 @@ def edit(request):
     # Check if the user is trying to score points for himself
     searchWord = request.POST.get('search')
     if searchWord == user.username:
-        return HttpResponse("<br><br><h2><center><font color="'#d30f0f'"><h1> Ööööö!!!</h1> </font>Are you trying to score points for yourself ?! Big no no!<br><br> <a href=https://8000-lime-cod-wnrz8yeu.ws-eu16.gitpod.io/reg_match/> → Tillbaka ← </a></h2>")
+        return HttpResponse("<br><br><h2><center><font color="'#d30f0f'"><h1> Ööööö!!!</h1> </font>Are you trying to score points for yourself ?! Big no no!<br><br> <a href=https://8000-lime-cod-wnrz8yeu.ws-eu16.gitpod.io/reg_match/> → Back ← </a></h2>")
 
     # Check if the input is empty
     if searchWord == '':

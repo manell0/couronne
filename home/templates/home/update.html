@@ -76,15 +76,5 @@
         </div>
     </div>
 </div>
-<!--  Does not allow users to use the enter key because then modal is not activated -->
-<script>
-    $(document).ready(function() {
-    $(window).keydown(function(event){
-      if(event.keyCode == 13) {
-        event.preventDefault();
-        return false;
-      }
-    });
-  });
-</script>
+
 {% endblock %}

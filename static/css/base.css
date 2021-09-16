@@ -1,5 +1,7 @@
 html {
     height: 100%;
+    margin: 0px;
+    padding: 0px;
     
 }
 
@@ -10,9 +12,7 @@ body {
     color: #555;
     font-family: 'Prompt', sans-serif;
 }
-.pad-icon{
-    
-}
+
 .margins{
     margin: 1em;
 }
@@ -53,12 +53,18 @@ body {
 
 
 /*------------- Grid style  -------------*/
-.my-container{
+/*.my-container{
     
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
+    
+}*/
+
+.my-container{
+    
+    margin-top: 0px;
     
 }
 
@@ -66,9 +72,9 @@ body {
     border: 3px solid red;
 }
 
-/*.my-col{
+.my-col{
     border: 3px dotted blue;
-}*/
+}
 
 /*------------------  -------------*/
 .margin-down{
@@ -127,8 +133,8 @@ body {
 
 .font-little{
     font-size: 8px;
-    line-height: 6px;
-    padding-top: 5px;
+    line-height: 10px;
+    padding-top: 6px;
 }
 
 /* -------------------------------- Media Queries */
