@@ -38,7 +38,12 @@ class CreateCheckoutSessionView(View):
         product_id = self.kwargs["pk"]
         product = Product.objects.get(id=product_id)
 
-        YOUR_DOMAIN = "https://8000-lime-cod-wnrz8yeu.ws-eu16.gitpod.io/donate"  # Hmmm change in production
+        # ------------------------------------------------------------------------
+        # Lockal setting
+        # YOUR_DOMAIN = "https://8000-lime-cod-wnrz8yeu.ws-eu16.gitpod.io/donate"  # Hmmm change in production
+        # ------------------------------------------------------------------------
+        # Production setting
+        YOUR_DOMAIN = "https://manello-couronne.herokuapp.com/donate/"
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
             line_items=[
