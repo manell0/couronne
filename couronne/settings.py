@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     # My apps
     'home',
     'donate',
+    # Other
     'storages',
 ]   
 
@@ -177,7 +178,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-#  --------------------------------------------------------
+#  --------------------- AWS -----------------------------------
 if 'USE_AWS' in os.environ:
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'manello-couronne'
@@ -186,6 +187,7 @@ if 'USE_AWS' in os.environ:
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
+    
     # Static and media files
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
     STATICFILES_LOCATION = 'static'
