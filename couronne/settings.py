@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-r!^mqseqy5^!x%vlc7oa$^8w(=6n1_-w4@ni^#o5^_8fs8bc1c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
-
+# ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['manello-couronne.herokuapp.com', 'localhost']
 
 # Application definition
 
@@ -105,14 +105,28 @@ LOGIN_REDIRECT_URL = '/'
 WSGI_APPLICATION = 'couronne.wsgi.application'
 
 
-Database
-https://docs.djangoproject.com/en/3.2/ref/settings/#databasesDATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+#Database
+#https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+# -------------------------------------------------------
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+# -------------------------------------------------------
 
 
 
