@@ -374,10 +374,10 @@ def couronne_info(request):
     #EMAIL_USE_SSL = False
 
     send_mail(
-    'That’s your subject',
-    'That’s your message body',
+    'From Couronne',
+    'Here is all lovely text',
     'svanate.magnell@gmail.com',
-    ['svante.magnell@gmail.com'],
+    ['couronne@gmail.com'],
     fail_silently=False,
     )
     return render(request, 'home/couronne_info.html')

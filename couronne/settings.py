@@ -105,6 +105,8 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
+WSGI_APPLICATION = 'couronne.wsgi.application'
+
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # --------------------------------------------------------
 if 'DEVELOPMENT' in os.environ:
@@ -118,7 +120,7 @@ else:
     EMAIL_PORT = 587
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+    EMAIL_HOST_PASS = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
     # ACCOUNT_AUTHENTICATION_METHOD = False
     LOGIN_REDIRECT_URL = '/'
@@ -135,7 +137,7 @@ else:
     # LOGIN_REDIRECT_URL = '/'
 # --------------------------------------------------------
 
-WSGI_APPLICATION = 'couronne.wsgi.application'
+
 
 
 #Database
