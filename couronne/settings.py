@@ -107,36 +107,6 @@ LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'couronne.wsgi.application'
 
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# --------------------------------------------------------
-if 'DEVELOPMENT' in os.environ:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = 'couronne@example.com'
-
-    
-else:
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_USE_TLS = True
-    EMAIL_PORT = 587
-    EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-    EMAIL_HOST_PASS = os.environ.get('EMAIL_HOST_PASS')
-    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
-    # ACCOUNT_AUTHENTICATION_METHOD = False
-    LOGIN_REDIRECT_URL = '/'
-
-    # # ---------------------------------------------------    
-    # ACCOUNT_USERNAME_REQUIRED = False
-    # # -------------- ORGINAL ----------------------------
-    # ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-    # ACCOUNT_EMAIL_REQUIRED = True
-    # ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-    # ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
-    # ACCOUNT_USERNAME_MIN_LENGTH = 4
-    # LOGIN_URL = '/accounts/login/'
-    # LOGIN_REDIRECT_URL = '/'
-# --------------------------------------------------------
-
 
 
 
@@ -241,8 +211,43 @@ STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WEBHOOK_SECRET', '')
 
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# --------------------------------------------------------
+if 'DEVELOPMENT' in os.environ:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = 'couronne@example.com'
+
+    
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+    # ACCOUNT_AUTHENTICATION_METHOD = False
+    LOGIN_REDIRECT_URL = '/'
+
+    # # ---------------------------------------------------    
+    # ACCOUNT_USERNAME_REQUIRED = False
+    # # -------------- ORGINAL ----------------------------
+    # ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+    # ACCOUNT_EMAIL_REQUIRED = True
+    # ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+    # ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+    # ACCOUNT_USERNAME_MIN_LENGTH = 4
+    # LOGIN_URL = '/accounts/login/'
+    # LOGIN_REDIRECT_URL = '/'
+# --------------------------------------------------------
+
+
+
 #  --------------------------------------------------------
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
