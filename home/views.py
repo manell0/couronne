@@ -362,6 +362,24 @@ def change_game_flag(game_flag, request):
 
 # The couronne info page
 def couronne_info(request):
+
+    
+    #------------------------------
+    #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    #EMAIL_HOST = 'smtp.gmail.com'
+    #EMAIL_PORT: 587
+    #EMAIL_HOST_USER: 'svante.magnell@gmail.com'
+    #EMAIL_HOST_PASSWORD: 'tzcrxcpikyxbodsx'
+    #EMAIL_USE_TLS = True
+    #EMAIL_USE_SSL = False
+
+    send_mail(
+    'That’s your subject',
+    'That’s your message body',
+    'svanate.magnell@gmail.com',
+    ['svante.magnell@gmail.com'],
+    fail_silently=False,
+    )
     return render(request, 'home/couronne_info.html')
 
 # Resive email success

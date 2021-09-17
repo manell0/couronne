@@ -97,19 +97,21 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # --------------------------------------------------------
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'couronne@example.com'
 
-    ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-    ACCOUNT_EMAIL_REQUIRED = True
-    ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-    ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
-    ACCOUNT_USERNAME_MIN_LENGTH = 4
-    LOGIN_URL = '/accounts/login/'
-    LOGIN_REDIRECT_URL = '/'
+    
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
@@ -118,23 +120,20 @@ else:
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
-    ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-    ACCOUNT_EMAIL_REQUIRED = True
-    ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-    ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
-    ACCOUNT_USERNAME_MIN_LENGTH = 4
-    LOGIN_URL = '/accounts/login/'
+    # ACCOUNT_AUTHENTICATION_METHOD = False
     LOGIN_REDIRECT_URL = '/'
+
+    # # ---------------------------------------------------    
+    # ACCOUNT_USERNAME_REQUIRED = False
+    # # -------------- ORGINAL ----------------------------
+    # ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+    # ACCOUNT_EMAIL_REQUIRED = True
+    # ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+    # ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+    # ACCOUNT_USERNAME_MIN_LENGTH = 4
+    # LOGIN_URL = '/accounts/login/'
+    # LOGIN_REDIRECT_URL = '/'
 # --------------------------------------------------------
-
-
-#ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-#ACCOUNT_EMAIL_REQUIRED = True
-#ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-#ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
-#ACCOUNT_USERNAME_MIN_LENGTH = 4
-#LOGIN_URL = '/accounts/login/'
-#LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'couronne.wsgi.application'
 
