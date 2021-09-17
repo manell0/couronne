@@ -3,7 +3,28 @@
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
-        <div class="col"></div>
+        <div class="col">
+            {% if played_matches <= 2  %}
+            
+                <a class="btn btn-outline-dark btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Information about this site!
+                </a>
+                
+          
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <p>
+                        <strong>Couronne</strong>  is a website where you <a href="{% url 'home:register' %}">register</a> , 
+                        play a match couronne with your friend / opponent 
+                        and then report the result <a href="{% url 'home:reg_match' %}">here</a> on the couronne page!
+                        The <a href="{% url 'home:league_all' %}">League</a> functions as <strong>"King of the Hill"</strong> and the players 
+                        who are ranked highest have the privilege of participating in 
+                        selected <a href="couronne_info/#EVENT">tournaments and events!</a><br><p class="text-success">This information box stops appearing after you have registered two matches!</p>
+                    </p>
+                </div>
+              </div>
+            {% endif %}
+        </div>
     </div>
 </div>
 {% endblock %}
@@ -23,7 +44,7 @@
             <div class="col-md-6 col border-big">
                 <div class="row ">
                     <div class="col bg-info text-white ">
-                        <h4 class="bg-dark padding-text margins border">Join The League!</h4>
+                        <h4 class="bg-dark padding-text margins border">Join The League !</h4>
                     </div>
                 </div>
                 <p><strong class="text-dark">Join the Couronne league!</strong> now and get 
@@ -87,9 +108,12 @@
                 </h5>
             </div>
             <div class="col-md-6 text-center">
-                <h4>
+                
                     <a href="{% url 'home:reg_match' %}" class="shop-now-button btn btn-sm rounded 0 text-uppercase py-3">Register Match</a>
-                </h4>
+                    
+              
+                    
+                  
             </div>
             <!-- Modal -->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

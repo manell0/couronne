@@ -19,8 +19,17 @@ from .models import User, UserProfileInfo
 # The home page.
 def index(request):
     """ A view to return the index page """
-    all_objects = UserProfileInfo.objects.order_by('-ratingf') # Sort by The player total rating
-    return render(request, 'home/index.html', {'all_objects': all_objects})
+    all_objects = UserProfileInfo.objects.order_by('-ratingf') # Sort by The player total rating (ratingf = total rating points)
+
+    played_matches = 0
+    for user in all_objects:
+        if str(request.user) == str(user):
+            played_matches = user.rating
+    
+    
+        
+
+    return render(request, 'home/index.html', {'all_objects': all_objects, 'played_matches': played_matches})
 
 # The All league page whit all registrated players
 def league_all(request):
