@@ -226,11 +226,12 @@ else:
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
-    # ACCOUNT_AUTHENTICATION_METHOD = False
     LOGIN_REDIRECT_URL = '/'
 
     # # ---------------------------------------------------    
+    # ACCOUNT_AUTHENTICATION_METHOD = False
     # ACCOUNT_USERNAME_REQUIRED = False
+    
     # # -------------- ORGINAL ----------------------------
     # ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
     # ACCOUNT_EMAIL_REQUIRED = True
