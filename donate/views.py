@@ -98,10 +98,10 @@ def stripe_webhook(request):
         product = Product.objects.get(id=product_id)
 
         send_mail(
-            subject="Here is your product",
+            subject="Couronne thanks for the donation!",
             message=f"Thanks for your donate. Here comes a fun memory game as a thank you!. The URL is {product.url}",
             recipient_list=[customer_email],
-            from_email="couronne@test.com"
+            from_email="svante.magnell@hotmail.com"
         )
 
     return HttpResponse(status=200)
