@@ -45,11 +45,12 @@
                         {% csrf_token %}    
                         <input id="search" name="search" type="text" class="query-search" Placeholder="Winner's name here ...">
                         <h6 class="font-size-small" id='one'>Only registered users are updated!</h6>
-                        <input class="btn btn-outline-dark btn-sm"type="submit" value="Register match">
+                        <input class="btn btn-lg btn-outline-dark bg-warning"type="submit" value="Register match">
                     </form>
                 </div>
                 
-                <a class="btn btn-outline-dark btn-sm" href="javascript:history.back()"> ← Back </a>
+                <a class="btn btn-outline-dark btn-sm border-danger" href="javascript:history.back()"> ← BACK </a>
+                <a class="btn btn-outline-dark btn-sm border-info" href="{% url 'home:home' %}"> ← HOME </a>
             </div>
         </div>
     </div>
