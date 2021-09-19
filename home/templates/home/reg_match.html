@@ -4,6 +4,7 @@
 <div class="container header-container">
     <div class="row">
         <div class="col">
+            {% if played_matches <= 2  %}
             <p>
                 <a class="btn btn-outline-dark btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                     Match registration information 
@@ -12,13 +13,17 @@
               </p>
               <div class="collapse" id="collapseExample">
                 <div class="card card-body">
-                    To register a match, enter the name of the person who won the match. 
-                    It is thus the loser who needs to humble himself and register the match. 
-                    Keep in mind that the player's name you enter is case-sensitive. 
-                    Once you have entered the name of the winner, 
-                    you will be redirected to a page where you verify by clicking the done button!
+                    <p>
+                        <strong>To register a match</strong> , enter the name of the person who won the match. 
+                        It is thus the loser who needs to humble himself and register the match. 
+                        <strong class="text-danger">Keep in mind that the player's name you enter is case-sensitive.</strong>  
+                        Once you have entered the name of the winner, 
+                        you will be redirected to a page where you verify by clicking the done button!
+                    </p>
+                    <p class="text-success">This information box stops appearing after you have registered three matches!</p>
                 </div>
               </div>
+            {% endif %}  
         </div>
     </div>
 </div>

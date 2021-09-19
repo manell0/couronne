@@ -55,14 +55,14 @@
                                     Won: <b>{{ person.antal_vunna }}</b>
                                     Average: <b>{{ person.snitt|floatformat:3 }}</b>
                                     <p class="text-success font-size-small"><b>Rating: {{ person.ratingf|floatformat:3 }}</b></p>
-                                </div>
-                                <hr>
-                                <table>
-                                    <div class="float-right text-secondary ">
+                                    <div class="float-right text-secondary p-1">
                                         <h6 class="font-size-small">Last logIn: {{ user.last_login }}</h6>
                                         <h6 class="font-size-small">You Joined: {{ user.date_joined }}</h6>
                                     </div>
-                                </table>
+                               
+                                </div>
+                                <hr>
+                               
                                 {% endif %}  
                             {% endfor %}
                         {% endif %}  

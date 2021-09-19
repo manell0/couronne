@@ -41,6 +41,15 @@ def league_all(request):
 def reg_match(request):
     user = request.user
     all_objects = UserProfileInfo.objects.order_by('-ratingf') # ratingf is your total rating score
+
+    #-------------------------------------------------------
+    # Gets a variable so I can remove the info button on the page after two registered matches.
+    played_matches = 0
+    for user in all_objects:
+        if str(request.user) == str(user):
+            played_matches = user.rating
+    #-------------------------------------------------------
+
     profile = UserProfileInfo.objects.all()
     profile_len = len(profile)
     now = datetime.datetime.now()
@@ -115,6 +124,7 @@ def reg_match(request):
             flag.save()
 
     return render(request, 'home/reg_match.html',{'all_objects':all_objects,
+                                                        'played_matches':played_matches,
                                                         'profile':profile,
                                                          'rf_sum':rf_sum,
                                                          'one':one,
@@ -141,15 +151,10 @@ def edit(request):
     # Check if the input is empty
     if searchWord == '':
         return HttpResponseRedirect('/reg_match/')
-    
-
     user_profile_info = UserProfileInfo.objects.all()
+
     for object_x in user_profile_info:
-        # if object_x.user == searchWord and object_x.game_flag == True:
-        #     print('if object_x.user == searchWord and object_x.game_flag == True:1')
-        #     print('- searchWord: ' , searchWord)
-        #     print('- object_x.game_flag: ' , searchWord)
-            
+
         if str(searchWord) == str(object_x.user) and user != object_x.user and user == request.user:
             print('if str(searchWord) == str(object_x.user) and user != object_x.user and user == request.user:2')
             i_opponent = object_x.id
@@ -413,6 +418,8 @@ def register(request):
     # they will be forwarded to update the profile page
     profile = UserProfileInfo.objects.all()
     user = request.user
+
+    
 
     for user_profile_info in profile:
         if str(user_profile_info) == str(user):
