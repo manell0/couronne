@@ -373,39 +373,33 @@ def contact_us(request):
             subject = form.cleaned_data['subject']
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
+            message =  'Couronne will get back to you soon. Your Message: ' + message
             try:
                 send_mail(subject, message, from_email, ['couronne@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             successView(from_email, subject, message)
             return redirect('/succes_contact_us')
-    # return render(request, "./email.html", {'form': form})
-    # ------------------------------------------------------
+    
     return render(request, 'home/contact_us.html', {'form': form})
-# --------------------------------------------------------------
-# --------------------------------------------------------------
-# --------------------------------------------------------------
-# --------------------------------------------------------------
-# --------------------------------------------------------------
+
 
 # The couronne info page
 def couronne_info(request):
-    # ------------------------------------------------------
 
- 
     return render(request, 'home/couronne_info.html')
 
 # Resive email success
 def succes_contact_us(request):
     return render(request, 'home/succes_contact_us.html')
 
+# when user contact us we get a mail
 def successView(from_email, subject, message):
     sender = from_email
     from_email = 'svante.magnell@gmail.com'
 
     send_mail( subject, message, from_email,  [sender])
-    print(from_email, subject, message)
-    #return HttpResponse("<br><br><h2><center><font color="'green'"><h1> Tack för ditt meddelande</h1> Vi åtrkommer snarast<br><br> <a href=http://127.0.0.1:8000/> → Tillbaka ← </a></font></h2>")
+    
 
 def user_login(request):
     return HttpResponseRedirect('/accounts/login')
