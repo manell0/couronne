@@ -45,7 +45,10 @@ class UserMatchFormOpponent(forms.ModelForm):
         model = User
         fields = ['first_name']
 
+
 class ContactForm(forms.Form):
-    from_email = forms.EmailField(required=True)
-    subject = forms.CharField(required=True)
-    message = forms.CharField(widget=forms.Textarea, required=True)
+    
+    from_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'myfieldclass myfieldclass-small myfieldclass-medium', 'placeholder': 'Email'}), label='')  
+    subject = forms.CharField(widget=forms.TextInput(attrs={'class': 'myfieldclass myfieldclass-small myfieldclass-medium', 'placeholder': 'Subject'}), label='')  
+    message = forms.CharField(widget=forms.Textarea(attrs={'class': 'myfieldclass myfieldclass-small myfieldclass-medium', 'placeholder': 'Message'}), label='')  
+    

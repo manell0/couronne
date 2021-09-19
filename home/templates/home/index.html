@@ -2,7 +2,10 @@
 {% load static %}
 {% block page_header %}
 <div class="container header-container">
+   
     <div class="row">
+        
+        
         <div class="col">
             {% if played_matches <= 2  %}
             
@@ -29,15 +32,7 @@
 </div>
 {% endblock %}
 {% block content %}
-{% if messages %}
-{% for message in messages %}
-<div class="alert alert-light">
-    <div class="alert alert-success text-center" role="alert">
-        {{ message }} 
-    </div>
-</div>
-{% endfor %}
-{% endif %}   
+ 
 <div class="container">
     <div class="row bg-light">
         <div class="row bg-light border-big">
@@ -140,4 +135,13 @@
         </div>
     </div>
 </div>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-light">
+    <div class="alert alert-success text-center" role="alert">
+        {{ message }} 
+    </div>
+</div>
+{% endfor %}
+{% endif %}  
 {% endblock %}

@@ -359,31 +359,51 @@ def change_game_flag(game_flag, request):
                 flag.game_flag = True
             flag.save()
     return game_flag
+# ------------------------------------------------------
+# ------------------------------------------------------
+# ------------------------------------------------------
+# ------------------------------------------------------
+
+def contact_us(request):
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, from_email, ['svante.magnell@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            successView(subject, from_email, message)
+            return redirect('/succes_contact_us')
+    # return render(request, "./email.html", {'form': form})
+    # ------------------------------------------------------
+    return render(request, 'home/contact_us.html', {'form': form})
+# --------------------------------------------------------------
+# --------------------------------------------------------------
+# --------------------------------------------------------------
+# --------------------------------------------------------------
+# --------------------------------------------------------------
 
 # The couronne info page
 def couronne_info(request):
+    # ------------------------------------------------------
 
-    
-    #------------------------------
-    #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    #EMAIL_HOST = 'smtp.gmail.com'
-    #EMAIL_PORT: 587
-    #EMAIL_HOST_USER: 'svante.magnell@gmail.com'
-    #EMAIL_HOST_PASSWORD: 'tzcrxcpikyxbodsx'
-    #EMAIL_USE_TLS = True
-    #EMAIL_USE_SSL = False
-
-    send_mail(
-    'From Couronne',
-    'Here is all lovely text',
-    'svanate.magnell@gmail.com',
-    ['couronne@gmail.com'],
-    fail_silently=False,
-    )
+ 
     return render(request, 'home/couronne_info.html')
 
 # Resive email success
-def successView(request):
+def succes_contact_us(request):
+    return render(request, 'home/succes_contact_us.html')
+
+def successView(*args):
+    for x in args:
+        print(x)
+    return args
+    #print(request, from_email, message)
     return HttpResponse("<br><br><h2><center><font color="'green'"><h1> Tack för ditt meddelande</h1> Vi åtrkommer snarast<br><br> <a href=http://127.0.0.1:8000/> → Tillbaka ← </a></font></h2>")
 
 def user_login(request):

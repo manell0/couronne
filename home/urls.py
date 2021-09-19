@@ -14,4 +14,6 @@ urlpatterns = [
     path('user_login/',views.user_login, name="user_login"),
     path('profile/',views.profile, name="profile"),
     path('league_all/',views.league_all, name="league_all"),
+    path('contact_us/',views.contact_us, name="contact_us"),
+    path('succes_contact_us/',views.succes_contact_us, name="succes_contact_us"),
 ]

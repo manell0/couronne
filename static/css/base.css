@@ -33,6 +33,15 @@ body {
     
     padding-left: 1em;
 } 
+/*------------------ Forms -------------*/
+
+
+.myfieldclass{
+    
+    width: 820px;
+    background-color: whitesmoke;
+    color: black
+}
 
 /*------------------ Colors -------------*/
 .color-transparent{
@@ -164,8 +173,11 @@ body {
     .header-container {
         padding-top: 180px;
     }
+    .hideing-small{
+        display: none;
+        }
 }
-@media (max-width: 992px){
+/*@media (max-width: 992px){
     .hideing{
     display: none;
     }
@@ -177,11 +189,41 @@ body {
     display: none;
     }
     
+}*/
+/* --------- FORMS --------- */
+@media (max-width: 992px) {
+    .myfieldclass-medium{
+        
+        max-width: 550px;
+        background-color: whitesmoke;
+        color: black
+    }
+    .hideing{
+        display: none;
+        }
 }
 
+@media (max-width: 768px) {
+    .myfieldclass-medium{
+        
+        max-width: 350px;
+        background-color: whitesmoke;
+        color: black
+    }
+}
+
+@media (max-width: 440px) {
+    .myfieldclass-small{
+        
+        width: 200px;
+        background-color: whitesmoke;
+        color: black
+    }
+
+}
 @media (max-width: 440px){
     .hides{
-    display: none;
+        display: none;
     }
     .font-size-small{
         font-size: 8px;
@@ -189,7 +231,9 @@ body {
     .font-size-smallest{
         font-size: 5px;
     }
+    
 }
+
 
 /* Media Query HEIGHT*/
 @media (max-height: 350px){
