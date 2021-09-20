@@ -26,4 +26,6 @@ urlpatterns = [
     path('', include('home.urls')),
     path('donate/', include('donate.urls')),
     
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404="home.views.wrong_404"

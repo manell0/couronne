@@ -2,53 +2,57 @@
 {% load static %}
 
 {% block page_header %}
-    
+
 <div class="container header-container">
-    <div class="row">
-        <div class="col">
-            <p>
-              
-             
-                <a class="btn btn-outline-dark btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Information About Venue/Club:
-                </a>
-                
-              </p>
-              <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    <p> Here you have the opportunity to see results from only your own Club <span class="text-success"><strong>{{ club }}</strong> </span>. 
-                        Everyone who has registered with the same Venue/Club as you are is shown here.
-                    </p>
-                    <p>
-                        <strong>Update your profile with a venue/club </strong><a href="{% url 'home:profile' %}">here...</a>
-                    </p>
-  
-                </div>
-              </div>
+  <div class="row">
+    <div class="col">
+      <p>
+
+
+        <a class="btn btn-outline-dark btn-sm" data-toggle="collapse" href="#collapseExample" role="button"
+          aria-expanded="false" aria-controls="collapseExample">
+          Information About Venue/Club:
+        </a>
+
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <p> Here you have the opportunity to see results from only your own Club <span
+              class="text-success"><strong>{{ club }}</strong> </span>.
+              Everyone who has registered with the same Venue/Club as you are is shown here.
+            <strong class="text-danger">Keep in mind that the Venue/Club name you enter is case-sensitive.</strong>
+          </p>
+          <p>
+            <strong>Update your profile with a venue/club </strong><a href="{% url 'home:profile' %}">here...</a>
+          </p>
+
         </div>
+      </div>
     </div>
   </div>
+</div>
 {% endblock %}
 
 {% block content %}
 
 <div class="container">
   <div class="row">
-      <div class="col">
-      <div class="jumbotron">   
+    <div class="col">
+      <div class="jumbotron">
         <div class="alert alert-dark">
           <div class="alert alert-light">
-            <h4 id='two'>{{ club }} Results</h4>  
-                {% if club %}
-                
+            <h4 id='two'>{{ club }} Results</h4>
+            {% if club %}
 
-                {% else %}
-                <span class="text-danger"><strong> Does not belong to any Club</strong></span>
-                <span class="text-dark">Join or start a new Venue/Club <a href="{% url 'home:profile' %}"></span> here...</a> 
 
-                {% endif %}
+            {% else %}
+            <span class="text-danger"><strong> Does not belong to any Club</strong></span>
+            <span class="text-dark">Join or start a new Venue/Club <a href="{% url 'home:profile' %}"></span>
+            here...</a>
+
+            {% endif %}
           </div>
-        {% if all_objects %}
+          {% if all_objects %}
           <table class="table table-striped text-right font-size-small">
             <th class="text-left">Player</th>
             <th class="hides">Played</th>
@@ -56,7 +60,7 @@
             <th>Average</th>
             <th>Rating</th>
             {% for person in all_objects %}
-                {% if person.club_location == club %}
+            {% if person.club_location == club %}
 
             <tr>
               <td class="text-left">{{ forloop.counter }}. {{ person.user }}</td>
@@ -69,17 +73,18 @@
             {% endif %}
             {% endfor %}
           </table>
-        {% endif %}
+          {% endif %}
         </div>
         <div class="text-center">
           <a class="btn btn-outline-dark btn-sm border-danger" href="javascript:history.back()"> ← BACK </a>
           <a class="btn btn-outline-dark btn-sm border-info" href="{% url 'home:home' %}"> ← HOME </a>
-      </div>      </div>      
+        </div>
+      </div>
       <script src="{% static 'js/color_change.js' %}"></script>
-      </div>
-      </div>
+    </div>
+  </div>
 
-      </div>
+</div>
 {% endblock %}
 
 

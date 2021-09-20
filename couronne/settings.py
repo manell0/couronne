@@ -29,6 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = 'DEVELOPMENT' in os.environ
 # DEBUG = True
 
+
 # ALLOWED_HOSTS = ['localhost']
 ALLOWED_HOSTS = ['manello-couronne.herokuapp.com', 'localhost']
 

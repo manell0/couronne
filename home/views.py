@@ -31,6 +31,10 @@ def index(request):
 
     return render(request, 'home/index.html', {'all_objects': all_objects, 'played_matches': played_matches})
 
+
+def wrong_404(request, exception):
+    return render(request, 'home/404.html')
+
 # The All league page whit all registrated players
 def league_all(request):
      all_objects = UserProfileInfo.objects.order_by('-ratingf')
