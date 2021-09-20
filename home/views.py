@@ -41,9 +41,11 @@ def league_all(request):
      return render(request, 'home/league_all.html', {'all_objects':all_objects})
 
 # The Club league page whit all registrated players who registered the same club
+@login_required
 def league_club(request):
     all_objects = UserProfileInfo.objects.order_by('-ratingf')
 
+    
     for user in all_objects:
         if str(request.user) == str(user):
             club = user.club_location
