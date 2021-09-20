@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block page_header %}
 <div class="container header-container">
    
@@ -32,7 +33,7 @@
 </div>
 {% endblock %}
 {% block content %}
- 
+
 <div class="container">
     <div class="row bg-light">
         <div class="row bg-light border-big">
@@ -120,9 +121,11 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            This links should go to an e-commerce page where you can buy AND sell stuff 
+                            <img src="{{ MEDIA_URL }}lanches.jpg" alt="favosdf adf">
+                            <p> This links should go to an e-commerce page where you can buy AND sell stuff 
                             that has to do with <strong> Couronne! <br> <br> Unfortunately</strong>, the e-commerce site is 
                             not ready yet but it is underway in the near future!
+                        </p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -143,4 +146,5 @@
 </div>
 {% endfor %}
 {% endif %}  
+
 {% endblock %}
