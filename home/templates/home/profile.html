@@ -55,7 +55,7 @@
                                     Won: <b>{{ person.antal_vunna }}</b>
                                     Average: <b>{{ person.snitt|floatformat:3 }}</b>
                                     <p class="text-success font-size-small"><b>Rating: {{ person.ratingf|floatformat:3 }}</b></p>
-                                    <div class="float-right text-secondary p-1">
+                                    <div class="float-right text-secondary p-1 col-md-7">
                                         <h6 class="font-size-small">Last logIn: {{ user.last_login }}</h6>
                                         <h6 class="font-size-small">You Joined: {{ user.date_joined }}</h6>
                                     </div>
@@ -66,8 +66,10 @@
                                 {% endif %}  
                             {% endfor %}
                         {% endif %}  
-                        <a class="btn btn-outline-dark btn-sm" href="javascript:history.back()"> ← Back </a>
-                        <a class="btn btn-outline-dark btn-sm" href="{% url 'home:couronne_info' %}">Info</a>
+                        <div class="text-center col-md-5">
+                            <a class="btn btn-outline-dark btn-sm border-danger" href="javascript:history.back()"> ← BACK </a>
+                            <a class="btn btn-outline-dark btn-sm border-success" href="{% url 'home:home' %}">HOME</a>
+                        </div>
                 </div>
             </div>
         </div>
