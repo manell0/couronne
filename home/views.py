@@ -31,6 +31,8 @@ def index(request):
 
     return render(request, 'home/index.html', {'all_objects': all_objects, 'played_matches': played_matches})
 
+def rules_story(request):
+    return render(request, 'home/rules_story.html')
 
 def wrong_404(request, exception):
     return render(request, 'home/404.html')
@@ -162,7 +164,7 @@ def edit(request):
     # Check if the user is trying to score points for himself
     searchWord = request.POST.get('search')
     if searchWord == user.username:
-        return HttpResponse("<br><br><h2><center><font color="'#d30f0f'"><h1> Ööööö!!!</h1> </font>Are you trying to score points for yourself ?! Big no no!<br><br> <a href=https://8000-lime-cod-wnrz8yeu.ws-eu16.gitpod.io/reg_match/> → Back ← </a></h2>")
+        return HttpResponse("<br><br><h2><center><font color="'#d30f0f'"><h1> Ööööö!!!</h1> </font>Are you trying to score points for yourself ?! Big no no!<br><br> <a href=https:../reg_match/> → Back ← </a></h2>")
 
     # Check if the input is empty
     if searchWord == '':

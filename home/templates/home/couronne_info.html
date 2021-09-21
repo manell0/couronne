@@ -4,20 +4,15 @@
 <div class="container header-container">
     <div class="row">
         <div class="col">
-
-                       
-
         </div>
     </div>
 </div>
 {% endblock %}
 {% block content %}
-
-
 <div class="container my-container">
     <div class="row">
         <div class="col">
-            <!--------------------------------------------------------------------------------------- INFORMATION  ---------------------------->
+            <!------------------ INFORMATION  ---------------------------->
             <a  name="SM"></a>
             <div class="alert alert-dark">
                 <div class="alert alert-secondary">
@@ -28,7 +23,6 @@
                             <button id="btnGroupDrop1" type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Navigate
                             </button>
-                            
                             <div class="dropdown-menu font-size-height" aria-labelledby="btnGroupDrop1">
                                 <a class="dropdown-item" href="#EVENT">Event</a>
                                 <a class="dropdown-item" href="#FAQ">FAQ</a>
@@ -41,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <!-----------------------------------------------------------------------------------------------------   GÅ MED OCH VINN SM  -->
+                <!-----------------  Ghost of the Month  -->
                 <div class="alert alert-dark">
                     <a class="nav-item nav-link" href="{% url 'account_signup' %}">
                         <h3 class="text-success">Win the Swedish Championship!</h3>
@@ -53,66 +47,72 @@
                         The ghost of the month is not distributed every month, but only if a member stands out.
                     </p>
                 </div>
-                <!----------------------------------------------------------------------------------------------------- EVENT TE --------------------------------->
+                <!----------------------------- EVENT --------------------------------->
                 <div class="alert alert-secondary ">
                     <h5 >Event </h5>
                     <p><b>Competitions & Events!</b> 
+                        <h4>Swedish Championships 2022-01-15!</h4>
                     <p class="text-success">The top 16 in the Coruonne League is seeded at the end of the season (<i> lucia </i>) and goes straight to the second round of the Couronne Swedish Championship !.
                         The starting field in the Swedish Championships is intended for 32 players with a qualifier for the last 4 places.
                         Top 16 seedas. League rankings 17-28 are ready for the Swedish Championship. Qualification for the last 4 places.
-                        The Swedish Championship will be launched (also a date and a place maybe ...)
-                        The planning of the Swedish open is underway and the starting field is planned for 64 players.
-                        <a name="FAQ"></a>                   
-                        Custom tournaments or home tournament results will be posted on the website. 
                     </p>
-                    <p>Send us the results and we will post the event on the website!</p>
+                    <p>
+                        Planning of the Swedish open is underway and the starting field is planned for 64 players.
+                        <a name="FAQ"></a>                   
+                    </p>
+                    <p>
+                        <strong>Custom tournaments</strong>  or home tournament results will be posted on the website. 
+                        Send us the results and we will post the event on the website! <a href="{% url 'home:contact_us' %}">here...</a> </p>
                     </p>
                     <a class="btn btn-outline-dark btn-sm" href="#"> Up</a>
                 </div>
-                <!----------------------------------------------------------------------------------------------------- FAQ FQ --------------------------------->     
+                <!---------------- FAQ --------------------------------->     
                 <div class="alert alert-success ">
                     <h5 >FAQ </h5>
                     <p> Then you can create a "fake account" and give points / ratings to yourself?
-                        Correct, but all cheating is on logs that are checked continuously.
-                        Can you just play real couronne here, submit computer games?
-                        Just and just ... You never know what will happen in the future, but right now we are "only" investing in real couronne.</p>
-                        <a name="LEAGUE"></a>  
+                    <p> <strong> Correct, but all cheating is on logs that are checked continuously.</strong></p></p>
+                    <p> Can you just play real couronne here, no computer games?
+                    <p><strong> Just and just ... You never know what will happen in the future, but right now we are "only" investing in real couronne.</strong></p></p>
+                    
+                    <a name="LEAGUE"></a>  
                     <p> What are the dimensions of the sticks plutters and the table in couronne? 
-                        Queue for Couronne Games. Length 65 cm. Diameter: 11.5 mm Micki Couronne - 
+                    <p> <strong>Queue for Couronne Games. Length 65 cm. Diameter: 11.5 mm Micki Couronne - 
                         Material: Wood - Ring diameter: 34 mm - Ring hole diameter: 13 mm - 
                         Colors: Red, yellow, green ... Masonite playing field, plastic rim. 
-                        Comes complete with rings and 2 queues. The game is 75 x 5 x 75 cm. From 3 years ... 
+                        Comes complete with rings and 2 queues. The game is 75 x 5 x 75 cm. From 3 years ...</strong> </p></p>
                     </p>
                     <a class="btn btn-outline-dark btn-sm" href="#"> Up</a>
                 </div>
-                <!----------------------------------------------------------------------------------------------------- LIGAN CL --------------------------------->
+                <!----------------- LEAGUE --------------------------------->
                 <div class="alert alert-secondary ">
                     <h5 >League </h5>
                     <p>
                         The Couronneligan acts as <b> "King of the Hill". </b>
-                         When registering, you start with a rating of 100 (or 100 rating points (RP) as some say and are the same thing!).
-                         The top 5 in the league will share 135 RP (rating points) when the league is added together (2019-12-13 <i> lucia </i>).
-                         After that, more RP can be awarded at other events (eg Swedish Open and MaskeradCouronnen).
-                         However, never more than a maximum of 300 rating points (RP) per season. The seasons count from Lucia to Lucia!
-                         <b> Rating: </b> Everyone starts with a rating of 100 (or 100 rating points (RP) which is the same thing!). 
+                        When registering, you start with a rating of 100 (or 100 rating points (RP) as some say and are the same thing!).
+                        The top 5 in the league will share 135 RP (rating points) when the league is added together (2021-12-13 <i> lucia </i>).
+                        After that, more RP can be awarded at other events (eg Swedish Open and MaskeradCouronnen).
+                        However, never more than a maximum of 300 rating points (RP) per season. The seasons count from Lucia to Lucia!
+                        <b> Rating: </b> Everyone starts with a rating of 100 (or 100 rating points (RP) which is the same thing!). 
+                    <h5 >Points/Rating </h5>
                     <p class="text-success"><strong>wins:</strong> You earn 1% of the opponent's rating, at the same time the opponent loses the corresponding rating.
                         Ex: If the opponent has a rating of 120, you earn 1.2 rating points from him.
                     </p>
                     <p class="text-danger"><strong>Loss:</strong>  You lose 1% of your own rating while the opponent earns the corresponding rating.
                         <a name="CHEATING"></a>  
-                    </p>    Ex: If you have 80 in rating, you lose 0.8 rating points to the opponent.  
+                    </p>
+                    Ex: If you have 80 in rating, you lose 0.8 rating points to the opponent.  
                     <p>    <font color="grey">Average: Won or lost rating divided by the number of matches starting after two matches played.
                         Messy, but that's it!</font> 
                     </p>
                     <a class="btn btn-outline-dark btn-sm" href="#"> Up</a>
                 </div>
-                <!----------------------------------------------------------------------------------------------------- FUSK FO --------------------------------->
+                <!--------------- CHEATING--------------------------------->
                 <div class="alert alert-danger ">
                     <h5 >Cheating </h5>
                     <p>
                         If couronne.se suspects fraud through a fake account or in any other way manipulation of Couronne League or couronne.se,
-                         the person in question is first contacted. Then a possible warning or shutdown is assessed.
-                         <b> All cheating and irregularities should and will be prosecuted! </b>
+                        the person in question is first contacted. Then a possible warning or shutdown is assessed.
+                        <b> All cheating and irregularities should and will be prosecuted! </b>
                         <a name="ABOUT"></a>  
                         <span >
                         <img src="http://www.wieistmeineip.de/ip-address/"width="150" height="120" alt="SKUMT..." />
@@ -120,19 +120,19 @@
                     </p>
                     <a class="btn btn-outline-dark btn-sm" href="#"> Up</a>
                 </div>
-                <!----------------------------------------------------------------------------------------------------- OM OSS OM --------------------------------->
+                <!------------------ ABOUT US --------------------------------->
                 <div class="alert alert-secondary ">
                     <table>
                         <h5 >About us</h5>
                         <p>
                             (Ç) is an independent body and thus free to try to do something good with the crown game in Sweden!
-                             It is important to us that EVERYONE feels welcome!
-                             Everyone plays on the same terms. No age
-                             ethnicity, gender identities or other attributes have any significance.
-                             <a name="HISTORY"></a>  
-                             Couronne is for us a "cafe game", where everyone is welcome and feels equally treated.
-                             A game where everyone plays against everyone and on the same terms quite simply.
-                             In tuning games, of course, a handicap system can be used to increase the interest in participating.
+                            It is important to us that EVERYONE feels welcome!
+                            Everyone plays on the same terms. No age
+                            ethnicity, gender identities or other attributes have any significance.
+                            <a name="HISTORY"></a>  
+                            Couronne is for us a "cafe game", where everyone is welcome and feels equally treated.
+                            A game where everyone plays against everyone and on the same terms quite simply.
+                            In tuning games, of course, a handicap system can be used to increase the interest in participating.
                         </p>
                         <a class="btn btn-outline-dark btn-sm" href="#"> Up</a>
                     </table>
@@ -141,14 +141,14 @@
                     <h5 >History and Curiosities</h5>
                     <p >
                         Sat before Christmas 2018 and typed couronne.se on google because I was thinking of buying a couronne game ...
-                         Thought I spelled it wrong when google replied that the page did not exist? Tried twice more before I understood. No one owns the domain name
-                         couronne.se.
-                         I who love couronne, am a craftsman (blacksmith) and carry the epithet computer nerd, of course signed up the domain immediately.
-                         And that's the way it is.
+                        Thought I spelled it wrong when google replied that the page did not exist? Tried twice more before I understood. No one owns the domain name
+                        couronne.se.
+                        I who love couronne, am a craftsman (blacksmith) and carry the epithet computer nerd, of course signed up the domain immediately.
+                        And that's the way it is.
                     </p>
                     <a class="btn btn-outline-dark btn-sm" href="#"> Up</a> 
                 </div>
-                <!----------------------------------------------------------------------------------------------------- VILKOR V --------------------------------->
+                <!---------------- TERMS --------------------------------->
                 <a name="TERMS"></a>  
                 <div class="alert alert-info ">
                     <h5 >Terms </h5>
@@ -156,20 +156,19 @@
                     <h5>All courunne.se members accept these terms.</h5>
                     <p>
                         <b>couronne.se (Ç)</b>
-                        <ul>
-                           
-                            <li>(Ç) does not tolerate discrimination, and good practice applies.</li>
-                            <li>(Ç) intends to act according to common sense. Not through complicated rules or statutes.</li>
-                            <li>(Ç) goal setting is a functioning system that can be developed over time.</li>
-                            <li>(Ç) will follow the usual rules that are in line with laws and ordinances in society and the law book.</li> 
-                        </ul>
+                    <ul>
+                        <li>(Ç) does not tolerate discrimination, and good practice applies.</li>
+                        <li>(Ç) intends to act according to common sense. Not through complicated rules or statutes.</li>
+                        <li>(Ç) goal setting is a functioning system that can be developed over time.</li>
+                        <li>(Ç) will follow the usual rules that are in line with laws and ordinances in society and the law book.</li>
+                    </ul>
                     </p>
                     <a class="btn btn-outline-dark btn-sm" href="#"> Up</a>
                 </div>
                 <div class="text-center">
                     <a class="btn btn-outline-dark btn-sm border-danger" href="javascript:history.back()"> ← BACK </a>
                     <a class="btn btn-outline-dark btn-sm border-info" href="{% url 'home:home' %}"> ← HOME </a>
-            </div>
+                </div>
             </div>
         </div>
     </div>

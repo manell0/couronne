@@ -38,43 +38,42 @@
                 {{user}}
             </div>
             <div id="myDiv">
-            <form enctype="multipart/form-data" method="POST">
-                {% csrf_token %}
-                {{ upp_form.as_ul }}
-                {{ profile_form.as_ul }}
-                <br>
-                <a class="btn btn-outline-dark"  href="javascript:history.back()"> ← Back </a>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModalCenter">
-                Update
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title text-danger" id="exampleModalLongTitle"> Are you sure you want to update? </h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                The update takes effect immediately and no more verifications are made! 
-                                <br><br>
-                                The password you enter here is updated and becomes your new password, so be careful ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <input class="btn btn-outline-dark" type="submit" name="" value="Update">
+                <form enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    {{ upp_form.as_ul }}
+                    {{ profile_form.as_ul }}
+                    <br>
+                    <a class="btn btn-outline-dark"  href="javascript:history.back()"> ← Back </a>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModalCenter">
+                    Update
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-danger" id="exampleModalLongTitle"> Are you sure you want to update? </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    The update takes effect immediately and no more verifications are made! 
+                                    <br><br>
+                                    The password you enter here is updated and becomes your new password, so be careful ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <input class="btn btn-outline-dark" type="submit" name="" value="Update">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
             </div>
             {% endif %}
         </div>
     </div>
 </div>
-
 {% endblock %}

@@ -10,34 +10,27 @@
 {% block content %}
 <div class="container">
     <div class="jumbotron">
-      
-            <div class="alert alert-dark ">
-                {% if registered and reg %}
-                <h1>Updated and ready!</h1>
-                <meta http-equiv="REFRESH" content="{% url 'home:home' %}">
-                {% elif registered %}
-                <h1>Thank you for registering!</h1>
-                <a class="nav-item nav-link" href="{% url 'account_login' %}">&#128566 Login</a>   
-                {% else %}
-                <h4>Register here</h4>
-                
-                <form enctype="multipart/form-data" method="POST">
-                    {% csrf_token %}
-                    {{ user_form.as_ul }}
-                    <!--{{ profile_form.as_table }} -->
-                    <!--<input type="submit" name="" value="Register">-->
-                    <br>
-                    <a class="btn btn-outline-dark"  href="javascript:history.back()"> ← Tillbaka </a>
-                    <input class="btn btn-outline-dark" type="submit" name="" value="Register">
-                    
-                    <!--<h5>Din rating startar på: 100</h5>-->
-                </form>
-              
-                {% endif %}
-            </div>
-            
-       
+        <div class="alert alert-dark ">
+            {% if registered and reg %}
+            <h1>Updated and ready!</h1>
+            <meta http-equiv="REFRESH" content="{% url 'home:home' %}">
+            {% elif registered %}
+            <h1>Thank you for registering!</h1>
+            <a class="nav-item nav-link" href="{% url 'account_login' %}">&#128566 Login</a>   
+            {% else %}
+            <h4>Register here</h4>
+            <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                {{ user_form.as_ul }}
+                <!--{{ profile_form.as_table }} -->
+                <!--<input type="submit" name="" value="Register">-->
+                <br>
+                <a class="btn btn-outline-dark"  href="javascript:history.back()"> ← Tillbaka </a>
+                <input class="btn btn-outline-dark" type="submit" name="" value="Register">
+                <!--<h5>Din rating startar på: 100</h5>-->
+            </form>
+            {% endif %}
+        </div>
     </div>
 </div>
-
 {% endblock %}

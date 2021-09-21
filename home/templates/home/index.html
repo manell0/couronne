@@ -1,21 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
 <div class="container header-container">
-   
     <div class="row">
-        
-        
         <div class="col">
             {% if played_matches <= 2  %}
-            
-                <a class="btn btn-outline-dark btn-sm " data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Information about this site!
-                </a>
-                
-          
-              <div class="collapse" id="collapseExample">
+            <a class="btn btn-outline-dark btn-sm " data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Information about this site!
+            </a>
+            <div class="collapse" id="collapseExample">
                 <div class="card card-body">
                     <p>
                         <strong>Couronne</strong>  is a website where you <a href="{% url 'home:register' %}">register</a> , 
@@ -24,17 +17,16 @@
                         The <a href="{% url 'home:league_all' %}">League</a> functions as <strong>"King of the Hill"</strong> and the players 
                         who are ranked highest have the privilege of participating in 
                         selected <a href="couronne_info/#EVENT">tournaments and events!</a><br>
-                        <p class="text-success"><strong> This information box stops appearing after you have registered three matches!</strong></p>
+                    <p class="text-success"><strong><u> This information box stops appearing after you have registered three matches!</u></strong></p>
                     </p>
                 </div>
-              </div>
+            </div>
             {% endif %}
         </div>
     </div>
 </div>
 {% endblock %}
 {% block content %}
-
 <div class="container">
     <div class="row bg-light">
         <div class="row bg-light border-big">
@@ -45,9 +37,9 @@
                     </div>
                 </div>
                 <p><strong class="text-dark">Join the Couronne league!</strong> now and get 
-                    the chance to participate in the Couronne World Championships!<br><a href="{% url 'home:register' %}">Register here ...</a>
+                    the chance to participate in the Couronne Swedish Championships!
+                    <br><a href="{% url 'home:register' %}">Register here ...</a>
                 </p>
-               
                 <hr>
                 <div  class="col">
                     <h3 class="text-brown">Launches! &#128495;</h3>
@@ -100,17 +92,12 @@
             </div>
             <div class="alert alert-light col-md-6" >
                 <h2><a href="couronne_info/#SM">Ghost of the Month 👻</a></h2>
-                <h5>The ghost of the month is the player who...
+                <h5>The ghost of the month is the player who...</h5>
                     <a href="couronne_info/#SM">Read more here...</a>
-                </h5>
+                
             </div>
             <div class="col-md-6 text-center">
-                
-                    <a href="{% url 'home:reg_match' %}" class="shop-now-button btn btn-sm rounded 0 text-uppercase py-3">Register Match</a>
-                    
-              
-                    
-                  
+                <a href="{% url 'home:reg_match' %}" class="shop-now-button btn btn-sm rounded 0 text-uppercase py-3">Register Match</a>
             </div>
             <!-- Modal -->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -125,9 +112,9 @@
                         <div class="modal-body">
                             <img src="{{ MEDIA_URL }}lanches.jpg" alt="couronne table">
                             <p> This links should go to an e-commerce page where you can buy AND sell stuff 
-                            that has to do with <strong> Couronne! <br> <br> Unfortunately</strong>, the e-commerce site is 
-                            not ready yet but it is underway in the near future!
-                        </p>
+                                that has to do with <strong> Couronne! <br> <br> Unfortunately</strong>, the e-commerce site is 
+                                not ready yet but it is underway in the near future!
+                            </p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -148,5 +135,4 @@
 </div>
 {% endfor %}
 {% endif %}  
-
 {% endblock %}

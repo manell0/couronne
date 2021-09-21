@@ -7,11 +7,10 @@
             {% if played_matches <= 2  %}
             <p>
                 <a class="btn btn-outline-dark btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Match registration information 
+                Match registration information 
                 </a>
-                
-              </p>
-              <div class="collapse" id="collapseExample">
+            </p>
+            <div class="collapse" id="collapseExample">
                 <div class="card card-body">
                     <p>
                         <strong>To register a match</strong> , enter the name of the person who won the match. 
@@ -20,25 +19,20 @@
                         Once you have entered the name of the winner, 
                         you will be redirected to a page where you verify by clicking the done button!
                     </p>
-                    <p class="text-success"><strong>This information box stops appearing after you have registered three matches!</strong></p>
+                    <p class="text-success"><u><strong>This information box stops appearing after you have registered three matches!</strong></u></p>
                 </div>
-              </div>
+            </div>
             {% endif %}  
         </div>
     </div>
 </div>
 {% endblock %}
-
-
 {% block content %}
-    
-    {% if user.is_authenticated %}
-
-    
-    <div class="container ">
-        <div class="alert alert-dark border-big">
-            <div class="row ">
-                <div class="col-md-12 text-center">
+{% if user.is_authenticated %}
+<div class="container ">
+    <div class="alert alert-dark border-big">
+        <div class="row ">
+            <div class="col-md-12 text-center">
                 <h2 id='colors' class="text-dark text-center alert-warning border border-secondary">Register Result</h2>
                 <div  class="alert alert-warning ">
                     <form action="{% url 'home:edit' %}" method="post">
@@ -48,14 +42,12 @@
                         <input class="btn btn-lg btn-outline-dark  bg-warning"type="submit" value="Register match">
                     </form>
                 </div>
-                
                 <a class="btn btn-outline-dark btn-sm border-danger" href="javascript:history.back()"> ← BACK </a>
                 <a class="btn btn-outline-dark btn-sm border-info" href="{% url 'home:home' %}"> ← HOME </a>
             </div>
         </div>
     </div>
-    </div>
-    
-    <script src="{% static 'js/color_change.js' %}"></script>       
-    {%endif%}
+</div>
+<script src="{% static 'js/color_change.js' %}"></script>       
+{%endif%}
 {% endblock %}
