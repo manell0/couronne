@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_header %}
+<!-- Preparing to add things above block content -->
 <div class="container header-container">
     <div class="row">
         <div class="col"></div>
@@ -14,8 +15,9 @@
             <div class="jumbotron">
                 <div class="alert alert-dark">
                     <div class="alert alert-light">
-                        <h4 id='two'>Couronne League </h4>
+                        <h4>Couronne League All</h4>
                     </div>
+                    <!-- List all the players in rising order -->
                     {% if all_objects %}
                     <table class="table table-striped text-right font-size-small">
                         <th class="text-left">Player</th>
@@ -40,7 +42,6 @@
                     <a class="btn btn-outline-dark btn-sm border-info" href="{% url 'home:home' %}"> ← HOME </a>
                 </div>
             </div>
-            <script src="{% static 'js/color_change.js' %}"></script>
         </div>
     </div>
 </div>

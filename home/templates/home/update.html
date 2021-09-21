@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_header %}
+<!-- information drop down button with information about the update process. -->
 <div class="container header-container">
     <div class="row">
         <div class="col">
@@ -24,6 +25,7 @@
 <div class="container">
     <div class="jumbotron">
         <div class="alert alert-dark ">
+            <!-- Check if the update process is done and be redirected to the login section -->
             {% if registered and reg %}
             <h3>Update complete.</h3>
             <a href="{% url 'home:user_login' %}" class="nav-link main-logo-link">
@@ -43,12 +45,12 @@
                     {{ upp_form.as_ul }}
                     {{ profile_form.as_ul }}
                     <br>
-                    <a class="btn btn-outline-dark"  href="javascript:history.back()"> ← Back </a>
+                    <a class="btn btn-outline-dark border-danger"  href="javascript:history.back()"> ← Back </a>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModalCenter">
                     Update
                     </button>
-                    <!-- Modal -->
+                    <!-- Modal to verify the update. -->
                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">

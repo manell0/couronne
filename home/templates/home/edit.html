@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-
+<!-- Preparing to add things above block content -->
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -10,24 +10,26 @@
 {% endblock %}
 
 {% block content %}
+<!-- Landing page after register result of a match -->
   {% if user.is_authenticated %}
     <div class="panel panel-primary halfOpacity">
       <div class="jumbotron">
-        <div class="alert alert-dark"style="padding:10px;">
-          <div class="alert alert-light"style="padding:10px;">
+        <div class="alert alert-dark">
+          <div class="alert alert-light">
             <div class="alert alert-light text-center border-secondary" role="alert">
               <h5>{{ searchWord }} Won against {{ user }}</h5> 
               <h6 class="text-danger">The result cannot be changed or deleted!</h6>
             </div>
-            <center><h5 id='colors'>Match result</h5>
-            <div class="alert alert-success"style="padding:10px;">
+            <center><h5>Match result</h5>
+            <div class="alert alert-success">
+              <!-- Form for use in veiws -->
               <form method="post" action="{% url 'home:edit' %}">
                 <center>{{ searchWord }}: <thead><tr><th><font color="green"> <b></font> </th>
                 <td> <font color="green"> ⇧ {{ sum_pro|floatformat:3 }}</b></font> </td> </td></tr></thead>
             </div> 
             <center><font color="green"> <b> ⇧ </b></font><a class="btn btn-outline-dark" href="{% url 'home:reg_match' %}"> Done! </a><font color="red"> <b> ⇩ </b></font></center>
             <br> 
-            <div class="alert alert-danger"style="padding:10px;"> 
+            <div class="alert alert-danger"> 
               {{ user.username }}:<thead><tr><th><font color="red"> <b></font> </th><td> <font color="red"> ⇩ {{ sum_pro|floatformat:3 }}</b> </td></tr></thead></font></center>
                 <p class="text-center">You lost against: <font color="green"><b>{{ searchWord }}</b></green> 😡 </p>
               {% csrf_token %}

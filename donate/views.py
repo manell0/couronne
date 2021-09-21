@@ -8,7 +8,8 @@ from django.http import JsonResponse, HttpResponse
 from django.views import View
 from .models import Product
 
-
+# Class based view, copied from stripe
+# https://stripe.com/docs/payments/checkout
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
@@ -38,10 +39,6 @@ class CreateCheckoutSessionView(View):
         product_id = self.kwargs["pk"]
         product = Product.objects.get(id=product_id)
 
-        # ------------------------------------------------------------------------
-        # Lockal setting
-        # YOUR_DOMAIN = "https://8000-lime-cod-wnrz8yeu.ws-eu16.gitpod.io/donate"  # Hmmm change in production
-        # ------------------------------------------------------------------------
         # Production setting
         YOUR_DOMAIN = "https://manello-couronne.herokuapp.com/donate"
         checkout_session = stripe.checkout.Session.create(

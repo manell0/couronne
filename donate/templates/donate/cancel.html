@@ -1,29 +1,29 @@
 {% extends "base.html" %}
 {% load static %}
-
-
 {% block page_header %}
+<!-- Preparing to add things above block content -->
 <div class="container header-container">
     <div class="row">
         <div class="col"></div>
     </div>
 </div>
 {% endblock %} 
- 
-
 {% block content %}
+<!-- Landing page if donation goes wrong -->
 <div class="container ">
     <div class="alert alert-dark ">
         <div class="row bg-light">
             <div class="col-md-12 text-center">
-           <h2 class="text-danger">Donation Denyed?</h2>
-           <p>Ups, donation denyed, go back and try again!</p> 
-        </div>
-        <div class="col-md-12 text-center">
-            <h4><a href="{% url 'landing-page' %}" >	
-                &#129044;Back</a></h4>
+                <h2 class="text-danger">Donation Denyed?</h2>
+                <p>Ups, donation denyed, go back and try again!</p>
+            </div>
+            <div class="col-md-12 text-center">
+                <h4>
+                <a href="{% url 'landing-page' %}" >	
+                <a class="btn btn-outline-dark btn-sm border-danger" href="javascript:history.back()"> ← BACK </a>
+                <a class="btn btn-outline-dark btn-sm border-info" href="{% url 'home:home' %}"> ← HOME </a>
+            </div>
         </div>
     </div>
-</div>
 </div>
 {% endblock %}

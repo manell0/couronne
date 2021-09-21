@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_header %}
+<!-- Preparing to add things above block content -->
 <div class="container header-container">
     <div class="row">
         <div class="col">
@@ -87,6 +88,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="text-center margins">
+        <a class="btn btn-outline-dark btn-sm border-danger" href="javascript:history.back()"> ← BACK </a>
+        <a class="btn btn-outline-dark btn-sm border-info" href="{% url 'home:home' %}"> ← HOME </a>
+        <hr>
     </div>
 </div>
 {% endblock %}

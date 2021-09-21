@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_header %}
+<!-- information drop down button, shows until the registered user
+has registered three matches -->
 <div class="container header-container">
     <div class="row">
         <div class="col">
@@ -28,13 +30,18 @@
 </div>
 {% endblock %}
 {% block content %}
+<!-- Only registered players have access to the reg match page.
+If the user is not registered, he will be redirected to the sign in page -->
 {% if user.is_authenticated %}
 <div class="container ">
     <div class="alert alert-dark border-big">
         <div class="row ">
             <div class="col-md-12 text-center">
-                <h2 id='colors' class="text-dark text-center alert-warning border border-secondary">Register Result</h2>
+                <h2 class="text-dark text-center alert-warning border border-secondary">Register Result</h2>
                 <div  class="alert alert-warning ">
+                    <!-- Form to get a value to compare with in the database. 
+                        In views Checks if the entry is empty, 
+                        misspelled or if user enters their own name. -->
                     <form action="{% url 'home:edit' %}" method="post">
                         {% csrf_token %}    
                         <input id="search" name="search" type="text" class="query-search" Placeholder="Winner's name here ...">
@@ -42,6 +49,7 @@
                         <input class="btn btn-lg btn-outline-dark  bg-warning"type="submit" value="Register match">
                     </form>
                 </div>
+                <!-- Back and Home buttons -->
                 <a class="btn btn-outline-dark btn-sm border-danger" href="javascript:history.back()"> ← BACK </a>
                 <a class="btn btn-outline-dark btn-sm border-info" href="{% url 'home:home' %}"> ← HOME </a>
             </div>

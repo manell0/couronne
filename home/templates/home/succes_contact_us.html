@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_header %}
+<!-- Preparing to add things above block content -->
 <div class="container header-container">
     <div class="row">
         <div class="col"></div>
     </div>
 </div>
 {% endblock %}
+<!-- Landing Page for contact us (When the user sent us a e-mail) -->
 {% block content %}
 <div class="container">
     <div class="row">
@@ -21,7 +23,6 @@
                         <a class="btn btn-outline-dark btn-sm" href="{% url 'home:home' %}"> ← Home </a>
                     </div>
                 </div>
-                <script src="{% static 'js/color_change.js' %}"></script>
             </div>
         </div>
     </div>

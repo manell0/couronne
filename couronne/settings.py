@@ -27,7 +27,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
-# DEBUG = True
 
 
 # ALLOWED_HOSTS = ['localhost']
@@ -43,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Are used by the social account app to create the proper callback URLs
-    #  when connecting via social media accounts.
+    # when connecting via social media accounts.
     'django.contrib.sites',  # see above.
     'allauth',
     'allauth.account',
@@ -78,9 +77,9 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', # required by allauth
+                'django.template.context_processors.request',  # required by allauth
                 'django.contrib.auth.context_processors.auth',
-                'django.template.context_processors.media', #
+                'django.template.context_processors.media',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
@@ -109,11 +108,8 @@ LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'couronne.wsgi.application'
 
-
-
-
-#Database
-#https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+# Database
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
@@ -126,15 +122,6 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-# -------------------------------------------------------
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-# -------------------------------------------------------
-
 
 
 # Password validation
@@ -194,7 +181,6 @@ if 'USE_AWS' in os.environ:
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
-    
     # Static and media files
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
     STATICFILES_LOCATION = 'static'
@@ -204,22 +190,19 @@ if 'USE_AWS' in os.environ:
     # Override static and media URLs in production
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-#  --------------------------------------------------------
 
 # Stripe
-
 STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WEBHOOK_SECRET', '')
 
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # --------------------------------------------------------
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'couronne@example.com'
 
-    
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
@@ -230,27 +213,8 @@ else:
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
     LOGIN_REDIRECT_URL = '/'
 
-    # # ---------------------------------------------------    
-    # ACCOUNT_AUTHENTICATION_METHOD = False
-    # ACCOUNT_USERNAME_REQUIRED = False
-    
-    # # -------------- ORGINAL ----------------------------
-    # ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-    # ACCOUNT_EMAIL_REQUIRED = True
-    # ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-    # ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
-    # ACCOUNT_USERNAME_MIN_LENGTH = 4
-    # LOGIN_URL = '/accounts/login/'
-    # LOGIN_REDIRECT_URL = '/'
-# --------------------------------------------------------
-
-
-
 #  --------------------------------------------------------
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-
-
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

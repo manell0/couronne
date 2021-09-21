@@ -1,9 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block extra_meta %}
+{% endblock %}
+
 {% block page_header %}
+<!-- information drop down button, shows until the registered user
+has registered three matches -->
 <div class="container header-container">
     <div class="row">
         <div class="col">
+            <!-- three match logic -->
             {% if played_matches <= 2  %}
             <a class="btn btn-outline-dark btn-sm " data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
             Information about this site!
@@ -13,7 +20,7 @@
                     <p>
                         <strong>Couronne</strong>  is a website where you <a href="{% url 'home:register' %}">register</a> , 
                         play a match couronne with your friend / opponent 
-                        and then report the result <a href="{% url 'home:reg_match' %}">here</a> on the couronne page!
+                        and then report the  <a href="{% url 'home:reg_match' %}">result here</a> on the couronne page!
                         The <a href="{% url 'home:league_all' %}">League</a> functions as <strong>"King of the Hill"</strong> and the players 
                         who are ranked highest have the privilege of participating in 
                         selected <a href="couronne_info/#EVENT">tournaments and events!</a><br>
@@ -27,6 +34,7 @@
 </div>
 {% endblock %}
 {% block content %}
+<!-- Two colums with stuff on the site -->
 <div class="container">
     <div class="row bg-light">
         <div class="row bg-light border-big">
@@ -69,6 +77,7 @@
                         <h4 class="bg-dark padding-text margins border text-white"><a class="text-white" href="{% url 'home:league_all' %}" data-toggle="tooltip" data-placement="bottom" title="See all the players in Couronne league...">League Top 5</a> </h4>
                     </div>
                 </div>
+                <!-- Table shows top 5 couronne players -->
                 {% if all_objects %}
                 <table class="table table-striped text-right font-size-small">
                     <th class="text-left">Player</th>
@@ -90,8 +99,9 @@
                 </table>
                 {% endif %}
             </div>
+            <!-- Advertising and link to couronne info page -->
             <div class="alert alert-light col-md-6" >
-                <h2><a href="couronne_info/#SM">Ghost of the Month 👻</a></h2>
+                <h2><a href="couronne_info/#SM"> Ghost of the Month 👻</a></h2>
                 <h5>The ghost of the month is the player who...</h5>
                     <a href="couronne_info/#SM">Read more here...</a>
                 
@@ -110,8 +120,8 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <img src="{{ MEDIA_URL }}lanches.jpg" alt="couronne table">
-                            <p> This links should go to an e-commerce page where you can buy AND sell stuff 
+                            <img src="{{ MEDIA_URL }}lanches.jpg" width="250px" alt="couronne table">
+                            <p><strong> This</strong> links should go to an <strong> e-commerce</strong> page where you can buy AND sell stuff 
                                 that has to do with <strong> Couronne! <br> <br> Unfortunately</strong>, the e-commerce site is 
                                 not ready yet but it is underway in the near future!
                             </p>
@@ -126,6 +136,7 @@
         </div>
     </div>
 </div>
+<!-- Message in bottom of the page -->
 {% if messages %}
 {% for message in messages %}
 <div class="alert alert-light">

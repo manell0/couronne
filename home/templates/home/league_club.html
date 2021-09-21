@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_header %}
+<!-- information drop down button, shows until the registered user
+has registered three matches -->
 <div class="container header-container">
     <div class="row">
         <div class="col">
@@ -33,8 +35,9 @@
             <div class="jumbotron">
                 <div class="alert alert-dark">
                     <div class="alert alert-light">
+                        <!-- Logic to list only members hwo is in same club as you -->
                         {% if club %}
-                        <h4 id='two' class="text-success">{{ club }}</h4>
+                        <h4 class="text-dark">Venue/Club:</h4> <h5><span class="text-success">{{ club }}</span></h5>
                         {% else %}
                         <span class="text-danger"><strong> Does not belong to any Club</strong></span>
                         <span class="text-dark">Join or start a new Venue/Club <a href="{% url 'home:profile' %}"></span>
@@ -63,11 +66,11 @@
                     {% endif %}
                 </div>
                 <div class="text-center">
+                    <!-- Back and home buttons -->
                     <a class="btn btn-outline-dark btn-sm border-danger" href="javascript:history.back()"> ← BACK </a>
                     <a class="btn btn-outline-dark btn-sm border-info" href="{% url 'home:home' %}"> ← HOME </a>
                 </div>
             </div>
-            <script src="{% static 'js/color_change.js' %}"></script>
         </div>
     </div>
 </div>

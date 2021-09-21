@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_header %}
+<!-- Preparing to add things above block content -->
 <div class="container header-container">
     <div class="row">
         <div class="col">
@@ -8,19 +9,21 @@
     </div>
 </div>
 {% endblock %}
-{% block content %}
+{% block content %} 
 <div class="container ">
     <div class="alert alert-dark border-big">
         <div class="row ">
             <div class="col-md-12 text-center">
-                <h2 id='colors' class="text-dark text-center alert-success border border-secondary">Contact Us</h2>
+                <h2 class="text-dark text-center alert-success border border-secondary">Contact Us</h2>
                 <div  class="alert alert-light ">
+                    <!-- Contact form -->
                     <form method="post">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button type="submit" class="btn btn-secondary text-right">Send</button>
                     </form>
                 </div>
+                <!-- Back and Home buttons -->
                 <a class="btn btn-outline-dark btn-sm border-danger" href="javascript:history.back()"> ← BACK </a>
                 <a class="btn btn-outline-dark btn-sm border-info" href="{% url 'home:home' %}"> ← HOME </a>
             </div>
