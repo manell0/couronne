@@ -28,4 +28,5 @@ urlpatterns = [
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+# For the 404 page to work
 handler404="home.views.wrong_404"

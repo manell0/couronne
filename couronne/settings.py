@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'donate',
     # Other
     'storages',
-]   
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

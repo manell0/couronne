@@ -70,9 +70,6 @@ def reg_match(request):
             played_matches = user.rating
 
     profile = UserProfileInfo.objects.all()
-    # profile_len = len(profile)
-    now = datetime.datetime.now()
-    # date = now.date()
     rf_sum = 0.0
     turn_one = 0
 
@@ -80,7 +77,7 @@ def reg_match(request):
     # to give them an extra "variable" that is saved in DB
     for object_x in all_objects:
         if turn_one == 0:
-            one = object_x.user   
+            one = object_x.user
             rating_one = object_x.ratingf
             turn_one = turn_one + 1
             id_x = object_x.id
@@ -113,7 +110,7 @@ def reg_match(request):
             rating_four = object_x.ratingf
             turn_one = turn_one + 1
             id_x = object_x.id
-            match = UserProfileInfo.objects.get(id=id_x)         
+            match = UserProfileInfo.objects.get(id=id_x)
             match.matcher = 'Top plac 4:a'
             if object_x.matcher != 'Top plac 1:a' and object_x.matcher != 'Top plac 2:a' and object_x.matcher != 'Top plac 3:a':
                 match.save()
@@ -134,7 +131,7 @@ def reg_match(request):
             # flag is a game flag (boolean) for check if a player is activated for match play
             # flag sets to true
             id_x = object_x.id
-            flag = UserProfileInfo.objects.get(id=id_x)         
+            flag = UserProfileInfo.objects.get(id=id_x)
             flag.game_flag = True
             flag.save()
 
@@ -165,9 +162,10 @@ def edit(request):
     if searchWord == user.username:
         return HttpResponse("<br><br><h2><center><font color="'#d30f0f'"><h1> Ööööö!!!</h1> </font>Are you trying to score points for yourself ?! Big no no!<br><br> <a href=https:../reg_match/> → Back ← </a></h2>")
 
-    # Check if the input is empty
-    if searchWord == '':
+    # Check if the input is empty and not admin
+    if searchWord == '' or searchWord == 'admin':
         return HttpResponseRedirect('/reg_match/')
+
     user_profile_info = UserProfileInfo.objects.all()
 
     for object_x in user_profile_info:
@@ -186,9 +184,6 @@ def edit(request):
                 if user == object_xx.user:
                     i_opponent = object_xx.id
 
-                    #opp_snitt = object_x.snitt # HERE IS DB VARIABLE snitt = average opp = oponent
-                    #pro_snitt = object_xx.snitt # HERE IS DB VARIABLE snitt = average pro = your profile
-
                     average_profile = profile.snitt
                     average_profile = opponent.snitt
 
@@ -198,13 +193,13 @@ def edit(request):
                         for object_x in all_objects:
                             if object_x.user == request.user and profile.game_flag == True:
                                 id_x = object_x.id
-                                flag = UserProfileInfo.objects.get(id=id_x)   
+                                flag = UserProfileInfo.objects.get(id=id_x)
                                 game_flag = object_x.game_flag
                                 flag.game_flag = False
                                 sum_pro = profile.ratingf * 0.01
 
                                 if profile.rating == 0 and opponent.rating == 0:
-                                    average_profile = (profile.ratingf - 101) / (profile.rating  + 1 )
+                                    average_profile = (profile.ratingf - 101) / (profile.rating + 1)
                                     average_profile = (opponent.ratingf - 99) / (opponent.rating + 1)
                                     opponent.save()
                                     profile.save()
@@ -243,7 +238,7 @@ def edit(request):
                                 date = now.date()
                                 # The players leatest match
                                 opponent.match_uppdate = ' Won Against: ' + str(profile) + ' ￪ ' + str(date) + ' 🤩 '
-                                profile.match_uppdate = ' Lost Against: ' + str(opponent) + ' ￬ ' + str(date) + ' 😡 ' 
+                                profile.match_uppdate = ' Lost Against: ' + str(opponent) + ' ￬ ' + str(date) + ' 😡 '
                                 flag.save()
                                 opponent.save()
                                 profile.save()
@@ -254,17 +249,15 @@ def edit(request):
                     user_match_form = UserMatchForm(instance=user)
                     user_match_form_opponent = UserMatchFormOpponent()
 
-                    # searchWord = ''
                     sum_pro = profile.ratingf * 0.01
-                    return render(request,'home/edit.html',
-                          {'user_match_form':user_match_form,
-                          'user_match_form_opponent':user_match_form_opponent,
-                          'searchWord':searchWord,
-                          'all_objects':all_objects,
-                          'sum_pro':sum_pro,
-                          'user':user,
-                          'average_profile':average_profile,
-                          'average_profile':average_profile})
+                    return render(request, 'home/edit.html',
+                          {'user_match_form': user_match_form,
+                          'user_match_form_opponent': user_match_form_opponent,
+                          'searchWord': searchWord,
+                          'all_objects': all_objects,
+                          'sum_pro': sum_pro,
+                          'user': user,
+                          'average_profile': average_profile})
 
     if request.method == 'POST':
         return HttpResponseRedirect('/reg_match/')
@@ -334,22 +327,16 @@ def update(request):
 # The profile page where you can see your profile and update
 @login_required
 def profile(request):
-    # user = request.user
     all_objects = UserProfileInfo.objects.order_by('-ratingf')
     profile = UserProfileInfo.objects.all()
-    # profile_len = len(profile)
 
-    # now = datetime.datetime.now()
-    # date = now.date() 
-    # rf_sum = 0.0
-    # turn_one = 0
-    
     return render(request, 'home/profile.html', {'all_objects': all_objects,
                                                         'profile': profile,
                                                          })
+
+
 # Function for set the game flag for a user
 def change_game_flag(game_flag, request):
-    
     user= request.user
     user_profile_info = UserProfileInfo.objects.all()
     # If we have a user
@@ -360,9 +347,8 @@ def change_game_flag(game_flag, request):
                 if object_x.user == request.user:
                     id_x = object_x.id
                     user_profile_info = object_x.user
-                    f = object_x.game_flag
-                    
-            flag = UserProfileInfo.objects.get(id=id_x)         
+
+            flag = UserProfileInfo.objects.get(id=id_x)
             if flag.game_flag == True:
                 flag.game_flag = False
             else:
@@ -371,7 +357,7 @@ def change_game_flag(game_flag, request):
     return game_flag
 
 
-# Contact page where user can send mail to couronne 
+# Contact page where user can send mail to couronne
 def contact_us(request):
     if request.method == 'GET':
         form = ContactForm()
@@ -388,7 +374,7 @@ def contact_us(request):
                 return HttpResponse('Invalid header found.')
             successView(from_email, subject, message)
             return redirect('/succes_contact_us')
-    
+
     return render(request, 'home/contact_us.html', {'form': form})
 
 
@@ -397,9 +383,11 @@ def couronne_info(request):
 
     return render(request, 'home/couronne_info.html')
 
+
 # Resive email success
 def succes_contact_us(request):
     return render(request, 'home/succes_contact_us.html')
+
 
 # when user contact us we get a mail
 def successView(from_email, subject, message):
@@ -407,22 +395,21 @@ def successView(from_email, subject, message):
     from_email = 'svante.magnell@gmail.com'
 
     send_mail( subject, message, from_email,  [sender])
-    
+
 
 def user_login(request):
     return HttpResponseRedirect('/accounts/login')
+
 
 # Registration page that overwrites the original registration (all auth)
 # page for the connection between the DB (UserProfileInfo) tables to work.
 def register(request):
     registered = False
 
-    # Check if user is logged in. If the user is logged in, 
+    # Check if user is logged in. If the user is logged in,
     # they will be forwarded to update the profile page
     profile = UserProfileInfo.objects.all()
     user = request.user
-
-    
 
     for user_profile_info in profile:
         if str(user_profile_info) == str(user):
@@ -441,27 +428,27 @@ def register(request):
             user = user_form.save()
 
             user.first_name = user_form.cleaned_data['username']
-            
+
             # Hash the password
-            user.set_password(user.password)  
+            user.set_password(user.password)
 
             # Update with Hashed password
             user.save()
 
             # Can't commit yet because we still need to manipulate
             profile = profile_form.save(commit=False)
-            
+
             # Set One to One relationship between
             # UserForm and UserProfileInfoForm
             profile.user = user
 
             # Now save model
-            
+
             profile.save()
-            
+
             # Registration Successful!
             registered = True
-            
+
     else:
         # Was not an HTTP post so we just render the forms as blank.
         user_form = UserForm()
@@ -470,7 +457,6 @@ def register(request):
     # This is the render and context dictionary to feed
     # back to the registration.html file page.
     return render(request,'home/registration.html',
-                          {'user_form':user_form,
-                           'profile_form':profile_form,
-                           'registered':registered})
-
+                          {'user_form': user_form,
+                           'profile_form': profile_form,
+                           'registered': registered})
