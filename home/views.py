@@ -82,7 +82,7 @@ def reg_match(request):
             turn_one = turn_one + 1
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)
-            match.matcher = 'Top plac 1:a'
+            match.matcher = '1st'
             match.save()
 
         elif turn_one == 1:
@@ -91,8 +91,8 @@ def reg_match(request):
             turn_one = turn_one + 1
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)
-            match.matcher = 'Top plac 2:a'
-            if object_x.matcher != 'Top plac 1:a':
+            match.matcher = '2st'
+            if object_x.matcher != '1st':
                 match.save()
 
         elif turn_one == 2:
@@ -101,8 +101,8 @@ def reg_match(request):
             turn_one = turn_one + 1
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)
-            match.matcher = 'Top plac 3:a'
-            if object_x.matcher != 'Top plac 1:a' and object_x.matcher != 'Top plac 2:a':
+            match.matcher = '3st'
+            if object_x.matcher != '1st' and object_x.matcher != '2st':
                 match.save()
 
         elif turn_one == 3:
@@ -111,8 +111,8 @@ def reg_match(request):
             turn_one = turn_one + 1
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)
-            match.matcher = 'Top plac 4:a'
-            if object_x.matcher != 'Top plac 1:a' and object_x.matcher != 'Top plac 2:a' and object_x.matcher != 'Top plac 3:a':
+            match.matcher = '4st'
+            if object_x.matcher != '1st' and object_x.matcher != '2st' and object_x.matcher != '3st':
                 match.save()
 
         elif turn_one == 4:
@@ -121,8 +121,8 @@ def reg_match(request):
             turn_one = turn_one + 1
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)
-            match.matcher = 'Top plac 5:a'
-            if object_x.matcher != 'Top plac 1:a' and object_x.matcher != 'Top plac 2:a' and object_x.matcher != 'Top plac 3:a' and object_x.matcher != 'Top plac 4:a':
+            match.matcher = '5st'
+            if object_x.matcher != '1st' and object_x.matcher != '2st' and object_x.matcher != '3st' and object_x.matcher != '4st':
                 match.save()
 
         rf_sum = rf_sum + object_x.ratingf

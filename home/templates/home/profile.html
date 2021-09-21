@@ -4,7 +4,7 @@
 <!-- Super users should not be in the league,
      so "admin" will be redirected to the admin pages.  -->
 {% if user.is_superuser %}  
-<meta http-equiv="Refresh" content="0; url={% url 'admin:index' %}" />
+    <meta http-equiv="Refresh" content="0; url={% url 'admin:index' %}" />
 {% endif %}  
 <!-- Preparing to add things above block content -->
 <div class="container header-container">
@@ -45,6 +45,10 @@
                         <tr>
                             <th>Venue / Club:</th>
                             <td>{{ person.club_location }} </td>
+                        </tr>
+                        <tr>
+                            <th>Highest Ranking:</th>
+                            <td>{{ person.matcher }} </td>
                         </tr>
                     </table>
                     <div class=" font-size-small">

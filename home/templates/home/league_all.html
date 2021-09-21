@@ -15,22 +15,24 @@
             <div class="jumbotron">
                 <div class="alert alert-dark">
                     <div class="alert alert-light">
-                        <h4>Couronne League All</h4>
+                        <h4 class="text-dark">Couronne League All</h4>
                     </div>
                     <!-- List all the players in rising order -->
                     {% if all_objects %}
                     <table class="table table-striped text-right font-size-small">
                         <th class="text-left">Player</th>
+                        <th class="hide-medium text-center">Best Ranking</th>
                         <th class="hides">Played</th>
                         <th class="hides">Won</th>
-                        <th>Average</th>
+                        <th >Average</th>
                         <th>Rating</th>
                         {% for person in all_objects %}
                         <tr>
                             <td class="text-left">{{ forloop.counter }}. {{ person.user }}</td>
+                            <td class="hide-medium text-center text-info">{{ person.matcher }}</td>
                             <td class="hides">{{ person.rating }}</td>
                             <td class="hides text-success"><strong>{{ person.antal_vunna}}</strong></td>
-                            <td>{{ person.snitt|floatformat:3 }}</td>
+                            <td class="text-secondary">{{ person.snitt|floatformat:3 }}</td>
                             <td><strong>{{person.ratingf|floatformat:3}}</strong></td>
                         </tr>
                         {% endfor %}

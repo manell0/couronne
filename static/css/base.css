@@ -13,45 +13,24 @@ body {
     font-family: 'Prompt', sans-serif;
 }
 
-
+/*---------------- Margins and padding ------*/
 .margins{
     margin: 1em;
 }
 
-.border-yellow{
-    border: 3px solid rgb(246, 248, 105);
-}
-
-.border-big{
-    border: 5px solid white;
-}
-
-.border-blue{
-    border: 3px solid rgb(167, 163, 197);
-}
-
 .padding-text {
-    
     padding-left: 1em;
 } 
 
-.text-darkblue{
-    color:rgb(79, 0, 168)
-}
-.bg-white{
-    background-color: #fff;
-}
-/*------------------ Forms -------------*/
-
-
-.myfieldclass{
-    
-    width: 820px;
-    background-color: whitesmoke;
-    color: black
-}
-
 /*------------------ Colors -------------*/
+.bg-black {
+    background: #000 !important;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
 .color-transparent{
     opacity: 0.5;
 }
@@ -68,21 +47,38 @@ body {
     color: antiquewhite;
 }
 
+.border-yellow{
+    border: 3px solid rgb(246, 248, 105);
+}
 
-/*------------- Grid style  -------------*/
-/*.my-container{
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    
-}*/
+.bg-white{
+    background-color: #fff;
+}
+
+/*---------- Borders ---------*/
+.border-black {
+    border: 1px solid black !important;
+}
+
+.border-big{
+    border: 5px solid white;
+}
+
+.border-blue{
+    border: 3px solid rgb(167, 163, 197);
+}
+
+/*------------------ Forms -------------*/
+.myfieldclass{
+    width: 820px;
+    background-color: whitesmoke;
+    color: black
+}
+
+/*-------- Container, row, col --------------*/
 
 .my-container{
-    
     margin-top: 0px;
-    
 }
 
 .my-row{
@@ -93,12 +89,7 @@ body {
     border: 3px dotted blue;
 }
 
-/*------------------  -------------*/
-.margin-down{
-    color: greenyellow;
-}
-
-/* from Bulma */
+/*--------------- from Bulma -------------*/
 .icon {
     align-items: center;
     display: inline-flex;
@@ -135,26 +126,14 @@ body {
     background: #222;
     color: white;
 }
-
-.text-black {
-    color: #000 !important;
-}
-
-.border-black {
-    border: 1px solid black !important;
-}
-
-.bg-black {
-    background: #000 !important;
-}
-
+/*-------- Font styling ------------*/
 .font-little{
     font-size: 8px;
     line-height: 10px;
     padding-top: 6px;
 }
 
-/* -------------------------------- Media Queries */
+/* ---------------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
@@ -185,23 +164,9 @@ body {
         display: none;
         }
 }
-/*@media (max-width: 992px){
-    .hideing{
-    display: none;
-    }
-    
-}
 
-@media (min-width: 992px){
-    .hideing-small{
-    display: none;
-    }
-    
-}*/
-/* --------- FORMS --------- */
 @media (max-width: 992px) {
     .myfieldclass-medium{
-        
         max-width: 550px;
         background-color: whitesmoke;
         color: black
@@ -213,23 +178,24 @@ body {
 
 @media (max-width: 768px) {
     .myfieldclass-medium{
-        
         max-width: 350px;
         background-color: whitesmoke;
         color: black
+    }
+    .hide-medium{
+        display: none;
     }
 }
 
 @media (max-width: 440px) {
     .myfieldclass-small{
-        
         width: 200px;
         background-color: whitesmoke;
         color: black
     }
 
 }
-@media (max-width: 440px){
+@media (max-width: 480px){
     .hides{
         display: none;
     }
@@ -242,24 +208,9 @@ body {
     
 }
 
-
 /* Media Query HEIGHT*/
 @media (max-height: 350px){
     .font-size-height{
         font-size: 8px;
     }
 }
-
-/*@media (max-width: 420px){
-    .my-row{
-        padding-top: 6em;
-        border: 3px solid red;
-    }
-    .my-col{
-        border: 3px dotted blue;
-        padding-left: 5em;
-    }
-    .my-col-reg{
-        padding-left: 7em;
-    }
-}*/
