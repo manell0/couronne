@@ -1,104 +1,443 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome manell0,
+# Book Review, a review and recommendation site for books.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. The last update to this file was: **July 2, 2021**
+![The Markup from responsive design](static/readme-resources/markup.jpg)
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Milestone project 3 (Code Institute)
 
-`python3 -m http.server`
+This is a simple website where you can upload books, and allow users to write description on books and up vote it..
 
-A blue button should appear to click: _Make Public_,
+**[View the repository on GitHub](https://github.com/manell0/MileStone-3-Book-Review)**
 
-Another blue button should appear to click: _Open Browser_.
+**[View The Book Review site on Heroku](http://milestone-3-book-review.herokuapp.com/get_books)**
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- For testing, please use the following login information:
+   - Username: admin / Password: admin
+      - For admin privileged pages 
+   - For regular users. Just register an account
+## Table of contents
 
-A blue button should appear to click: _Make Public_,
+1. [Introduction](#introduction)
+2. [UX](#ux)
+   1. [Ideal User Demographic](#Ideal-User-Demographic)
+   2. [User Stories](#User-Stories)
+   3. [Development Planes](#Development-Planes)
+   4. [Design](#Design)
+3. [Features](#Features)
+   1. [Design Features](#Design-Features)
+   2. [Existing Features](#Existing-Features)
+   3. [Features to Implement in the future](#Features-to-Implement-in-the-future)
+4. [Issues and Bugs](#Issues-and-Bugs)
+5. [Technologies Used](#Technologies-Used)
+   1. [Main Languages Used](#Main-Languages-Used)
+6. [Testing](#Testing)
+   - [Go to the Testing file](testing.md)
+7. [Deployment](#Deployment)
+   1. [Deploying on GitHub Pages](#Deploying-on-GitHub-Pages)
+   2. [Forking the Repository](#Forking-the-Repository)
+   3. [Creating a Clone](#Creating-a-Clone)
+8. [Credits](#Credits)
+   1. [Content](#Content)
+   2. [Media](#Media)
+   3. [Code](#Code)
+9. [Acknowledgements](#Acknowledgements)
 
-Another blue button should appear to click: _Open Browser_.
+# Introduction
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- This small website was designed mainly for people who like and reads books. People who want to find inspiration for new books.
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- The focus of the website is to create an easy way to reach people who want to find new books. To make the site more attractive, we add a rating comment section.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
-------
+- The simplicity and small scale of the website is an important aspect to achieve an interest in bookmarking the return page.
 
-## Release History
+- If you like simple book review sites, you have gone to enjoy this one.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+- This is the third of four Milestone projects that the developer must complete during his Full-Stack web development program at The Code Institute.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+- The most important requirements were to build a MongoDB-backed Flask project for a web application that allows users to store and manipulate data records (CRUD). [**HTML5**](https://en.wikipedia.org/wiki/HTML5),  [**CSS3**](https://en.wikipedia.org/wiki/CSS), [**JavaScript**](https://en.wikipedia.org/wiki/javascript), [**Flask**](https://flask.palletsprojects.com/en/2.0.x/) and [**MongoDB**](https://www.mongodb.com/).
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+[Back to the top](#table-of-contents)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+# UX
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## Ideal User Demographic
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### The ideal user of this website is
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- People who like to read books.
+- People who want to find new books to read.
+- Users who like book reviews.
+- People who simply want to spend some time in a developing way.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## User Stories
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### New/Potential Fans Goals:
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+1. As a new user, I want to be able to easily find new books.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+2. As a new user, I want to be able to find out how this book review site works and what it is about.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+3. As a new user, I want to be able to rate my books.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+4. As a new user, I want to be able to write a review.
 
-------
+5. As a new user, I want to be able to register an account.
 
-## FAQ about the uptime script
+6. As a new user, I want to be able to add books.
 
-**Why have you added this script?**
+7. As a new user, I want to be able to login/log out and register on the site.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### Current Fans Goals:
 
-**How will this affect me?**
+1. As a current user, I want to navigate to high rated books.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+2. As a current user, I want to navigate to my added books
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+## Development Planes
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+| **_[Strategy](#Strategy)_** | **_[Scope](#Scope)_** | **_[Structure](#Structure)_** | **_[Skeleton](#Skeleton)_** | **_[Surface](#Surface)_** |
+| --------------------------- | --------------------- | ----------------------------- | --------------------------- | ------------------------- |
 
-**So….?**
+### Strategy
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+With these goals in mind, a strategy table was created to determine the trade-off between importance and viability with the following results:
 
-**Can I opt out?**
+**_[Link to Strategy Trade-off as PDF](static/readme-resources/strategy-trade-off.pdf)_**
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+![Spreadsheet Strategy](static/readme-resources/strategy-trade-off.jpg)
+
+### Scope
+
+- The site is for people who like books and want to find new books to read.
+
+- Users who find this website are most certainly one who is looking for just and precisely for a book review and recommendation site.
+
+#### A scope was defined into two categories:
+
+- ##### Content Requirements
+
+  - The user will be looking for:
+    - Information about the books and the see the rate of them.
+    - A quick way to find high rated books.
+
+- ##### Functionality Requirements
+  - The user will be able to:
+    - Easily navigate through the site to find the information they want.
+    - Easily find, add books and give a description and summary of the books.
+
+### Structure
+
+The information architecture was organized in a hierarchical tree structure to ensure that users could navigate through the site with ease and efficiency, with the following results:
+
+![Hierarchical tree structure](static/readme-resources/Structure.jpg)
+
+### Skeleton
+
+Wireframe mockup was created in a Figma Workspace with providing a positive user experience in mind:
+
+**_[Link to Figma Wireframes as PDF](static/readme-resources/wireframe.pdf)_**
+
+![Wireframes screenShot as PDF](static/readme-resources/Wireframe.jpg)
+[Back to the top](#table-of-contents)
+
+### Surface
+
+[Markup from: ami.responsive design.is](http://ami.responsivedesign.is/)
+
+![The Markup from responsive design](static/readme-resources/markup.jpg)
+
+## Design
+
+### Color Scheme
+
+The main colors used throughout the website are teal and white.
+
+
+
+The chosen color scheme is chosen to get a clear and nice view to integrate with.
+
+- I find the color combination on-site [COLORS](https://coolors.co/)
+
+### Typography
+
+Font font-family: Roboto is used throughout the website with Sans Serif as the fallback font in case of import failure.
+
+- I use [Google fonts](https://fonts.google.com/) for my font used on the site
+
+### Picture
+
+- The images used on the page are copied link addresses found via Google.
+
+- The images provide a static alternative text to use if the element cannot be reproduced.
+
+  [Back to the top](#table-of-contents)
+
+# Features
+
+### Design Features
+
+Each page on the website has a consistent, responsive navigation system through a navigation bar on the top of the site.
+
+
+### Existing Features
+
+#### The website consists of four main pages (Home, users books, Add book, Log Out/ Log In and register) And a fifth page for Manage Categories only for Admin (Login: Username = admin, and Password = admin).
+
+- ### Start Page (Home):
+  - Navbar (fixed) on top of the Home page is the same across the whole site.
+   - Home goes to the start page.
+   - Users Books goes to the owner's books page for editing and deletion.
+   - Add Book goes to add_book form.
+   - Manage Categories (Only for admin) goes to the page where admin can add and delete categories(LogIn: Username = admin, and password = admin).
+   - Log In / Log Out page for log in and log out.
+   - Register for new user to register.
+   
+   
+  - At the top of the page, we find our navbar which turns into a burger for smaller screen sizes..
+    - At the top of the page is a search box.
+    - In the center of the page we have the Users' posted books that are clickable for expansion for more information.
+    
+- ### User Owners books:
+  - Here, the user can edit and delete their uploaded books.
+  - In the expandable field we find two (green for edit and red for delete) icons/buttons:
+    - The first button is the green edit button:
+      - Are used if you want to edit your own books.
+    - The second button is the delete button:
+      - Are used to immediately delete the selected book .
+    
+
+- ### 404 page (404.html):
+  - Not done yet due to lack of time. &#129324;
+
+## Features to Implement in the future
+
+- When deleting a book or category, make sure that it is verified. Instead of the book being removed immediately without verification.
+
+- Better control of input on the pages add book/edit book and on manage category.
+
+- Verification for book removal
+
+- Pagination on pages that are likely to be long.
+
+
+[Back to the top](#table-of-contents)
+
+# Issues and Bugs
+
+- Problems getting verification for book removal to work. Ended up lacking time, so I had to put that feature on future implement.
+   - Have been bothering with this problem for far too long. I ordered time for the tutor sessions but was never contacted by anyone at Slack where I thought the e-meeting would take place.
+
+- Problems with my javascript code appearing with 8 spaces when looking in GitHub. Apparently can not be changed.
+
+  - Solution: You can append ?ts=2 or ?ts=4 to the URL to change the tab-size.
+
+##### Other information:
+```
+This project has been really awkward since my computer crashed and panicked and had to fix it with an emergency solution.
+It took a lot of my time and energy.
+I tore off my hamstrings and have been to the hospital a number of times, which has also taken my time and energy.
 
 ```
-pkill uptime.sh
-rm .vscode/uptime.sh
+# Technologies Used
+
+### Main Languages Used
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+
+- [JavaScript](https://en.wikipedia.org/wiki/Javascript)
+
+- [Python](https://www.python.org/)
+
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+
+- [MongoDB](https://www.mongodb.com/)
+
+### Frameworks, Libraries & Programs Used
+
+- [Materialize](https://materializecss.com/)
+
+- [Google fonts](https://fonts.google.com/)
+
+- [jQuery](https://jquery.com/)
+
+- [Font Awesome icons](https://fontawesome.com/icons?d=gallery&p=2&m=free)
+
+[Back to the top](#table-of-contents)
+
+# Testing
+
+[Testing information can be found in this separate testing file](testing.md)
+
+# Deployment
+
+- This project was developed using Gitpod, committed to git, and pushed to GitHub using the bash in Gitpod.
+- Some updates were done directly in edit mode on GitHub.
+
+## Deploying on GitHub Pages
+
+To deploy this page to GitHub Pages from its GitHub repository, the following steps should have taken:
+
+1. Log into [GitHub or create an account](https://github.com/).
+2. Locate the GitHub Repository.
+3. At the top of the repository, select Settings from the menu items.
+4. Scroll down the Settings page to the "GitHub Pages" section.
+5. Under "Source" click the drop-down menu labeled "None" and select "Master Branch".
+6. Upon selection, the page will automatically refresh meaning that the website is now deployed.
+7. Scroll back down to the "GitHub Pages" section to retrieve the deployed link.
+8. At the time of submitting this Milestone project the Development Branch and Master Branch are identical.
+
+## Forking the Repository
+
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
+
+1. Log into [GitHub or create an account](https://github.com/).
+2. Locate the GitHub Repository.
+3. At the top of the repository, on the right side of the page, select "Fork"
+4. You should now have a copy of the original repository in your GitHub account.
+
+## Creating a Clone
+
+How to run this project locally:
+
+1. Install the GitPod Browser Extension for Chrome.
+2. After installation, restart the browser.
+3. Log into [GitHub or create an account](https://github.com/).
+4. Locate the GitHub Repository.
+5. Click the green "GitPod" button in the top right corner of the repository. This will trigger a new GitPod workspace to be created from the code in GitHub where you can work locally.
+
+How to run this project within a local IDE, such as VSCode:
+
+1. Log in to GitHub or create an account.
+2. Locate the GitHub Repository.
+3. Under the repository name, click "Clone or download".
+4. In the Clone with HTTPs section, copy the clone URL for the repository.
+5. In your local IDE open the terminal.
+6. Change the current working directory to the location where you want the cloned directory to be made.
+7. Type 'git clone', and then paste the URL you copied in Step 3.
+
+```
+git clone https://github.com/USERNAME/REPOSITORY
+
 ```
 
-**Anything more?**
+8. Press Enter. Your local clone will be created.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+Further reading and troubleshooting on cloning a repository from GitHub [**_here_**](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 
----
 
-Happy coding!
+## Local Deployment: 
+This project was developed using Gitpod as the chosen IDE and GitHub as a remote repository. The Project's source files were regularly pushed to the GitHub repository [Book Review repository](https://github.com/manell0/MileStone-3-Book-Review) via the master branch.
+
+To reproduce this project within a local deployement, use the following steps and requirements:
+
+1. Have the following installed in your IDE of choice:
+   - Git (for version control)
+
+   - pip (package installer for Python; pip3 was used at the time of production: Juli 2021)
+
+   - Python3 (the programming language used to produce the backend logic of this project) using the following command:
+      - pip3 install dnspython
+
+- Flask (the library used to add special features and functionalities to this Python application) using the following command:
+      - pip3 install flask
+
+2. Create an account with MongoDB, following the MongoDB instructions for the creation of a Cluster and Collections, and connect your database server with your Flask application:
+
+   - From your MongoDB cluster dashboard >> click on CONNECT >> choose "Connect your application" >> Driver: Python and Version: your python version.
+
+   - Register your MONGO_URI credentials inside your env.py file withing your project, by using the follwoing commands:
+      - touch .gitignore
+      - touch env.py
+      
+   - Connect your MongoDB data to your Flask app using the following command:
+      - pip3 install flask-pymongo
+   
+   - Add the environment variables to your env.py file:
+      ```
+      import os
+
+      os.environ.setdefault("MONGO_URI", "your_mongodb_credential_data")
+      os.environ.setdefault("MONGO_DBNAME", "your_mongodb_name")
+      os.environ.setdefault("IP", "0.0.0.0")
+      os.environ.setdefault("PORT", "5000")
+      os.environ.setdefault("SECRET_KEY", "your_secret_key")
+      ```
+3. Install additional packages:
+   - pip3 install flask_pymongo
+
+4. Update the requirements.txt file using the following command:
+   - pip3 freeze > requirements.txt
+
+5. These files were added, commited and pushed to github using the commands git add git commit git push .
+
+## Heroku Deployment: 
+The Project's source file was also pushed to Heroku via the heroku master branch. To deploy this app to a Heroku app use the following steps:
+
+1. A requirements.txt file was created using the terminal command pip3 freeze > requirements.txt.
+
+2. A Procfile was created using the terminal command echo web: python app.py > Procfile.
+
+3. A new app was created for the Book Review on Heroku dashboard, by clicking the "New" button and setting the region to Europe. It is necessary to open an account with Heroku and start a new app installation inside your heroku dashboard.
+
+4. New app configurations including environament variables were added on "Settings" > "Reveal Config Vars" inside the Heroku dashboard:
+   ```
+   - IP: 0.0.0.0
+   - PORT: 5000
+   - SECRET_KEY: your_secret_key
+   - MONGO_URI: your_mongodb_credential_data
+   - MONGO_DBNAME: your_mongodb_name
+   ```
+5. From the Heroku dashboard the app was deployed using the "Deploy button" and connected to the gihub master branch for automatic deployments.
+
+6. These files were added, commited and pushed to github using the commands git add git commit git push .
+
+7. The web app is now successfully deployed.
+
+
+
+
+
+
+
+[Back to the top](#table-of-contents)
+
+# Credits
+
+- I have used [Rebecca Tracey-Timoneys](https://github.com/rebeccatraceyt) README file [KryanLive](https://github.com/rebeccatraceyt/KryanLive/blob/master/README.md) as a guide/template for this README file.
+
+- I have used [Kes Cardoso](https://github.com/kescardoso) Deployment for Heroku as inspiration on this README.md.
+
+- I have used tutor Tim Nelson´s mini project (Task Manager) as a basis for my milestone project.
+  [Tim Nelson´s mini project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/054c3813e82e4195b5a4d8cd8a99ebaa/)
+
+
+## Content
+
+## Media
+
+- The images on the pages are copied (https://www.freepik.com/) is found on freepik.
+
+
+## Code
+
+The developer consulted multiple sites to better understand the code they were trying to implement. For code that was copied and edited, the developer made sure to reference this with the code. The following sites were used on a more regular basis:
+
+- [Stack Overflow](https://stackoverflow.com/)
+- [W3Schools](https://www.w3schools.com/) used a lot, and the Modal pop-up window came from there.
+- [Materialize](https://materializecss.com/) used for my grid system throughout the site
+- [MongoDB docs](https://docs.mongodb.com/manual/) used for better database understanding.
+- [COLORS](https://coolors.co/)
+- [Google fonts](https://fonts.google.com/) used for my fonts (Architects Daughter and Open Sans)
+
+# Acknowledgements
+
+- I would like to thank my mentor, Owonikoko Oluwaseun, for her help and guidance throughout this process.
+
+  [Back to the top](#table-of-contents)
