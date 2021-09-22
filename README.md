@@ -146,6 +146,8 @@ Wireframe mockup was created in a Figma Workspace with providing a positive user
 [Back to the top](#table-of-contents)
 
 ### Surface
+https://responsivedesignchecker.com/
+http://ami.responsivedesign.is/
 
 [Markup from: ami.responsive design.is](http://ami.responsivedesign.is/)
 

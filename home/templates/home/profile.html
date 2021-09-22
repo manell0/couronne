@@ -20,17 +20,17 @@
     <div class="row">
         <div class="col">
             <div class="border-bottom-0 border-big">
-                <div  class="alert alert-dark">
+                <div  class="alert alert-secondary">
                     <h3>Your profile</h3>
                     <div class="alert alert-light "> 
                         <a class="btn btn-outline-dark btn-sm"href="{% url 'home:update' %}">Update Your Profile</a>
                     </div>
                     <!-- Logic that produces the profile page -->
                     {% if all_objects %}
-                    <h6>Latest Match:</h6>
+                        <h6><strong> Latest Match:</strong></h6>
                     {% for person in all_objects %}
                     {% if person.user == user %}
-                    <table class="table table-striped font-size-small">
+                    <table class="table table-striped font-size-small bg-light">
                         <abbr class="font-size-smallest" title="Your last registered match ...  👀 ">
                         {{ person.match_uppdate }}
                         </abbr>
@@ -51,7 +51,7 @@
                             <td>{{ person.matcher }} </td>
                         </tr>
                     </table>
-                    <div class=" font-size-small">
+                    <div class=" font-size-small bg-light">
                         Played: <b>{{ person.rating }}</b>
                         Won: <b>{{ person.antal_vunna }}</b>
                         Average: <b>{{ person.snitt|floatformat:3 }}</b>

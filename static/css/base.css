@@ -11,6 +11,7 @@ body {
     height: calc(100vh - 164px);
     color: #555;
     font-family: 'Prompt', sans-serif;
+    
 }
 
 /*---------------- Margins and padding ------*/
@@ -109,6 +110,7 @@ body {
 .shop-now-button {
     background: black;
     color: white;
+    text-shadow: .5px .5px #099c4b;
     min-width: 260px;
 }
 
@@ -127,11 +129,17 @@ body {
     color: white;
 }
 /*-------- Font styling ------------*/
+#checkout-button{
+    text-shadow: .5px .5px #099c4b;
+}
 .font-little{
     font-size: 8px;
     line-height: 10px;
     padding-top: 6px;
 }
+.shadow, h1, h2, h3, h4, h5, h6 strong, th, td, a, b{
+    text-shadow: .5px .5px #099c4b;
+  }
 
 /* ---------------------------------------- Media Queries */
 

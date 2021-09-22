@@ -37,7 +37,7 @@
                             alt="The cover of Stubborn Attachments"
                             /> {% endcomment %}
                         <div class="description bg-info border-blue margins">
-                            <h3 class="margins">{{ product.name }}</h3>
+                            <h3 class="margins shadow"> {{ product.name }}</h3>
                         </div>
                         <button  class="btn btn-outline-dark margins" type="button" id="checkout-button">Donate</button>
                     </div>
@@ -46,7 +46,7 @@
         </div>
         <div class="text-center pt-3">
             <a class="btn btn-outline-dark btn-sm border-danger" href="javascript:history.back()"> ← BACK </a>
-            <a class="btn btn-outline-dark btn-sm border-info" href="{% url 'home:home' %}"> ← HOME </a>
+            <a class="btn btn-outline-dark btn-sm border-info" href="{% url 'home:home' %}"><span class="shadow"> ← HOME </span></a>
         </div>
     </div>
 </div>

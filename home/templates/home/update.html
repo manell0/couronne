@@ -24,7 +24,7 @@
 {% block content %}
 <div class="container">
     <div class="jumbotron">
-        <div class="alert alert-dark ">
+        <div class="alert alert-secondary border-big">
             <!-- Check if the update process is done and be redirected to the login section -->
             {% if registered and reg %}
             <h3>Update complete.</h3>
@@ -35,7 +35,7 @@
             <h3>Update is complete.</h3>
             <a class="nav-item nav-link" href="{% url 'home:user_login' %}">☺ &#128566 Login</a>   
             {% else %}
-            <div class="alert alert-dark">
+            <div class="alert alert-danger">
                 <h3>Update </h3>
                 {{user}}
             </div>
