@@ -36,7 +36,9 @@ has registered three matches -->
                 <div class="alert alert-dark">
                     <div class="alert alert-light">
                         <!-- Logic to list only members hwo is in same club as you -->
-                        {% if club %}
+                        {% if user.is_superuser %}  
+                            <h4 class="text-dark">Venue/Club:</h4> <h5><span class="text-danger">{{ user }}{{ club }}</span></h5>
+                        {% elif club %}
                         <h4 class="text-dark">Venue/Club:</h4> <h5><span class="text-success">{{ club }}</span></h5>
                         {% else %}
                         <span class="text-danger"><strong> Does not belong to any Club</strong></span>

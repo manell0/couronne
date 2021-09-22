@@ -13,7 +13,8 @@ from django.db import models
 from django import forms
 import datetime
 
-from .forms import UserForm, UserProfileInfoForm, UppForm, UserMatchForm, UserMatchFormOpponent
+from .forms import UserForm, UserProfileInfoForm, UppForm, UserMatchForm, \
+    UserMatchFormOpponent
 from .models import User, UserProfileInfo
 
 
@@ -21,13 +22,15 @@ from .models import User, UserProfileInfo
 def index(request):
     """ A view to return the index page """
 
-    all_objects = UserProfileInfo.objects.order_by('-ratingf')  # Sort by The player total rating (ratingf = total rating points)
+    # Sort by The player total rating (ratingf = total rating points)
+    all_objects = UserProfileInfo.objects.order_by('-ratingf')
+
     played_matches = 0
     for user in all_objects:
         if str(request.user) == str(user):
             played_matches = user.rating
-
-    return render(request, 'home/index.html', {'all_objects': all_objects, 'played_matches': played_matches})
+    return render(request, 'home/index.html', {'all_objects': all_objects,
+                  'played_matches': played_matches})
 
 
 def rules_story(request):
@@ -38,32 +41,40 @@ def wrong_404(request, exception):
     return render(request, 'home/404.html')
 
 
-# The All league page whit all registrated players
+# The All league page whit all registrated players listed
+# whit the highest ratingf on top
 def league_all(request):
     all_objects = UserProfileInfo.objects.order_by('-ratingf')
-    return render(request, 'home/league_all.html', {'all_objects': all_objects})
+    return render(request, 'home/league_all.html',
+                  {'all_objects': all_objects})
 
 
-# The Club league page whit all registrated players who registered the same club
+# Club league page whit all registrated players who registered the same club
 @login_required
 def league_club(request):
     all_objects = UserProfileInfo.objects.order_by('-ratingf')
+
+    # Set club varable to avoid error message
+    # (local variable 'club' referenced before assignment)
+    # when try to access with admin or another user who is not in the league
+    club = ' is not in the league and has no club affiliation!'
 
     for user in all_objects:
         if str(request.user) == str(user):
             club = user.club_location
 
-    return render(request, 'home/league_club.html', {'all_objects': all_objects, 'club': club})
+    return render(request, 'home/league_club.html',
+                  {'all_objects': all_objects, 'club': club})
 
 
 # The registration page where you can register matches that you have played
 @login_required
 def reg_match(request):
     user = request.user
-    all_objects = UserProfileInfo.objects.order_by('-ratingf')  # ratingf is your total rating score
+    
+    # ratingf is your total rating score
+    all_objects = UserProfileInfo.objects.order_by('-ratingf')
 
-    # Gets a variable so I can remove the info button on the page after
-    # two registered matches.
     played_matches = 0
     for user in all_objects:
         if str(request.user) == str(user):
@@ -74,7 +85,8 @@ def reg_match(request):
     turn_one = 0
 
     # function to check a player's highest ranking (only top 5 checked)
-    # to give them an extra "variable" that is saved in DB
+    # to give them an extra "variable" that is saved in DB and
+    # appears as Best Ranking in All Players template
     for object_x in all_objects:
         if turn_one == 0:
             one = object_x.user
@@ -112,7 +124,8 @@ def reg_match(request):
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)
             match.matcher = '4'
-            if object_x.matcher != '1' and object_x.matcher != '2' and object_x.matcher != '3':
+            if object_x.matcher != '1' and object_x.matcher != '2' \
+                    and object_x.matcher != '3':
                 match.save()
 
         elif turn_one == 4:
@@ -122,13 +135,15 @@ def reg_match(request):
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)
             match.matcher = '5'
-            if object_x.matcher != '1' and object_x.matcher != '2' and object_x.matcher != '3' and object_x.matcher != '4':
+            if object_x.matcher != '1' and object_x.matcher != '2' and \
+                    object_x.matcher != '3' and object_x.matcher != '4':
                 match.save()
 
         rf_sum = rf_sum + object_x.ratingf
         if object_x.user == request.user:
 
-            # flag is a game flag (boolean) for check if a player is activated for match play
+            # flag is a game flag (boolean) for check
+            # if a player is activated for match play
             # flag sets to true
             id_x = object_x.id
             flag = UserProfileInfo.objects.get(id=id_x)
@@ -136,20 +151,20 @@ def reg_match(request):
             flag.save()
 
     return render(request, 'home/reg_match.html',
-                            {'all_objects': all_objects,
-                            'played_matches': played_matches,
-                            'profile': profile,
-                            'rf_sum': rf_sum,
-                            'one': one,
-                            'two': two,
-                            'three': three,
-                            'four': four,
-                            'five': five,
-                            'rating_one': rating_one,
-                            'rating_two': rating_two,
-                            'rating_three': rating_three,
-                            'rating_four': rating_four,
-                            'rating_five': rating_five})
+                  {'all_objects': all_objects,
+                   'played_matches': played_matches,
+                   'profile': profile,
+                   'rf_sum': rf_sum,
+                   'one': one,
+                   'two': two,
+                   'three': three,
+                   'four': four,
+                   'five': five,
+                   'rating_one': rating_one,
+                   'rating_two': rating_two,
+                   'rating_three': rating_three,
+                   'rating_four': rating_four,
+                   'rating_five': rating_five})
 
 
 # Function that makes all checks when a user tries to register a played match.
@@ -160,7 +175,10 @@ def edit(request):
     # Check if the user is trying to score points for himself
     searchWord = request.POST.get('search')
     if searchWord == user.username:
-        return HttpResponse("<br><br><h2><center><font color="'#d30f0f'"><h1> Ööööö!!!</h1> </font>Are you trying to score points for yourself ?! Big no no!<br><br> <a href=https:../reg_match/> → Back ← </a></h2>")
+        return HttpResponse("<br><br><h2><center><font color="'#d30f0f'"><h1> \
+        Ööööö!!!</h1> </font>Are you trying to score points for yourself ?! \
+            Big no no!<br><br> <a href=https:../reg_match/> → Back ← \
+                </a></h2>")
 
     # Check if the input is empty and not admin
     if searchWord == '' or searchWord == 'admin':
@@ -170,7 +188,8 @@ def edit(request):
 
     for object_x in user_profile_info:
 
-        if str(searchWord) == str(object_x.user) and user != object_x.user and user == request.user:
+        if str(searchWord) == str(object_x.user) and user != object_x.user \
+                and user == request.user:
 
             i_opponent = object_x.id
             opponent = UserProfileInfo.objects.get(id=i_opponent)
@@ -187,7 +206,8 @@ def edit(request):
                     average_profile = profile.snitt
                     average_profile = opponent.snitt
 
-                    # Here, the rating points are calculated for the match played and saved in DB
+                    # Here, the rating points are calculated for
+                    # the match played and saved in DB
                     if object_xx.game_flag == True:
                         all_objects = UserProfileInfo.objects.order_by('-ratingf')
                         for object_x in all_objects:
@@ -251,13 +271,13 @@ def edit(request):
 
                     sum_pro = profile.ratingf * 0.01
                     return render(request, 'home/edit.html',
-                          {'user_match_form': user_match_form,
-                          'user_match_form_opponent': user_match_form_opponent,
-                          'searchWord': searchWord,
-                          'all_objects': all_objects,
-                          'sum_pro': sum_pro,
-                          'user': user,
-                          'average_profile': average_profile})
+                                  {'user_match_form': user_match_form,
+                                   'user_match_form_opponent': user_match_form_opponent,
+                                   'searchWord': searchWord,
+                                   'all_objects': all_objects,
+                                   'sum_pro': sum_pro,
+                                   'user': user,
+                                   'average_profile': average_profile})
 
     if request.method == 'POST':
         return HttpResponseRedirect('/reg_match/')
@@ -272,7 +292,7 @@ def update(request):
     reg = False
 
     if request.method == 'POST':
-        user_form = UppForm(data=request.POST, instance=user )
+        user_form = UppForm(data=request.POST, instance=user)
         profile_form = UserProfileInfoForm(request.POST, instance=profile)
 
         # Check to see both forms from forms.py are valid

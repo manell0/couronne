@@ -20,6 +20,7 @@ class UserForm(forms.ModelForm):
 # Main form for registration of players
 class UserProfileInfoForm(forms.ModelForm):
     class Meta():
+        
         model = UserProfileInfo
         fields = ['club_location']
         labels = {"club_location": "Club/Loc"}
