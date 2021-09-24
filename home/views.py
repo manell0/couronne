@@ -94,7 +94,7 @@ def reg_match(request):
             turn_one = turn_one + 1
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)
-            match.matcher = '1'
+            match.best_ranking = '1'
             match.save()
 
         elif turn_one == 1:
@@ -103,8 +103,8 @@ def reg_match(request):
             turn_one = turn_one + 1
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)
-            match.matcher = '2'
-            if object_x.matcher != '1':
+            match.best_ranking = '2'
+            if object_x.best_ranking != '1':
                 match.save()
 
         elif turn_one == 2:
@@ -113,8 +113,8 @@ def reg_match(request):
             turn_one = turn_one + 1
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)
-            match.matcher = '3'
-            if object_x.matcher != '1' and object_x.matcher != '2':
+            match.best_ranking = '3'
+            if object_x.best_ranking != '1' and object_x.best_ranking != '2':
                 match.save()
 
         elif turn_one == 3:
@@ -123,9 +123,9 @@ def reg_match(request):
             turn_one = turn_one + 1
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)
-            match.matcher = '4'
-            if object_x.matcher != '1' and object_x.matcher != '2' \
-                    and object_x.matcher != '3':
+            match.best_ranking = '4'
+            if object_x.best_ranking != '1' and object_x.best_ranking != '2' \
+                    and object_x.best_ranking != '3':
                 match.save()
 
         elif turn_one == 4:
@@ -134,9 +134,9 @@ def reg_match(request):
             turn_one = turn_one + 1
             id_x = object_x.id
             match = UserProfileInfo.objects.get(id=id_x)
-            match.matcher = '5'
-            if object_x.matcher != '1' and object_x.matcher != '2' and \
-                    object_x.matcher != '3' and object_x.matcher != '4':
+            match.best_ranking = '5'
+            if object_x.best_ranking != '1' and object_x.best_ranking != '2' and \
+                    object_x.best_ranking != '3' and object_x.best_ranking != '4':
                 match.save()
 
         rf_sum = rf_sum + object_x.ratingf
