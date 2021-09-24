@@ -13,7 +13,7 @@ class UserProfileInfo(models.Model):
     # Add any additional attributes you want
     club_location = models.CharField(max_length=40, blank=True)
     number_played_matches = models.IntegerField(default=0, blank=False, null=False)  # matches played
-    antal_vunna = models.IntegerField(default=0, blank=False, null=False)  # antal_vunna = number won
+    matches_won = models.IntegerField(default=0, blank=False, null=False)  # antal_vunna = number won
     ratingf = models.FloatField(default=100, blank=False, null=False)  # current ranking
     average = models.FloatField(default=0, blank=False, null=False)
     match_uppdate = models.CharField(max_length=100, blank=True)  # the latest match, win or loss

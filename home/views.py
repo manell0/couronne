@@ -252,7 +252,7 @@ def edit(request):
                                 opponent.number_played_matches = opponent.number_played_matches + 1  # Games played
                                 profile.number_played_matches = profile.number_played_matches + 1  # Games played
 
-                                opponent.antal_vunna = opponent.antal_vunna + 1
+                                opponent.matches_won = opponent.matches_won + 1
 
                                 now = datetime.datetime.now()
                                 date = now.date()
