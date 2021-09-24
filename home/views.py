@@ -203,8 +203,8 @@ def edit(request):
                 if user == object_xx.user:
                     i_opponent = object_xx.id
 
-                    average_profile = profile.snitt
-                    average_profile = opponent.snitt
+                    average_profile = profile.average
+                    average_profile = opponent.average
 
                     # Here, the rating points are calculated for
                     # the match played and saved in DB
@@ -243,8 +243,8 @@ def edit(request):
                                     profile.save()
                                     pass
 
-                                opponent.snitt = average_profile
-                                profile.snitt = average_profile
+                                opponent.average = average_profile
+                                profile.average = average_profile
 
                                 opponent.ratingf = opponent.ratingf + sum_pro
                                 profile.ratingf = profile.ratingf - sum_pro

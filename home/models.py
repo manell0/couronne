@@ -15,7 +15,7 @@ class UserProfileInfo(models.Model):
     rating = models.IntegerField(default=0, blank=False, null=False)  # matches played
     antal_vunna = models.IntegerField(default=0, blank=False, null=False)  # antal_vunna = number won
     ratingf = models.FloatField(default=100, blank=False, null=False)  # current ranking
-    snitt = models.FloatField(default=0, blank=False, null=False)  # snitt = average
+    average = models.FloatField(default=0, blank=False, null=False)  # snitt = average
     match_uppdate = models.CharField(max_length=100, blank=True)  # the latest match, win or loss
     matcher = models.CharField(max_length=2000, blank=True)  # matcher = Best ranking
     ratings = models.DecimalField(max_digits=9, decimal_places=2, default=1000, blank=False, null=False)
