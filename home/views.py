@@ -430,7 +430,6 @@ def register(request):
     # they will be forwarded to update the profile page
     profile = UserProfileInfo.objects.all()
     user = request.user
-
     for user_profile_info in profile:
         if str(user_profile_info) == str(user):
             return HttpResponseRedirect('/update/')
@@ -441,9 +440,15 @@ def register(request):
         user_form = UserForm(data=request.POST)
         profile_form = UserProfileInfoForm(data=request.POST)
 
+        for item in user_form:
+            pass
+
         # Check to see both forms are valid
         if user_form.is_valid() and profile_form.is_valid():
 
+            
+            for item in user_form:
+                pass
             # Save User Form to Database
             user = user_form.save()
 
