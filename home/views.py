@@ -28,7 +28,7 @@ def index(request):
     played_matches = 0
     for user in all_objects:
         if str(request.user) == str(user):
-            played_matches = user.rating
+            played_matches = user.number_played_matches
     return render(request, 'home/index.html', {'all_objects': all_objects,
                   'played_matches': played_matches})
 
@@ -78,7 +78,7 @@ def reg_match(request):
     played_matches = 0
     for user in all_objects:
         if str(request.user) == str(user):
-            played_matches = user.rating
+            played_matches = user.number_played_matches
 
     profile = UserProfileInfo.objects.all()
     rf_sum = 0.0
@@ -218,27 +218,27 @@ def edit(request):
                                 flag.game_flag = False
                                 sum_pro = profile.ratingf * 0.01
 
-                                if profile.rating == 0 and opponent.rating == 0:
-                                    average_profile = (profile.ratingf - 101) / (profile.rating + 1)
-                                    average_profile = (opponent.ratingf - 99) / (opponent.rating + 1)
+                                if profile.number_played_matches == 0 and opponent.number_played_matches == 0:
+                                    average_profile = (profile.ratingf - 101) / (profile.number_played_matches + 1)
+                                    average_profile = (opponent.ratingf - 99) / (opponent.number_played_matches + 1)
                                     opponent.save()
                                     profile.save()
 
-                                elif profile.rating == 0:
-                                    average_profile = (profile.ratingf - 101) / (profile.rating + 1)
-                                    average_profile = (opponent.ratingf - 100) / opponent.rating
+                                elif profile.number_played_matches == 0:
+                                    average_profile = (profile.ratingf - 101) / (profile.number_played_matches + 1)
+                                    average_profile = (opponent.ratingf - 100) / opponent.number_played_matches
                                     profile.save()
                                     opponent.save()
 
-                                elif opponent.rating == 0:
-                                    average_profile = (opponent.ratingf - 99) / (opponent.rating + 1)
-                                    average_profile = (profile.ratingf - 100) / profile.rating
+                                elif opponent.number_played_matches == 0:
+                                    average_profile = (opponent.ratingf - 99) / (opponent.number_played_matches + 1)
+                                    average_profile = (profile.ratingf - 100) / profile.number_played_matches
                                     opponent.save()
                                     profile.save()
                                     pass
                                 else:
-                                    average_profile = (profile.ratingf - 100) / profile.rating
-                                    average_profile = (opponent.ratingf - 100) / opponent.rating
+                                    average_profile = (profile.ratingf - 100) / profile.number_played_matches
+                                    average_profile = (opponent.ratingf - 100) / opponent.number_played_matches
                                     opponent.save()
                                     profile.save()
                                     pass
@@ -249,8 +249,8 @@ def edit(request):
                                 opponent.ratingf = opponent.ratingf + sum_pro
                                 profile.ratingf = profile.ratingf - sum_pro
 
-                                opponent.rating = opponent.rating + 1  # Games played
-                                profile.rating = profile.rating + 1  # Games played
+                                opponent.number_played_matches = opponent.number_played_matches + 1  # Games played
+                                profile.number_played_matches = profile.number_played_matches + 1  # Games played
 
                                 opponent.antal_vunna = opponent.antal_vunna + 1
 
