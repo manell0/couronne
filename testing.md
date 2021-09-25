@@ -14,7 +14,7 @@
 
    - The pages are appropriately named for users wishing to find out about the site.
 
-   - The registe match, league pages and the rest of the pages are found easily on each page, no matter the device.
+   - The register match, league pages and the rest of the pages are found easily on each page, no matter the device.
    
 2. As a new user, I want to find league pages, tornament and events and register match page.
 
