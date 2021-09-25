@@ -37,16 +37,16 @@ If the user is not registered, he will be redirected to the sign in page -->
     <div class="alert alert-dark border-big">
         <div class="row ">
             <div class="col-md-12 text-center">
-                <h2 class="text-dark text-center alert-warning border border-secondary"> Register Result</h2>
-                <div  class="alert alert-warning ">
+                <h2 class="text-dark text-center alert-warning border border-secondary bg-light"> Register Result</h2>
+                <div  class="alert alert-secondary ">
                     <!-- Form to get a value to compare with in the database. 
                         In views Checks if the entry is empty, 
                         misspelled or if user enters their own name. -->
                     <form action="{% url 'home:edit' %}" method="post">
                         {% csrf_token %}    
-                        <strong class="text-secondary">&#129094; </strong><input id="search" name="search" type="text" class="query-search" Placeholder="Winner's name here ...">	<strong class="text-secondary"> &#129092;</strong>
+                        <strong class="text-success">&#129094; </strong><input id="search" name="search" type="text" class="query-search" Placeholder="Winner's name here ...">	<strong class="text-success"> &#129092;</strong>
                         <h6 class="font-size-small" id='one'>Only registered users are updated!</h6>
-                        <input class="btn btn-lg btn-outline-dark  bg-warning" id="checkout-button" type="submit" value="Register match">
+                        <input class="btn btn-lg btn-outline-dark  bg-light" id="checkout-button" type="submit" value="Register match">
                     </form>
                 </div>
                 <!-- Back and Home buttons -->
