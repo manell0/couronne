@@ -44,14 +44,13 @@
 
 ### Elements / Items Testing
 
-<!--![Testing ScreenShot](assets/readme-resources/testing.jpg)
 
 #### Start Page
 
 The front page works flawlessly in all screen sizes and is self-explanatory.
 
-1. Info About The Game link:
-   - [x] Hover function works. The link goes to the correct URL (Info Modal).
+1. Launched... ✰  links:
+   - [x] Modal function 
 2. Start Memory Game link:
    - [x] Hover function works. The link goes to the correct URL (game.html) and starts the game.
 
@@ -154,4 +153,4 @@ Screenshot from the index page (desktop device)
 
 Family members were asked to review the site and documentation to point out any bugs and/or user experience issues. Their helpful advice throughout the process led to many UX changes to create a better experience.
 
-[Back to the top](#Testing)--> 
+[Back to the top](#Testing) 

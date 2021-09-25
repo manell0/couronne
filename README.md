@@ -30,7 +30,7 @@ This is a medium advanced website that has most of the features needed to make t
 
 # Introduction
 
-- This pretty solid site that has taken its     simple little old-fashioned solid style-design from sites like, [**Django-Admin**](https://manello-couronne.herokuapp.com/admin/), [**Wikipedia**](https://sv.wikipedia.org/wiki/Linus_Torvalds), 
+- This pretty solid site that has taken its simple little old-fashioned solid style-design from sites like, [**Django-Admin**](https://manello-couronne.herokuapp.com/admin/), [**Wikipedia**](https://sv.wikipedia.org/wiki/Linus_Torvalds), 
 [**Github**](https://github.com/manell0/couronne),
 [**flyordie**](http://www.flyordie.com/)
 
@@ -260,14 +260,11 @@ Each page on the website has a consistent, responsive navigation system through 
 
 # Issues and Bugs
 
-- Wanted to migrate my models with new variable names because some are in Swedish. Would just test a bit and used bad variable names which I would of course change later if the code worked. Stopped painting me in a corner!
-Tried to change the variable names (husband migration and migrate) but it was a disaster and nothing worked. I simply had to "start over" ...
-So I do not dare to keep on and tinker with it right now, only out of fear as I do not have all the knowledge on how to update my database correctly.
 
 
 ##### Other information:
 ```
-I started writing a program a couple of years ago when I was not so keen on python. I wanted to do a program.exe and not on the web. Now I have used some of the code I wrote earlier, which means that some code (views) are not so nice or use good variable names, and are not completely DRY. As well as bad variable names in my model. It's something I really want to put my teeth into as soon as I get the chance.
+
 
 ```
 # Technologies Used
@@ -399,7 +396,7 @@ The Project's source file was also pushed to Heroku via the heroku master branch
 
 1. A requirements.txt file was created using the terminal command pip3 freeze > requirements.txt.
 
-2. A Procfile was created using the terminal command echo web: python app.py > Procfile.
+2. A Procfile was created using the terminal command echo web: python app. py > Procfile.
 
 3. A new app was created for the Book Review on Heroku dashboard, by clicking the "New" button and setting the region to Europe. It is necessary to open an account with Heroku and start a new app installation inside your heroku dashboard.
 
