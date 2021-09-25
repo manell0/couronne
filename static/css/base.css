@@ -141,6 +141,10 @@ body {
     text-shadow: .5px .5px #099c4b;
   }
 
+.cell {
+    cursor: cell;
+}
+
 /* ---------------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */

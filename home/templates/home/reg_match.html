@@ -21,7 +21,7 @@ has registered three matches -->
                         Once you have entered the name of the winner, 
                         you will be redirected to a page where you verify by clicking the done button!
                     </p>
-                    <p class="text-success"><u><strong>This information box stops appearing after you have registered three matches!</strong></u></p>
+                    <p class="text-success"><u>This information box stops appearing after you have registered three matches!</u></p>
                 </div>
             </div>
             {% endif %}  
@@ -44,7 +44,7 @@ If the user is not registered, he will be redirected to the sign in page -->
                         misspelled or if user enters their own name. -->
                     <form action="{% url 'home:edit' %}" method="post">
                         {% csrf_token %}    
-                        <input id="search" name="search" type="text" class="query-search" Placeholder="Winner's name here ...">
+                        <strong class="text-primary">&#129094; </strong><input id="search" name="search" type="text" class="query-search" Placeholder="Winner's name here ...">	<strong class="text-primary"> &#129092;</strong>
                         <h6 class="font-size-small" id='one'>Only registered users are updated!</h6>
                         <input class="btn btn-lg btn-outline-dark  bg-warning" id="checkout-button" type="submit" value="Register match">
                     </form>
@@ -55,8 +55,18 @@ If the user is not registered, he will be redirected to the sign in page -->
             </div>
         </div>
     </div>
-</div>
+    <div class="text-center">
+        <!--<h5><u>All Players</u></h5>-->
+        <h6 class="text-success"> Copy  and Paste if you want...</span></h6>
+        {% if all_objects %}
+            {% for person in all_objects %}
+                {{ forloop.counter }}.<strong class="text-secondary" data-toggle="tooltip" data-placement="bottom" title="Double click and copy {{person.user}}">{{person.user}}</strong><span class="text-light">. . </span>
+            {% endfor %}
+        {% endif %}
+    </div>
 <script src="{% static 'js/color_change.js' %}"></script>       
 {%endif%}
+</div>
+
 
 {% endblock %}

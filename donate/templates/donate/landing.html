@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_header %}
+
 <!-- information drop down button with information about the donate process. -->
 <div class="container header-container">
     <div class="row">
@@ -12,7 +13,7 @@
             </p>
             <div class="collapse" id="collapseExample">
                 <div class="card card-body">
-                    <p> Donations to the Couronne website go in full to develop the website, 
+                    <p> <strong> Donations to the Couronne</strong> website go in full to develop the website, 
                         create live tournaments and events! If you want to give more than $10, 
                         you can make repeated donations. How many you actually want! 
                         &#128521;
@@ -26,6 +27,7 @@
 </div>
 {% endblock %} 
 {% block content %}
+
 <div class="container ">
     <div class="alert alert-dark border-blue">
         <div class="row bg-light">
@@ -50,7 +52,7 @@
         </div>
     </div>
 </div>
-<!------------------------ OBS Move to separate file ---------------------------------------------->
+<!------------------------ OBS Dont forget, Move to separate file ---------------------------------------------->
 {% csrf_token %}
 <script type="text/javascript">
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
@@ -86,4 +88,5 @@
     // Disable the button until we have Stripe set up on the page
     document.querySelector("button").disabled = true;
 </script>
+
 {% endblock %}

@@ -75,6 +75,9 @@ def reg_match(request):
     # ratingf is your total rating score
     all_objects = UserProfileInfo.objects.order_by('-ratingf')
 
+    # all_name = UserProfileInfo.objects.order_by('club_location')
+
+
     played_matches = 0
     for user in all_objects:
         if str(request.user) == str(user):
