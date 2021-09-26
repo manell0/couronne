@@ -192,8 +192,23 @@ def edit(request):
 
     user_profile_info = UserProfileInfo.objects.all()
 
-    for object_x in user_profile_info:
+# -------------------------------------------------------------
+    i = 1
+    for search_user in user_profile_info:
+        if searchWord == str(search_user.user):
+            break
 
+        elif searchWord != search_user.user and i == len(user_profile_info):
+
+            return HttpResponse("<br><br><h2><center><font color="'red'"><h1> \
+            No no, try again!</h1> </font>Enter a valid name, check the spelling. The input is case-sensitive.<br><br> <a href=https:../reg_match/> → Back ← \
+                    </a></h2><br><center> <h4><font color='green'>Players who are available can be found at the bottom of the page!</h4></center>")
+        
+        i = i + 1
+# ------------------------------------------------------------------------
+    
+    for object_x in user_profile_info:
+        
         if str(searchWord) == str(object_x.user) and user != object_x.user \
                 and user == request.user:
 
