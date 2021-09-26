@@ -40,8 +40,8 @@ has registered three matches -->
         <div class="row bg-light border-big">
             <div class="col-md-6 col border-big">
                 <div class="row ">
-                    <div class="col bg-info border border-danger text-white ">
-                        <h4 class="bg-light padding-text margins border-big text-dark shadow">News & Stuff</h4>
+                    <div class="col bg-info border border-danger text-white rounded">
+                        <h4 class="bg-light padding-text margins border-big text-dark shadow rounded">News & Stuff</h4>
                     </div>
                 </div>
                 <p><strong class="text-dark">Join the Couronne league!</strong> now and get 
@@ -73,11 +73,11 @@ has registered three matches -->
             </div>
             <div class="col-md-6 border-big">
                 <div class="row ">
-                    <div class="col bg-success border border-danger">
-                        <h4 class="bg-light padding-text margins border-big text-dark shadow">
+                    <div class="col bg-success border border-danger rounded">
+                        <h4 class="bg-light padding-text margins border-big text-dark shadow rounded">
                             <a class="text-dark" href="{% url 'home:league_all' %}" 
-                            data-toggle="tooltip" data-placement="bottom" title="See all the players in Couronne league...">
-                            League Top 5</a> </h4>
+                            data-toggle="tooltip" data-placement="left" title="See all the players in Couronne league...">
+                            League Top 5</a><span class="float-right text-dark" data-toggle="tooltip" data-placement="left" title='The Couronne league acts as "King of the Hill". The league starts and ends 13/12 every year.'>🛈</span></h4>
                     </div>
                 </div>
                 <!-- Table shows top 5 couronne players -->
@@ -141,8 +141,9 @@ has registered three matches -->
                         <div class="modal-body">
                             <img src="{{ MEDIA_URL }}lanches.jpg" width="250px" alt="couronne table">
                             <p class="bg-light text-info"><strong> This</strong> links should go to an <strong> e-commerce</strong> page where you can buy AND sell stuff 
-                                that has to do with <strong> Couronne! <br> <br> Unfortunately</strong>, the e-commerce site is 
-                                not ready yet but it is underway in the near future!
+                                that has to do with <strong> Couronne! <br>
+                            <p> Unfortunately</strong>, the e-commerce site is 
+                                not ready yet but it is underway in the near future!</p>
                             </p>
                         </div>
                         <div class="modal-footer">
