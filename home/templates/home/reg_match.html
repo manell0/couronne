@@ -60,7 +60,9 @@ If the user is not registered, he will be redirected to the sign in page -->
         <h6 class="text-success"> Copy  and Paste if you want...</span></h6>
         {% if all_objects %}
             {% for person in all_objects %}
-                {{ forloop.counter }}.<strong class="text-secondary" data-toggle="tooltip" data-placement="bottom" title="Double click and copy {{person.user}}">{{person.user}}</strong><span class="text-light">. . </span>
+                {% if person.user != request.user %}
+                    <strong class="text-secondary" data-toggle="tooltip" data-placement="bottom" title="Double click and copy {{person.user}}">{{person.user}}</strong><span class="text-light">. . </span>
+                {% endif %}
             {% endfor %}
         {% endif %}
     </div>

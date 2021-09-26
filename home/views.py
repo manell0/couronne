@@ -179,13 +179,16 @@ def edit(request):
     searchWord = request.POST.get('search')
     if searchWord == user.username:
         return HttpResponse("<br><br><h2><center><font color="'#d30f0f'"><h1> \
-        Ööööö!!!</h1> </font>Are you trying to score points for yourself ?! \
-            Big no no!<br><br> <a href=https:../reg_match/> → Back ← \
+        Big no no!</h1> </font>You're trying to score points for yourself! \
+            <br><br> <a href=https:../reg_match/> → Back ← \
                 </a></h2>")
 
     # Check if the input is empty and not admin
     if searchWord == '' or searchWord == 'admin':
-        return HttpResponseRedirect('/reg_match/')
+        return HttpResponse("<br><br><h2><center><font color="'red'"><h1> \
+        No no, try again!</h1> </font>Enter a valid name, check the spelling. The input is case-sensitive.<br><br> <a href=https:../reg_match/> → Back ← \
+                </a></h2><br><center> <h4><font color='green'>Players who are available can be found at the bottom of the page!</h4></center>")
+        # return HttpResponseRedirect('/reg_match/')
 
     user_profile_info = UserProfileInfo.objects.all()
 
