@@ -64,7 +64,9 @@ If the user is not registered, he will be redirected to the sign in page -->
             {% endfor %}
         {% endif %}
     </div>
-<script src="{% static 'js/color_change.js' %}"></script>       
+    {% block extra_js %}
+        <script src="{% static 'js/color_change.js' %}"></script> 
+    {% endblock %}      
 {%endif%}
 </div>
 

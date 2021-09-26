@@ -238,13 +238,13 @@ def edit(request):
                                     average_profile = (profile.ratingf - 100) / profile.number_played_matches
                                     opponent.save()
                                     profile.save()
-                                    pass
+                                    
                                 else:
                                     average_profile = (profile.ratingf - 100) / profile.number_played_matches
                                     average_profile = (opponent.ratingf - 100) / opponent.number_played_matches
                                     opponent.save()
                                     profile.save()
-                                    pass
+                                    
 
                                 opponent.average = average_profile
                                 profile.average = average_profile
