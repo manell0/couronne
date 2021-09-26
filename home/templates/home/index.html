@@ -74,7 +74,10 @@ has registered three matches -->
             <div class="col-md-6 border-big">
                 <div class="row ">
                     <div class="col bg-success border border-danger">
-                        <h4 class="bg-light padding-text margins border-big text-dark shadow"><a class="text-dark" href="{% url 'home:league_all' %}" data-toggle="tooltip" data-placement="bottom" title="See all the players in Couronne league...">League Top 5</a> </h4>
+                        <h4 class="bg-light padding-text margins border-big text-dark shadow">
+                            <a class="text-dark" href="{% url 'home:league_all' %}" 
+                            data-toggle="tooltip" data-placement="bottom" title="See all the players in Couronne league...">
+                            League Top 5</a> </h4>
                     </div>
                 </div>
                 <!-- Table shows top 5 couronne players -->
@@ -86,15 +89,31 @@ has registered three matches -->
                     <th>Average</th>
                     <th>Rating</th>
                     {% for person in all_objects %}
-                    {% if forloop.counter <= 5  %}
-                    <tr>
-                        <td class="text-left">{{ forloop.counter }}. {{ person.user }}</td>
-                        <td class="hides hideing">{{ person.number_played_matches }}</td>
-                        <td class="hides text-success"><strong>{{ person.matches_won}}</strong></td>
-                        <td>{{ person.average|floatformat:3 }}</td>
-                        <td><strong>{{person.ratingf|floatformat:3}}</strong></td>
-                    </tr>
-                    {% endif %}
+                        {% if forloop.counter <= 5  %}
+                            <tr>
+                                {% if forloop.counter == 1 %}
+                                    <td class="text-left" data-toggle="tooltip" data-placement="left" title="First place earns 🥇 symbol at the end of the season. Right now {{ person.user }}">{{ forloop.counter }}. {{ person.user }}  </td>
+                                {% endif %}
+                                {% if forloop.counter == 2 %}
+                                    <td class="text-left" data-toggle="tooltip" data-placement="left" title="Second place earns 🥈 symbol at the end of the season. Right now {{ person.user }}">{{ forloop.counter }}. {{ person.user }}  </td>
+                                {% endif %}
+                                {% if forloop.counter == 3 %}
+                                    <td class="text-left" data-toggle="tooltip" data-placement="left" title="Third place earns 🥉 symbol at the end of the season. Right now {{ person.user }}">{{ forloop.counter }}. {{ person.user }}  </td>
+                                {% endif %}
+                                {% if forloop.counter == 4 %}
+                                    <td class="text-left" data-toggle="tooltip" data-placement="left" title="Fourth place earns 💥symbol at the end of the season. Right now {{ person.user }}">{{ forloop.counter }}. {{ person.user }}  </td>
+                                {% endif %}
+                                {% if forloop.counter == 5 %}
+                                    <td class="text-left" data-toggle="tooltip" data-placement="left" title="Fifth place earns 💫 symbol at the end of the season. Right now {{ person.user }}">{{ forloop.counter }}. {{ person.user }}  </td>
+                                {% endif %}
+
+                                <!--<td class="text-left">{{ forloop.counter }}. {{ person.user }}  </td>-->
+                                <td class="hides hideing">{{ person.number_played_matches }}</td>
+                                <td class="hides text-success"><strong>{{ person.matches_won}}</strong></td>
+                                <td>{{ person.average|floatformat:3 }}</td>
+                                <td><strong>{{person.ratingf|floatformat:3}}</strong></td>
+                            </tr>
+                        {% endif %}
                     {% endfor %}
                 </table>
                 {% endif %}
