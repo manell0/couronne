@@ -189,7 +189,6 @@ def edit(request):
         final_text = "You're not a cheater, are you?"
         return render(request, 'home/reg_match_wrong.html', {'message': message, 'heading': heading, 'final_text': final_text})
 
-
     # Check if the input is empty and not admin
     if searchWord == '' or searchWord == 'admin':
         if searchWord == '':
