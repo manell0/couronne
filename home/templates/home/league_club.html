@@ -20,7 +20,7 @@ has registered three matches -->
                         <strong class="text-danger">Keep in mind that the Venue/Club name you enter is case-sensitive.</strong>
                     </p>
                     <p>
-                        <strong>Update your profile with a venue/club </strong><a href="{% url 'home:profile' %}">here...</a>
+                        <strong>Update your profile with a venue/club </strong><a href="{% url 'home:update' %}">here...</a>
                     </p>
                 </div>
             </div>
@@ -71,6 +71,7 @@ has registered three matches -->
                     <!-- Back and home buttons -->
                     <a class="btn btn-outline-dark btn-sm border-danger" href="javascript:history.back()"> ← BACK </a>
                     <a class="btn btn-outline-dark btn-sm border-info" href="{% url 'home:home' %}"> ← HOME </a>
+                    <a class="btn btn-outline-dark btn-sm border-dark" href="{% url 'home:league_all' %}"> All Players </a>
                 </div>
             </div>
         </div>
