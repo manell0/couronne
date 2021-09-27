@@ -93,17 +93,7 @@ The Modal automatically displayed when you have completed a game works as expect
 
 ---
 
-![Testing ScreenShot](assets/readme-resources/alert-confirm.jpg)
 
-#### Fig 1:
-
-- An alert box appears when a user has paused the game and tries to click on the game board.
-  - The alert box warning sound and other functions work as intended.
-
-#### Fig 2:
-
-- An confirm box appears when a user press the restart icon to confirm whether the user wants to restart the game or not.
-  - The confirm box warning sound and other functions work as intended.
 
 ---
 
@@ -114,8 +104,7 @@ The Modal automatically displayed when you have completed a game works as expect
 - The [RESPONSIVE WEB DESIGN CHECKER](https://responsivedesignchecker.com/) service is used to check how responsive the website is.
 
   - Is also checked with the browser's built-in responsive tool (inspect).
-
-- The [W3C Markup Validator](https://validator.w3.org/) service was used to validate the HTML code used.
+  
 
 - The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) service was used to validate the CSS code used.
 
@@ -125,14 +114,6 @@ The Modal automatically displayed when you have completed a game works as expect
 
 - Used [corrector](https://www.corrector.co/) for spell checking.
 
-### HTML Validation
-
-#### Results:
-
-- All pages on the site have the same result. See below.
-
-![HTML Validation](assets/readme-resources/html-validaor-image.jpg)
-
 ### CSS Validation
 
 #### Results:
@@ -140,14 +121,14 @@ The Modal automatically displayed when you have completed a game works as expect
 - It´s only one CSS file in the project (style.css)
   - (The test is done from Swedish browser, translated into English: Congratulations! No errors were found)
 
-![CSS Validation](assets/readme-resources/css-validaor-image.jpg)
+![CSS Validation](static/readme-resources/css-validaor-image.jpg)
 
 ## Lighthouse
 
 Screenshot from the index page (desktop device)
 
-[Lighthouse test as PDF ](assets/readme-resources/lighthouse.pdf)
-![lighthouse test](assets/readme-resources/lighthouse-index.jpg)
+![Lighthouse test](static/readme-resources/lighthouse-index.jpg)
+
 
 ## User Testing
 
