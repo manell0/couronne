@@ -18,4 +18,5 @@ urlpatterns = [
     path('rules_story/', views.rules_story, name="rules_story"),
     path('contact_us/', views.contact_us, name="contact_us"),
     path('succes_contact_us/', views.succes_contact_us, name="succes_contact_us"),
+    path('reg_match_wrong/', views.reg_match_wrong, name="reg_match_wrong"),
 ]

@@ -170,42 +170,52 @@ def reg_match(request):
                    'rating_five': rating_five})
 
 
+@login_required
+def reg_match_wrong(request, message, heading, final_text):
+    return render(request, 'home/reg_match_wrong.html', {'message': message, 'heading':heading, 'final_text': final_text})
+
+
 # Function that makes all checks when a user tries to register a played match.
 @login_required
 def edit(request):
     user = request.user
+    user_profile_info = UserProfileInfo.objects.all()
 
     # Check if the user is trying to score points for himself
     searchWord = request.POST.get('search')
     if searchWord == user.username:
-        return HttpResponse("<br><br><h2><center><font color="'#d30f0f'"><h1> \
-        Big no no!</h1> </font>You're trying to score points for yourself! \
-            <br><br> <a href=https:../reg_match/> → Back ← \
-                </a></h2>")
+        heading = 'Big no no!'
+        message = 'You are trying to score points for yourself!'
+        final_text = "You're not a cheater, are you?"
+        return render(request, 'home/reg_match_wrong.html', {'message': message, 'heading': heading, 'final_text': final_text})
+
 
     # Check if the input is empty and not admin
     if searchWord == '' or searchWord == 'admin':
-        return HttpResponse("<br><br><h2><center><font color="'red'"><h1> \
-        No no, try again!</h1> </font>Enter a valid name, check the spelling. The input is case-sensitive.<br><br> <a href=https:../reg_match/> → Back ← \
-                </a></h2><br><center> <h4><font color='green'>Players who are available can be found at the bottom of the page!</h4></center>")
-        # return HttpResponseRedirect('/reg_match/')
-
-    user_profile_info = UserProfileInfo.objects.all()
-
-# -------------------------------------------------------------
+        if searchWord == '':
+            heading = 'Write something!'
+            message = 'Enter a name to register a match.'
+            final_text = 'The input is case sensitive'
+        else:
+            heading = 'admin is not in the league.!'
+            message = 'At the bottom of the page you can see names that are possible to register.'
+            final_text = 'The input is case sensitive'
+        return render(request, 'home/reg_match_wrong.html', {'message': message, 'heading': heading, 'final_text': final_text})
+        
+    # Check input field for misspelling
     i = 1
     for search_user in user_profile_info:
         if searchWord == str(search_user.user):
             break
 
         elif searchWord != search_user.user and i == len(user_profile_info):
-
-            return HttpResponse("<br><br><h2><center><font color="'red'"><h1> \
-            No no, try again!</h1> </font>Enter a valid name, check the spelling. The input is case-sensitive.<br><br> <a href=https:../reg_match/> → Back ← \
-                    </a></h2><br><center> <h4><font color='green'>Players who are available can be found at the bottom of the page!</h4></center>")
+            heading = 'Check the spelling!'
+            message = 'Opponent does not exist, or you have misspelled.'
+            final_text = 'The input is case sensitive'
+            return render(request, 'home/reg_match_wrong.html', {'message': message, 'heading': heading, 'final_text': final_text})
         
         i = i + 1
-# ------------------------------------------------------------------------
+
     
     for object_x in user_profile_info:
         
