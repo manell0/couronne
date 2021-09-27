@@ -196,7 +196,7 @@ def edit(request):
             message = 'Enter a name to register a match.'
             final_text = 'The input is case sensitive'
         else:
-            heading = 'admin is not in the league.!'
+            heading = 'admin is not in the league!'
             message = 'At the bottom of the page you can see names that are possible to register.'
             final_text = 'The input is case sensitive'
         return render(request, 'home/reg_match_wrong.html', {'message': message, 'heading': heading, 'final_text': final_text})

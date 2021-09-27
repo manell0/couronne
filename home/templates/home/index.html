@@ -44,10 +44,19 @@ has registered three matches -->
                         <h4 class="bg-light padding-text margins border-big text-dark shadow rounded">News & Stuff</h4>
                     </div>
                 </div>
-                <p><strong class="text-dark">Join the Couronne league!</strong> now and get 
-                    the chance to participate in the Couronne Swedish Championships!
-                    <br><a href="{% url 'home:register' %}">Register here ...</a>
-                </p>
+                {% if not user.is_authenticated %}
+                    <p><strong class="text-primary">Join the Couronne league and start your own Club!</strong>
+                        
+                    </p>
+                    <p><strong class="text-primary">Conquer the league and become king of the hill!</strong>
+                        <br>Win a symbol that follows you forever!
+                        <br>First place = 🥇 Second place = 🥈  Third place = 🥉  Fourth place = 💥  Fifth place = 💫
+                    </p>    
+                    <p><strong class="text-primary">Join the Couronne league!</strong> now and get 
+                        the chance to participate in the Couronne Swedish Championships!
+                        <br><a href="{% url 'home:register' %}">Register here ...</a>
+                    </p>
+                {% endif %}
                 <hr>
                 <div  class="col">
                     <h3 class="text-brown">Launches! &#128495;</h3>
@@ -70,6 +79,11 @@ has registered three matches -->
                     </table>
                 </div>
                 <hr>
+                <div class="alert alert-light" >
+                    <h2><a href="couronne_info/#SM"> Ghost of the Month 👻</a></h2>
+                    <h5>The ghost of the month is the player who...</h5>
+                    <a href="couronne_info/#SM">Read more here...</a>
+                </div>
             </div>
             <div class="col-md-6 border-big">
                 <div class="row ">
@@ -120,10 +134,7 @@ has registered three matches -->
             </div>
             <!-- Advertising and link to couronne info page -->
             <div class="alert alert-light col-md-6" >
-                <h2><a href="couronne_info/#SM"> Ghost of the Month 👻</a></h2>
-                <h5>The ghost of the month is the player who...</h5>
-                    <a href="couronne_info/#SM">Read more here...</a>
-                
+               
             </div>
             <div class="col-md-6 text-center">
                 <a href="{% url 'home:reg_match' %}" class="shop-now-button btn btn-sm rounded 0 text-uppercase py-3"><span class="shadow">Register Match</span></a>
