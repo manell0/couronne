@@ -4,7 +4,6 @@
 
 ![The Markup from responsive design](static/readme-resources/responsive.jpg)
 
-
 ## Project Milestone 4 (Code Institute)
 
 This is a medium advanced website that has most of the features needed to make the website feel comfortable and easy to navigate.
@@ -13,9 +12,10 @@ This is a medium advanced website that has most of the features needed to make t
 
 **[View The Couronne site on Heroku](https://manello-couronne.herokuapp.com/)**
 
+---
+
 ### Overall about the site:
 
-```
 This site uses both FBV and CBV as it is the best solution. 
 The app home uses FBV because I use the mini project Boutique Ado as a basis for my start of programming for this site, and FBV is all I learned (have done some small projects for testing with CBV). 
 CBV is used in my other app (donate) and it is largely copied from stripe programming recommendations. 
@@ -23,7 +23,7 @@ CBV is used in my other app (donate) and it is largely copied from stripe progra
 All functions in the apps work as they should, but some code in the home app is not so "nice" and probably not completely DRY. 
 But as Linus Torvalds (author of the operating system core Linux.) Said, if the code works, let it be, we will fix it when we have a lot of time left over and the project is published and finished ...
 
-```
+---
 
 - For testing, please use the following login information for admin privileged pages 
    - Username: admin/Password: code-institute
@@ -33,14 +33,12 @@ But as Linus Torvalds (author of the operating system core Linux.) Said, if the 
       
    https://manello-couronne.herokuapp.com/league_all/
 
-
 - Or try the user: sally
 
    who leads the league and is a member of Venue/Club: Couronne Killers, on this page you can see players/friends who are members of the same club like yourself!
 
       
    - Username: sally/Password: sally
-
 
 # Introduction
 
@@ -52,7 +50,6 @@ But as Linus Torvalds (author of the operating system core Linux.) Said, if the 
 
  - In the future intended for everyone. Because the site is easy to upgrade/change. The site is built to be easy to expand.
 
-
 - The focus of the website is to create an easy way to reach people who want to compete against each other in the classic Swedish table game, Couronne. 
 - Easily navigate the site. Good easy-to-understand functions, be a pleasant experience for the visitor.
 
@@ -61,8 +58,9 @@ But as Linus Torvalds (author of the operating system core Linux.) Said, if the 
 
 - If you like simple, solid and easy to navigate sites. Like to play matches against your friends, so here you have a site to enjoy.
 
-
 - This is the fourth of four Milestone projects that the developer must complete during his Full-Stack web development program at The Code Institute.
+
+---
 
 ## Mandatory Requirements:
 ### A project violating any of these requirements will FAIL
@@ -81,7 +79,6 @@ But as Linus Torvalds (author of the operating system core Linux.) Said, if the 
 12. Deployment: Deploy the final version of your code to a hosting platform such as Heroku.
 13. Security: Make sure to not include any passwords or secret keys in the project repository. Make sure to turn off the Django DEBUG mode, which could expose secrets.
 . [**HTML5**](https://en.wikipedia.org/wiki/HTML5),  [**CSS3**](https://en.wikipedia.org/wiki/CSS), [**JavaScript**](https://en.wikipedia.org/wiki/javascript), [**Django**](https://www.djangoproject.com/) and [**PostgreSQL...**](https://www.postgresql.org/).
-
 
 # UX
 
@@ -120,6 +117,9 @@ But as Linus Torvalds (author of the operating system core Linux.) Said, if the 
 2. As a current user, I want to navigate to the top list of all league members.
 
 3. As current users want to be able to navigate to new events and tournaments.
+
+---
+
 ## Development Planes
 
 ### Strategy
@@ -167,14 +167,14 @@ Wireframe mockup was created in a Figma Workspace with providing a positive user
 
 ![Wireframes screenShot as PDF](static/readme-resources/wireframe.jpg)
 
-
 ### Surface
 [Markup from: responsivedesignchecker](https://responsivedesignchecker.com/)
-
 
 [Markup from: ami.responsive design.is](http://ami.responsivedesign.is/)
 
 ![The Markup from responsive design](static/readme-resources/responsive.jpg)
+
+---
 
 ## Design
 
@@ -207,7 +207,6 @@ Font font-family: Prompt is used throughout the website with Sans Serif as the f
 Each page on the website has a consistent, responsive navigation system through a navigation bar on the top of the site.
 - At the top of the page, we find our navbar which turns into a burger for smaller screen sizes..
 
-
 ### Existing Features
 
 - ### favicon
@@ -223,15 +222,11 @@ Each page on the website has a consistent, responsive navigation system through 
    - Donate
    - Reg Match
    - Log In, log out and register
-
   
 - ### Start Page (Home):
    - Couronne logo in top left goes to the start page.
 
    - The home page is divided into two columns, the left one is for news and gadgets. The right for the league top 5.
-   
-   
-
     
 - ### Leader Board:
   - All Players page is a table with all registered players, sorted by highest ranking/rating score.
@@ -240,6 +235,8 @@ Each page on the website has a consistent, responsive navigation system through 
     
 - ### About:
    - About & Info page has a navigation button at the top for easier navigation on the page which is quite long. The page contains things like, events, explanation of the ranking system, cheating, FAQ, about us, terms and a little curiosity.
+
+   - Contact Us page where you can contact Couronne.
 
 - ### Rules & Story:
    - The page is divided into two columns, the left one is for Rules and the right for Story.
@@ -253,9 +250,10 @@ Each page on the website has a consistent, responsive navigation system through 
 - ### My Profile (Klick on the user icon in top right):
    - Here you can see and update your profile.
 
-
 - ### 404 page (404.html):
   - 404 has a simple text with a link back to the index.
+
+---
 
 ## Features to Implement in the future
 
@@ -273,16 +271,15 @@ Each page on the website has a consistent, responsive navigation system through 
 
 - Pagination on pages that are likely to be long.
 
-
 # Issues and Bugs
-
-
+A big Issue was that I had named my variables in my model very badly because I thought it was just to change the names later (I am an idiot). When I then tried to change the names in my model through migrate, the whole program crashed! After a lot of ifs and buts, I managed to get everything back, but with the variables with bad names. Then I got some encouragement and some help to fix it from a girl named Owonikoko Oluwaseun who by the way is my mentor. Thank you dear mentor!
 
 ##### Other information:
-```
-
-
-```
+PROBLEMS in home view which I do not intend to care about (except line too long, if it is extremely and very much too long)
+'django.forms' imported but unused
+line too long (82 > 79 characters)
+Class 'UserProfileInfo' has no 'objects' member
+comparison to True should be 'if cond is True:' or 'if cond:'
 # Technologies Used
 
 ### Main Languages Used
@@ -311,7 +308,6 @@ Each page on the website has a consistent, responsive navigation system through 
 
 - [Font Awesome icons](https://fontawesome.com/icons?d=gallery&p=2&m=free)
 
-
 # Testing
 
 [Testing information can be found in this separate testing file](testing.md)
@@ -319,7 +315,6 @@ Each page on the website has a consistent, responsive navigation system through 
 # Deployment
 
 - This project was developed using Gitpod, committed to git, and pushed to GitHub using the bash in Gitpod.
-
 
 ## Deploying on GitHub Pages
 
@@ -371,7 +366,6 @@ git clone https://github.com/USERNAME/REPOSITORY
 8. Press Enter. Your local clone will be created.
 
 Further reading and troubleshooting on cloning a repository from GitHub [**_here_**](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
-
 
 ## Local Deployment: 
 This project was developed using Gitpod as the chosen IDE and GitHub as a remote repository.
@@ -436,7 +430,6 @@ The Project's source file was also pushed to Heroku via the heroku master branch
 
 7. The web app is now successfully deployed.
 
-
 # Credits
 
 - I have used [Rebecca Tracey-Timoneys](https://github.com/rebeccatraceyt) README file [KryanLive](https://github.com/rebeccatraceyt/KryanLive/blob/master/README.md) as a guide/template for this README file.
@@ -446,13 +439,11 @@ The Project's source file was also pushed to Heroku via the heroku master branch
 - I have used the Project - Boutique Ado as a start for my milestone project.
   [Project - Boutique Ado](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSF_102+Q1_2020/courseware/4201818c00aa4ba3a0dae243725f6e32/d3188bf68530497aa5fba55d07a9d7d7/)
 
-
 ## Content
 
 ## Media
 
 - The images on the pages are copied (https://www.freepik.com/) is found on freepik.
-
 
 ## Code
 

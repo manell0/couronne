@@ -29,8 +29,9 @@ def index(request):
     for user in all_objects:
         if str(request.user) == str(user):
             played_matches = user.number_played_matches
-    return render(request, 'home/index.html', {'all_objects': all_objects,
-                  'played_matches': played_matches})
+    return render(request, 'home/index.html', {
+        'all_objects': all_objects,
+        'played_matches': played_matches})
 
 
 def rules_story(request):
@@ -45,8 +46,8 @@ def wrong_404(request, exception):
 # whit the highest ratingf on top
 def league_all(request):
     all_objects = UserProfileInfo.objects.order_by('-ratingf')
-    return render(request, 'home/league_all.html',
-                  {'all_objects': all_objects})
+    return render(request, 'home/league_all.html', {
+        'all_objects': all_objects})
 
 
 # Club league page whit all registrated players who registered the same club
@@ -63,20 +64,20 @@ def league_club(request):
         if str(request.user) == str(user):
             club = user.club_location
 
-    return render(request, 'home/league_club.html',
-                  {'all_objects': all_objects, 'club': club})
+    return render(request, 'home/league_club.html', {
+        'all_objects': all_objects,
+        'club': club})
 
 
 # The registration page where you can register matches that you have played
 @login_required
 def reg_match(request):
     user = request.user
-    
+
     # ratingf is your total rating score
     all_objects = UserProfileInfo.objects.order_by('-ratingf')
 
     # all_name = UserProfileInfo.objects.order_by('club_location')
-
 
     played_matches = 0
     for user in all_objects:
@@ -153,26 +154,29 @@ def reg_match(request):
             flag.game_flag = True
             flag.save()
 
-    return render(request, 'home/reg_match.html',
-                  {'all_objects': all_objects,
-                   'played_matches': played_matches,
-                   'profile': profile,
-                   'rf_sum': rf_sum,
-                   'one': one,
-                   'two': two,
-                   'three': three,
-                   'four': four,
-                   'five': five,
-                   'rating_one': rating_one,
-                   'rating_two': rating_two,
-                   'rating_three': rating_three,
-                   'rating_four': rating_four,
-                   'rating_five': rating_five})
+    return render(request, 'home/reg_match.html', {
+        'all_objects': all_objects,
+        'played_matches': played_matches,
+        'profile': profile,
+        'rf_sum': rf_sum,
+        'one': one,
+        'two': two,
+        'three': three,
+        'four': four,
+        'five': five,
+        'rating_one': rating_one,
+        'rating_two': rating_two,
+        'rating_three': rating_three,
+        'rating_four': rating_four,
+        'rating_five': rating_five})
 
 
 @login_required
 def reg_match_wrong(request, message, heading, final_text):
-    return render(request, 'home/reg_match_wrong.html', {'message': message, 'heading':heading, 'final_text': final_text})
+    return render(request, 'home/reg_match_wrong.html', {
+        'message': message,
+        'heading': heading,
+        'final_text': final_text})
 
 
 # Function that makes all checks when a user tries to register a played match.
@@ -187,7 +191,10 @@ def edit(request):
         heading = 'Big no no!'
         message = 'You are trying to score points for yourself!'
         final_text = "You're not a cheater, are you?"
-        return render(request, 'home/reg_match_wrong.html', {'message': message, 'heading': heading, 'final_text': final_text})
+        return render(request, 'home/reg_match_wrong.html', {
+            'message': message,
+            'heading': heading,
+            'final_text': final_text})
 
     # Check if the input is empty and not admin
     if searchWord == '' or searchWord == 'admin':
@@ -199,8 +206,12 @@ def edit(request):
             heading = 'admin is not in the league!'
             message = 'At the bottom of the page you can see names that are possible to register.'
             final_text = 'The input is case sensitive'
-        return render(request, 'home/reg_match_wrong.html', {'message': message, 'heading': heading, 'final_text': final_text})
-        
+
+        return render(request, 'home/reg_match_wrong.html', {
+            'message': message,
+            'heading': heading,
+            'final_text': final_text})
+
     # Check input field for misspelling
     i = 1
     for search_user in user_profile_info:
@@ -211,13 +222,16 @@ def edit(request):
             heading = 'Check the spelling!'
             message = 'Opponent does not exist, or you have misspelled.'
             final_text = 'The input is case sensitive'
-            return render(request, 'home/reg_match_wrong.html', {'message': message, 'heading': heading, 'final_text': final_text})
-        
+
+            return render(request, 'home/reg_match_wrong.html', {
+                'message': message,
+                'heading': heading,
+                'final_text': final_text})
+
         i = i + 1
 
-    
     for object_x in user_profile_info:
-        
+
         if str(searchWord) == str(object_x.user) and user != object_x.user \
                 and user == request.user:
 
@@ -265,13 +279,12 @@ def edit(request):
                                     average_profile = (profile.ratingf - 100) / profile.number_played_matches
                                     opponent.save()
                                     profile.save()
-                                    
+
                                 else:
                                     average_profile = (profile.ratingf - 100) / profile.number_played_matches
                                     average_profile = (opponent.ratingf - 100) / opponent.number_played_matches
                                     opponent.save()
                                     profile.save()
-                                    
 
                                 opponent.average = average_profile
                                 profile.average = average_profile
@@ -300,14 +313,14 @@ def edit(request):
                     user_match_form_opponent = UserMatchFormOpponent()
 
                     sum_pro = profile.ratingf * 0.01
-                    return render(request, 'home/edit.html',
-                                  {'user_match_form': user_match_form,
-                                   'user_match_form_opponent': user_match_form_opponent,
-                                   'searchWord': searchWord,
-                                   'all_objects': all_objects,
-                                   'sum_pro': sum_pro,
-                                   'user': user,
-                                   'average_profile': average_profile})
+                    return render(request, 'home/edit.html', {
+                        'user_match_form': user_match_form,
+                        'user_match_form_opponent': user_match_form_opponent,
+                        'searchWord': searchWord,
+                        'all_objects': all_objects,
+                        'sum_pro': sum_pro,
+                        'user': user,
+                        'average_profile': average_profile})
 
     if request.method == 'POST':
         return HttpResponseRedirect('/reg_match/')
@@ -367,11 +380,11 @@ def update(request):
 
     # This is the render and context dictionary to feed
     # back to the uppdate.html file page.
-    return render(request, 'home/update.html',
-                          {'upp_form': user_form,
-                           'profile_form': profile_form,
-                           'registered': registered,
-                           'reg': reg})
+    return render(request, 'home/update.html', {
+        'upp_form': user_form,
+        'profile_form': profile_form,
+        'registered': registered,
+        'reg': reg})
 
 
 # The profile page where you can see your profile and update
@@ -380,9 +393,9 @@ def profile(request):
     all_objects = UserProfileInfo.objects.order_by('-ratingf')
     profile = UserProfileInfo.objects.all()
 
-    return render(request, 'home/profile.html', {'all_objects': all_objects,
-                                                        'profile': profile,
-                                                         })
+    return render(request, 'home/profile.html', {
+        'all_objects': all_objects,
+        'profile': profile})
 
 
 # Function for set the game flag for a user
@@ -417,7 +430,7 @@ def contact_us(request):
             subject = form.cleaned_data['subject']
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
-            message =  'Couronne will get back to you soon. Your Message: ' + message
+            message = 'Couronne will get back to you soon. Your Message: ' + message
             try:
                 send_mail(subject, message, from_email, ['couronne@gmail.com'])
             except BadHeaderError:
@@ -470,13 +483,11 @@ def register(request):
         user_form = UserForm(data=request.POST)
         profile_form = UserProfileInfoForm(data=request.POST)
 
-        for item in user_form:
-            pass
 
         # Check to see both forms are valid
         if user_form.is_valid() and profile_form.is_valid():
 
-            
+
             for item in user_form:
                 pass
             # Save User Form to Database
@@ -511,7 +522,7 @@ def register(request):
 
     # This is the render and context dictionary to feed
     # back to the registration.html file page.
-    return render(request,'home/registration.html',
-                          {'user_form': user_form,
-                           'profile_form': profile_form,
-                           'registered': registered})
+    return render(request,'home/registration.html', {
+        'user_form': user_form,
+        'profile_form': profile_form,
+        'registered': registered})

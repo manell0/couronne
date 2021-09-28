@@ -46,7 +46,6 @@
 
    - [x] I want to be able to "forget" my password.
    
-
 ## Manual Content Testing
 The pages on the site works flawlessly in all screen sizes and is self-explanatory.
 
@@ -92,22 +91,18 @@ which is displayed to the user has registered three matches, in order to then di
 
 - [x] Back, Home buttons
 
-
 ### Contact Us (ABOUT)
 - [x] Form for contact us
 
 - [x] Back, Home buttons
 
-
 ### RULES & STORY
 - [x] Back, Home buttons
-
 
 ### DONATE
 - [x] Donation with webhook, stripe event, mail verification
 
 - [x] Back, Home buttons
-
 
 ### REG MATCH
 - [x] Input works with:
@@ -141,10 +136,7 @@ which is displayed to the user has registered three matches, in order to then di
 - [x] Back, Home buttons
 
 
-
----
 - Checked with the browser's built-in responsive tool (inspect).
-
 
 ---
 
@@ -153,9 +145,6 @@ which is displayed to the user has registered three matches, in order to then di
 ### code Validation
 
 - The [RESPONSIVE WEB DESIGN CHECKER](https://responsivedesignchecker.com/) service is used to check how responsive the website is.
-
-  
-  
 
 - The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) service was used to validate the CSS code used.
 
