@@ -16,6 +16,8 @@ This is a medium advanced website that has most of the features needed to make t
 
 ### Overall about the site:
 
+This site uses Amazon Web Services (AWS) to store static files. Stripe for webhooks, payment events and payment. Postgres for database storage and Heroku for distribution.
+
 This site uses both FBV and CBV as it is the best solution. 
 The app home uses FBV because I use the mini project Boutique Ado as a basis for my start of programming for this site, and FBV is all I learned (have done some small projects for testing with CBV). 
 CBV is used in my other app (donate) and it is largely copied from stripe programming recommendations. 
@@ -316,6 +318,8 @@ PROBLEMS in home view which I do not intend to care about (except line too long,
 [Testing information can be found in this separate testing file](testing.md)
 
 # Deployment
+## Amazon web Services (AWS)
+To store static, media, css and admin files.
 
 - This project was developed using Gitpod, committed to git, and pushed to GitHub using the bash in Gitpod.
 
