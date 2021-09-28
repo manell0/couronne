@@ -30,6 +30,8 @@
 
 5. As a new user, I want some features on the site:
 
+   - [x] I want to be able to register, Log-in and Log-out.
+
    - [x] I want to be able to register matches.
 
    - [x] I want to be able to see the league position.
@@ -38,61 +40,110 @@
 
    - [x] I want to be able to get back to the front page.
 
-   - [x] I want to be able to see my  results.
+   - [x] I want to be able to see my results.
 
-## Manual Testing
+   - [x] I want to be able to contact the site.
 
-### Elements / Items Testing
+   - [x] I want to be able to "forget" my password.
+   
+
+## Manual Content Testing
+The pages on the site works flawlessly in all screen sizes and is self-explanatory.
+
+### Start Page:
+#### News & Stuff section/column
+- [x] Advertisements to register for users who are not registered are displayed and disappear when the user has registered.
+
+- [x] Information about this site drop-down button
+which is displayed to the user has registered three matches, in order to then disappear.
+
+- [x] Launched... ✰  links
+
+- [x] Modal function on lunched links
+
+- [x] Ghost of the Month link
+
+- [x] Ghost of the Month link
+#### League Top 5 section/column
+
+- [x] The heading is link to all league
+
+- [x] The info icon hover information
+
+- [x] The user/player hover information
+
+- [x] The Register Match button
+
+### All Players (LEADER BOARD):
+
+- [x] Back, Home, Your Club buttons
+
+### Your Club Result (LEADER BOARD)
+- [x] Various heading content depending on whether the user is AnonymusUser, Is a member of any club, or not a member of any club
+
+- [x] Back, Home, Your Club buttons
+
+### About & Info (ABOUT)
+- [x] Navigate drop-down button
+
+- [x] Up buttons
+
+- [x] Cheating widget (about your IP, Os, Browser)
+
+- [x] Back, Home buttons
 
 
-#### Start Page
+### Contact Us (ABOUT)
+- [x] Form for contact us
 
-The front page works flawlessly in all screen sizes and is self-explanatory.
+- [x] Back, Home buttons
 
-1. Launched... ✰  links:
-   - [x] Modal function 
-2. Start Memory Game link:
-   - [x] Hover function works. The link goes to the correct URL (game.html) and starts the game.
 
-#### Game Page
+### RULES & STORY
+- [x] Back, Home buttons
 
-The game page works as expected and, no bugs are detected when the game is play. All sounds and buttons/icons work as expected and work in all screen sizes.
 
-3. Play / Pause icon:
-   - [x] Hover function works and switches to pause icon when the game paused.
-4. Restart icon:
-   - [x] Hover function works and, a confirm drop-down menu verifies the response.
-5. Mute On / Off icon:
-   - [x] Hover function works and switches to mute off icon when the sound muted.
-6. Exit icon:
-   - [x] Hover function works. The link goes to the correct URL (index.html).
+### DONATE
+- [x] Donation with webhook, stripe event, mail verification
 
-#### Info Modal
+- [x] Back, Home buttons
 
-Info Modal that appears when you click on the front page link (Info About The Game) works as expected and works in all screen sizes.
 
-7. Start The Memory Game:
-   - [x] Hover function works. The link goes to the correct URL (game.html) and starts the game.
-8. Back To Main:
-   - [x] Hover function works. The link goes to the correct URL (index.html).
+### REG MATCH
+- [x] Input works with:
+   - [x] Input a valid user/player --> Goes to a virfication page with a done button
 
-#### Result Modal
+   - [x] Input nothing --> Goes to a error/information page with a back button
 
-The Modal automatically displayed when you have completed a game works as expected and works in all screen sizes. You can also see your high score here.
+   - [x] Wrong spelling --> Goes to a error/information page with a back button
 
-9. Play Again:
-   - [x] Hover function works. The link goes to the correct URL (game.html) and starts the game.
-10. Back To Main:
-    - [x] Hover function works. The link goes to the correct URL (index.html).
+   - [x] Input nothing --> Goes to a error/information page with a back button
 
-- All links lead to the right place and, no broken links
-- All icons, headers, and text is in the right place regardless of screen size
-- Hover effects on all links
-- All functionality in the game is controlled and works satisfactorily
-- All Modals are checked and work satisfactorily in all screen sizes
+   - [x] Input your own name --> Goes to a error/information page with a back button
+
+   - [x] Input admin --> Goes to a error/information page with a back button
+
+- [x] Users/Players list on the bottom with hover effect
+
+- [x] Back, Home buttons
+
+
+### My Profile (profile icon in top right)
+
+- [x] Update your Profile button
+
+- [x] Back, Home buttons
+
+### Update (My profile)
+
+- [x] Update Modal (verification)
+
+- [x] Back, Home buttons
+
+
 
 ---
-
+- Checked with the browser's built-in responsive tool (inspect).
 
 
 ---
@@ -103,7 +154,7 @@ The Modal automatically displayed when you have completed a game works as expect
 
 - The [RESPONSIVE WEB DESIGN CHECKER](https://responsivedesignchecker.com/) service is used to check how responsive the website is.
 
-  - Is also checked with the browser's built-in responsive tool (inspect).
+  
   
 
 - The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) service was used to validate the CSS code used.

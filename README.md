@@ -1,11 +1,11 @@
 
 # Couronne
-## A site where you can record matches played against your friends. And Couronne takes care of the rest.
+### A site where you can record matches played against your friends. And Couronne takes care of the rest.
 
 ![The Markup from responsive design](static/readme-resources/responsive.jpg)
 
 
-## Milestone project 4 (Code Institute)
+## Project Milestone 4 (Code Institute)
 
 This is a medium advanced website that has most of the features needed to make the website feel comfortable and easy to navigate.
 
@@ -13,9 +13,21 @@ This is a medium advanced website that has most of the features needed to make t
 
 **[View The Couronne site on Heroku](https://manello-couronne.herokuapp.com/)**
 
+### Overall about the site:
+
+```
+This site uses both FBV and CBV as it is the best solution. 
+The app home uses FBV because I use the mini project Boutique Ado as a basis for my start of programming for this site, and FBV is all I learned (have done some small projects for testing with CBV). 
+CBV is used in my other app (donate) and it is largely copied from stripe programming recommendations. 
+
+All functions in the apps work as they should, but some code in the home app is not so "nice" and probably not completely DRY. 
+But as Linus Torvalds (author of the operating system core Linux.) Said, if the code works, let it be, we will fix it when we have a lot of time left over and the project is published and finished ...
+
+```
+
 - For testing, please use the following login information for admin privileged pages 
    - Username: admin/Password: code-institute
--
+
 - For regular users. Just register an account and
    register some matches aginst a registred players, see registated players here: 
       
@@ -23,19 +35,22 @@ This is a medium advanced website that has most of the features needed to make t
 
 
 - Or try the user: sally
-   -
-      who leads the league and is a member of Venue/Club: Couronne Killers, on this page you can see players/friends who are members of the same club like yourself!
+
+   who leads the league and is a member of Venue/Club: Couronne Killers, on this page you can see players/friends who are members of the same club like yourself!
+
+      
    - Username: sally/Password: sally
 
 
 # Introduction
 
-- This pretty solid site that has taken its simple little old-fashioned solid style-design from sites like, [**Django-Admin**](https://manello-couronne.herokuapp.com/admin/), [**Wikipedia**](https://sv.wikipedia.org/wiki/Linus_Torvalds), 
+- This pretty solid old-style site that has taken its simple little old-fashioned solid style-design ideas from sites like, [**Django-Admin**](https://manello-couronne.herokuapp.com/admin/), [**Wikipedia**](https://sv.wikipedia.org/wiki/Linus_Torvalds), 
 [**Github**](https://github.com/manell0/couronne),
 [**flyordie**](http://www.flyordie.com/)
 
- - It is primarily intended for users who like couronne. But now wants to be able to register their game against their friends in a simple and fun way.
- - In the future intended for everyone. Because it is easy to update/change. And the site is built to be easy to expand.
+ - It is primarily intended for users who like couronne. But now wants to step up and be able to register their game against their friends in a simple and fun way.
+
+ - In the future intended for everyone. Because the site is easy to upgrade/change. The site is built to be easy to expand.
 
 
 - The focus of the website is to create an easy way to reach people who want to compete against each other in the classic Swedish table game, Couronne. 
@@ -119,7 +134,7 @@ With these goals in mind, a strategy table was created to determine the trade-of
 
 - The site is for people who like corounne and want to find old and new friends to play with.
 
-- Users who find this website are most certainly one who is looking for just and precisely for a register results in Couronne site.
+- Users who find this site are probably one who is looking for just a site where you can register results and find new friends, events and competitions in Couronne
 
 #### A scope was defined into two categories:
 
@@ -165,7 +180,7 @@ Wireframe mockup was created in a Figma Workspace with providing a positive user
 
 ### Color Scheme
 
-The main colors used throughout the website are grey, black text, white and a tuouch of green.
+The main colors used throughout the website are grey, black text, white and a tuouch of info-blue and success-green (bootstrap colors).
 
 The chosen color scheme is chosen to get a clear and nice view to integrate with.
 
@@ -190,6 +205,7 @@ Font font-family: Prompt is used throughout the website with Sans Serif as the f
 ### Design Features
 
 Each page on the website has a consistent, responsive navigation system through a navigation bar on the top of the site.
+- At the top of the page, we find our navbar which turns into a burger for smaller screen sizes..
 
 
 ### Existing Features
@@ -208,13 +224,13 @@ Each page on the website has a consistent, responsive navigation system through 
    - Reg Match
    - Log In, log out and register
 
+  
 - ### Start Page (Home):
-  - Navbar (fixed) on top of the Home page is the same across the whole site.
    - Couronne logo in top left goes to the start page.
 
    - The home page is divided into two columns, the left one is for news and gadgets. The right for the league top 5.
    
-   - At the top of the page, we find our navbar which turns into a burger for smaller screen sizes..
+   
 
     
 - ### Leader Board:
@@ -303,7 +319,7 @@ Each page on the website has a consistent, responsive navigation system through 
 # Deployment
 
 - This project was developed using Gitpod, committed to git, and pushed to GitHub using the bash in Gitpod.
-- Some updates were done directly in edit mode on GitHub.
+
 
 ## Deploying on GitHub Pages
 
