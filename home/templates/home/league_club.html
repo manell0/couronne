@@ -37,9 +37,9 @@ has registered three matches -->
                     <div class="alert alert-success">
                         <!-- Logic to list only members hwo is in same club as you -->
                         {% if user.is_superuser %}  
-                            <h4 class="border-big bg-light text-dark shadow rounded">Venue/Club:</h4> <h5><span class="text-danger"> {{ user }}{{ club }} </span></h5>
+                            <h4 class="border-big bg-light text-dark shadow rounded px-3">Venue/Club:</h4> <h5><span class="text-danger"> {{ user }}{{ club }} </span></h5>
                         {% elif club %}
-                        <h4 class="border-big bg-light text-dark shadow rounded">Venue/Club: <span class="text-success h5"> {{ club }} </span></h4>
+                        <h4 class="border-big bg-light text-dark shadow rounded px-3">Venue/Club: <span class="text-success h5"> {{ club }} </span></h4>
                         {% else %}
                             <span class="text-danger"><strong> Does not belong to any Club </strong></span>
                             <span class="text-dark">Join or start a new Venue/Club <a href="{% url 'home:update' %}"></span>

@@ -41,22 +41,23 @@ has registered three matches -->
             <div class="col-md-6 col border-big">
                 <div class="row ">
                     <div class="col bg-info border border-success text-white rounded">
-                        <h4 class="bg-light padding-text margins border-big text-dark shadow rounded">News & Stuff</h4>
+                        <h4 class="bg-light padding-text margins border-big text-dark shadow rounded m-3">News & Stuff</h4>
                     </div>
                 </div>
                 {% if not user.is_authenticated %}
-                    <p><strong class="text-primary">Conquer the league and become king of the hill!</strong>
+                    <p class="m-3"><strong class="text-primary">Conquer the league and become king of the hill!</strong>
                         <br>Win a symbol that follows you forever!
                         <br>First place = 🥇 Second place = 🥈  Third place = 🥉  Fourth place = 💥  Fifth place = 💫
                     </p>    
-                    <p><strong class="text-primary">Join the Couronne league!</strong> now and get 
+                    <p class="m-3"><strong class="text-primary">Join the Couronne league!</strong> now and get 
                         the chance to participate in the Couronne Swedish Championships!
                         <br><a href="{% url 'home:register' %}">Register here ...</a>
                     </p>
+                    <hr>
                 {% endif %}
-                <hr>
+                
                 <div  class="col">
-                    <h3 class="text-brown shadow">Launches! </h3>
+                    <h3 class="text-brown shadow px-3 mt-3">Launches! </h3>
                     <table>
                         <tr>
                             <td class="text-brown">
@@ -77,7 +78,7 @@ has registered three matches -->
                 </div>
                 <hr>
                 <div class="alert alert-light" >
-                    <h2 class="shadow"><a href="couronne_info/#SM"> Ghost of the Month 👻</a></h2>
+                    <h2 class="shadow px-3"><a href="couronne_info/#SM"> Ghost of the Month 👻</a></h2>
                     <h5>The ghost of the month is the player who...</h5>
                     <a href="couronne_info/#SM">Read more here...</a>
                 </div>
@@ -85,7 +86,7 @@ has registered three matches -->
             <div class="col-md-6 border-big">
                 <div class="row ">
                     <div class="col bg-success border border-info rounded">
-                        <h4 class="bg-light padding-text margins border-big text-dark shadow rounded">
+                        <h4 class="bg-light padding-text margins border-big text-dark shadow rounded m-3">
                             <a class="text-dark" href="{% url 'home:league_all' %}" 
                             data-toggle="tooltip" data-placement="left" title="See all the players in Couronne league...">
                             League Top 5</a><span class="float-right text-dark" data-toggle="tooltip" data-placement="left" title='The Couronne league acts as "King of the Hill". The league starts and ends 13/12 every year.'>🛈</span></h4>
@@ -93,7 +94,7 @@ has registered three matches -->
                 </div>
                 <!-- Table shows top 5 couronne players -->
                 {% if all_objects %}
-                <table class="table table-striped text-right font-size-small">
+                <table class="table table-striped text-right font-size-small mt-3">
                     <th class="text-left">Player</th>
                     <th class="hides hideing">Played</th>
                     <th class="hides">Won</th>

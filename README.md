@@ -274,12 +274,15 @@ Each page on the website has a consistent, responsive navigation system through 
 # Issues and Bugs
 A big Issue was that I had named my variables in my model very badly because I thought it was just to change the names later (I am an idiot). When I then tried to change the names in my model through migrate, the whole program crashed! After a lot of ifs and buts, I managed to get everything back, but with the variables with bad names. Then I got some encouragement and some help to fix it from a girl named Owonikoko Oluwaseun who by the way is my mentor. Thank you dear mentor!
 
-##### Other information:
+### Other information:
 PROBLEMS in home view which I do not intend to care about (except line too long, if it is extremely and very much too long)
-'django.forms' imported but unused
-line too long (82 > 79 characters)
-Class 'UserProfileInfo' has no 'objects' member
-comparison to True should be 'if cond is True:' or 'if cond:'
+- 'django.forms' imported but unused
+
+- line too long (82 > 79 characters)
+
+- Class 'UserProfileInfo' has no 'objects' member objects
+
+- comparison to True should be 'if cond is True:' or 'if cond:'
 # Technologies Used
 
 ### Main Languages Used
