@@ -428,7 +428,7 @@ def contact_us(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             subject = form.cleaned_data['subject']
-            from_email = form.cleaned_data['from_email', 'svante.magnell@gmail.com']
+            from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             message = 'Couronne will get back to you soon. Your Message: ' + message
             try:
