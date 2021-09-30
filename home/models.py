@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 class UserProfileInfo(models.Model):
     game_flag = models.BooleanField(default=False)  # Check if the player is a player
     # Create relationship (don't inherit from User!)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)  # connects players to users on/off
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     # Add any additional attributes you want
     club_location = models.CharField(max_length=40, blank=True)

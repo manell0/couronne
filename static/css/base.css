@@ -48,8 +48,9 @@ body {
     color: antiquewhite;
 }
 
-.border-yellow{
-    border: 3px solid rgb(246, 248, 105);
+.border-red{
+    border: 5px solid rgb(141, 173, 192);
+    background-color: whitesmoke;
 }
 
 .bg-white{

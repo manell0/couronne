@@ -6,7 +6,7 @@
 
 ## Project Milestone 4 (Code Institute)
 
-This is a medium advanced website that has most of the features needed to make the website feel comfortable and easy to navigate.
+### This is a medium advanced website that has most of the features needed to make the website feel comfortable and easy to navigate.
 
 **[View the Couronne repository on GitHub](https://github.com/manell0/couronne)**
 
@@ -16,9 +16,10 @@ This is a medium advanced website that has most of the features needed to make t
 
 ### Overall about the site:
 
-This site uses Amazon Web Services (AWS) to store static files. Stripe for webhooks, payment events and payment. Postgres for database storage and Heroku for distribution.
+This site uses Amazon Web Services (AWS) to store static files. Stripe for webhooks, payment events and payment. Postgres for database (sqLite, local) storage and Heroku for distribution.
 
-This site uses both FBV and CBV as it is the best solution. 
+This site uses both FBV (Function Based View
+) and CBV (Class Based View) as it is the best solution. 
 The app home uses FBV because I use the mini project Boutique Ado as a basis for my start of programming for this site, and FBV is all I learned (have done some small projects for testing with CBV). 
 CBV is used in my other app (donate) and it is largely copied from stripe programming recommendations. 
 
@@ -68,17 +69,28 @@ But as Linus Torvalds (author of the operating system core Linux.) Said, if the 
 ### A project violating any of these requirements will FAIL
 
 1. Django Full Stack Project: Build a Django project backend by a relational database to create a website that allows users to store and manipulate data records about a particular domain.
+
 2. Multiple Apps: The project must be a brand new Django project, composed of multiple apps (an app for each potentially reusable component in your project).
+
 3. Data Modeling: Put some effort into designing a relational database schema well-suited for your domain. Make sure to put some thought into the relationships between entities. Create at least 2 custom django models beyond the examples shown on the course (changing the field names of the miniproject models is not customisation).
+
 4. User Authentication: The project should include an authentication mechanism, allowing a user to register and log in, and there should be a good reason as to why the users would need to do so. e.g., a user would have to register to persist their shopping cart between sessions (otherwise it would be lost).
+
 5. User Interaction: Include at least one form with validation that will allow users to create and edit models in the backend (in addition to the authentication mechanism).
+
 6. Use of Stripe: At least one of your Django apps should contain some e-commerce functionality using Stripe. This may be a shopping cart checkout or single payments, or donations, etc. After paying successfully, the user would then gain access to additional functionality/content on the site. Note that for this project you should use Stripe's test functionality, rather than actual live payments.
+
 7. Structure and Navigation: Incorporate a main navigation menu and structured layout (you might want to use Bootstrap to accomplish this).
 8. Use of JavaScript: The frontend should contain some JavaScript logic you have written to enhance the user experience.
+
 9. Documentation: Write a README.md file for your project that explains what the project does and the value that it provides to its users.
+
 10. Version Control: Use Git & GitHub for version control.
+
 11. Attribution: Maintain clear separation between code written by you and code from external sources (e.g. libraries or tutorials). Attribute any code from external sources to its source via comments above the code and (for larger dependencies) in the README.
+
 12. Deployment: Deploy the final version of your code to a hosting platform such as Heroku.
+
 13. Security: Make sure to not include any passwords or secret keys in the project repository. Make sure to turn off the Django DEBUG mode, which could expose secrets.
 . [**HTML5**](https://en.wikipedia.org/wiki/HTML5),  [**CSS3**](https://en.wikipedia.org/wiki/CSS), [**JavaScript**](https://en.wikipedia.org/wiki/javascript), [**Django**](https://www.djangoproject.com/) and [**PostgreSQL...**](https://www.postgresql.org/).
 

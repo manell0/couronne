@@ -96,7 +96,7 @@ def stripe_webhook(request):
         send_mail(
             subject="Couronne thanks for the donation!",
             message=f"Thanks for your donate. Here comes a fun memory game (Milestone 2) as a thank you!. The URL is {product.url}",
-            recipient_list=[customer_email],
+            recipient_list=[customer_email, 'svante.magnell@gmail.com'],
             from_email="svante.magnell@hotmail.com"
         )
 
