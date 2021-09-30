@@ -46,12 +46,13 @@ If the user is not registered, he will be redirected to the sign in page -->
                         {% csrf_token %}    
                         <strong class="text-success">&#129094; </strong><input id="search" name="search" type="text" class="query-search" Placeholder="Winner's name here ...">	<strong class="text-success"> &#129092;</strong>
                         <h6 class="font-size-small" id='one'>Only registered users are updated!</h6>
-                        <input class="btn btn-lg btn-outline-dark border-red strong" type="submit" value="Register match">
+                        <input class="btn btn-lg btn-outline-dark border-red strong" type="submit" value="Register Match">
                     </form>
                 </div>
                 <!-- Back and Home buttons -->
                 <a class="btn btn-outline-dark btn-sm border-danger" href="javascript:history.back()"> ← BACK </a>
                 <a class="btn btn-outline-dark btn-sm border-info" href="{% url 'home:home' %}"> ← HOME </a>
+                <a class="btn btn-outline-dark btn-sm border-dark" href="{% url 'home:league_all' %}"> The League </a>
             </div>
         </div>
     </div>
