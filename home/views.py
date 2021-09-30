@@ -428,11 +428,11 @@ def contact_us(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             subject = form.cleaned_data['subject']
-            from_email = form.cleaned_data['from_email']
+            from_email = form.cleaned_data['from_email', 'svante.magnell@gmail.com']
             message = form.cleaned_data['message']
             message = 'Couronne will get back to you soon. Your Message: ' + message
             try:
-                send_mail(subject, message, from_email, ['couronne@gmail.com'])
+                send_mail(subject, message, from_email, ['svante.magnell@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             successView(from_email, subject, message)
