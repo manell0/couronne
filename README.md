@@ -67,32 +67,59 @@ But as Linus Torvalds (author of the operating system core Linux.) Said, if the 
 
 ## Mandatory Requirements:
 ### A project violating any of these requirements will FAIL
-
-1. Django Full Stack Project: Build a Django project backend by a relational database to create a website that allows users to store and manipulate data records about a particular domain.
-
-2. Multiple Apps: The project must be a brand new Django project, composed of multiple apps (an app for each potentially reusable component in your project).
-
-3. Data Modeling: Put some effort into designing a relational database schema well-suited for your domain. Make sure to put some thought into the relationships between entities. Create at least 2 custom django models beyond the examples shown on the course (changing the field names of the miniproject models is not customisation).
-
-4. User Authentication: The project should include an authentication mechanism, allowing a user to register and log in, and there should be a good reason as to why the users would need to do so. e.g., a user would have to register to persist their shopping cart between sessions (otherwise it would be lost).
-
-5. User Interaction: Include at least one form with validation that will allow users to create and edit models in the backend (in addition to the authentication mechanism).
-
-6. Use of Stripe: At least one of your Django apps should contain some e-commerce functionality using Stripe. This may be a shopping cart checkout or single payments, or donations, etc. After paying successfully, the user would then gain access to additional functionality/content on the site. Note that for this project you should use Stripe's test functionality, rather than actual live payments.
-
-7. Structure and Navigation: Incorporate a main navigation menu and structured layout (you might want to use Bootstrap to accomplish this).
-8. Use of JavaScript: The frontend should contain some JavaScript logic you have written to enhance the user experience.
-
-9. Documentation: Write a README.md file for your project that explains what the project does and the value that it provides to its users.
-
-10. Version Control: Use Git & GitHub for version control.
-
-11. Attribution: Maintain clear separation between code written by you and code from external sources (e.g. libraries or tutorials). Attribute any code from external sources to its source via comments above the code and (for larger dependencies) in the README.
-
-12. Deployment: Deploy the final version of your code to a hosting platform such as Heroku.
-
-13. Security: Make sure to not include any passwords or secret keys in the project repository. Make sure to turn off the Django DEBUG mode, which could expose secrets.
+#
+### 1. Django Full Stack Project: Build a Django project backend by a relational database to create a website that allows users to store and manipulate data records about a particular domain.
+   - [x] **Done/Checked.**
+      - Project built and you can store and manipulate data to this domain.
+#
+### 2. Multiple Apps: The project must be a brand new Django project, composed of multiple apps (an app for each potentially reusable component in your project).
+   - [x] **Done/Checked.**
+      - The project is completely new and consists of two apps and the apps are built as standalone and are reusable.
+#
+### 3. Data Modeling: Put some effort into designing a relational database schema well-suited for your domain. Make sure to put some thought into the relationships between entities. Create at least 2 custom django models beyond the examples shown on the course (changing the field names of the miniproject models is not customisation).
+   - [x] **Done/Checked.**
+      - Two models created and relationship with User is established.
+#
+### 4. User Authentication: The project should include an authentication mechanism, allowing a user to register and log in, and there should be a good reason as to why the users would need to do so. e.g., a user would have to register to persist their shopping cart between sessions (otherwise it would be lost).
+   - [x] **Done/Checked.**
+      - User authentication is created and the reason why it must exist is to be able to register matches and be able to participate in tournaments, events and leagues.
+#
+### 5. User Interaction: Include at least one form with validation that will allow users to create and edit models in the backend (in addition to the authentication mechanism).
+   - [x] **Done/Checked.**
+      - In the profile template, users can create (club) and update their profile content.
+#
+### 6. Use of Stripe: At least one of your Django apps should contain some e-commerce functionality using Stripe. This may be a shopping cart checkout or single payments, or donations, etc. After paying successfully, the user would then gain access to additional functionality/content on the site. Note that for this project you should use Stripe's test functionality, rather than actual live payments.
+   - [x] **Done/Checked.**
+      - Stripe is used for donation, after a user (can be anonymous) donated, he receives a verification email with a link to a fun game (My milestone 2 project). What those who have not donated do not get! Since you can donate anonymously, there is nothing extra on the website for those who have donated, the extra for those who have donated is the fun game that is sent in the email.
+#
+### 7. Structure and Navigation: Incorporate a main navigation menu and structured layout (you might want to use Bootstrap to accomplish this).
+   - [x] **Done/Checked.**
+      - Structure and navigation are established through a fixed navigation menu that turns into a burger on smaller screens.
+#
+### 8. Use of JavaScript: The frontend should contain some JavaScript logic you have written to enhance the user experience.
+   - [x] **Done/Checked.**
+      - javascript is used by both apps for better UX.
+#
+### 9. Documentation: Write a README.md file for your project that explains what the project does and the value that it provides to its users.
+   - [x] **Done/Checked.**
+      - README.md is made to the best of its ability.
+#
+### 10. Version Control: Use Git & GitHub for version control.
+   - [x] **Done/Checked.**
+      - Version control with Git & GitHub is done.
+#
+### 11. Attribution: Maintain clear separation between code written by you and code from external sources (e.g. libraries or tutorials). Attribute any code from external sources to its source via comments above the code and (for larger dependencies) in the README.
+   - [x] **Done/Checked.**
+      - Attribution of non-self-written code and tutorial help is clearly documented.
+#
+### 12. Deployment: Deploy the final version of your code to a hosting platform such as Heroku.
+   - [x] **Done/Checked.**
+      - My project is deployed on Heroku.
+#
+### 13. Security: Make sure to not include any passwords or secret keys in the project repository. Make sure to turn off the Django DEBUG mode, which could expose secrets.
 . [**HTML5**](https://en.wikipedia.org/wiki/HTML5),  [**CSS3**](https://en.wikipedia.org/wiki/CSS), [**JavaScript**](https://en.wikipedia.org/wiki/javascript), [**Django**](https://www.djangoproject.com/) and [**PostgreSQL...**](https://www.postgresql.org/).
+   - [x] **Done/Checked.**
+      - There are no keys or passwords in my repostiry. Debug is set to False.
 
 # UX
 
@@ -457,6 +484,9 @@ The Project's source file was also pushed to Heroku via the heroku master branch
 
 - I have used the Project - Boutique Ado as a start for my milestone project.
   [Project - Boutique Ado](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSF_102+Q1_2020/courseware/4201818c00aa4ba3a0dae243725f6e32/d3188bf68530497aa5fba55d07a9d7d7/)
+
+- I have used Dennis Ivy tutorial on youtube as a guide to my stripe app donate.
+  [Dennis Ivy on Youtube](https://www.youtube.com/watch?v=oZwyA9lUwRk&t=850s)
 
 ## Content
 
