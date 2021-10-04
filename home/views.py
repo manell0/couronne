@@ -376,7 +376,6 @@ def update(request):
         # Was not an HTTP post so we just render the forms as blank.
         user_form = UppForm(instance=user)
         profile_form = UserProfileInfoForm(instance=profile)
-        # upp_form = user_form
 
     # This is the render and context dictionary to feed
     # back to the uppdate.html file page.
@@ -457,7 +456,7 @@ def successView(from_email, subject, message):
     sender = from_email
     from_email = 'svante.magnell@gmail.com'
 
-    send_mail( subject, message, from_email,  [sender])
+    send_mail(subject, message, from_email,  [sender])
 
 
 def user_login(request):
@@ -522,7 +521,7 @@ def register(request):
 
     # This is the render and context dictionary to feed
     # back to the registration.html file page.
-    return render(request,'home/registration.html', {
+    return render(request, 'home/registration.html', {
         'user_form': user_form,
         'profile_form': profile_form,
         'registered': registered})

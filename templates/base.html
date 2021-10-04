@@ -52,10 +52,11 @@
         <title>Couronne {% block extra_title %}{% endblock %}</title>
     </head>
     <body>
+        <!-- Fixed top header -->
         <header class="container-fluid fixed-top">
             <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                    <a href="{% url 'home:home' %}" class="nav-link main-logo-link" data-toggle="tooltip" data-placement="bottom" title="Back to Start">    
+                    <a href="{% url 'home:home' %}" class="nav-link main-logo-link" data-toggle="tooltip" data-placement="bottom" title="Back to Home">    
                         <h1 class="logo-font text-info my-0"><strong>Çour</strong><span class="text-success">onne</span></h1>
                     </a>
                 </div>
@@ -71,6 +72,7 @@
                                     <p class="my-0">{{user}}</p>
                                 </div>
                             </a>
+                            <!-- Logic depending on status and rights -->
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
@@ -97,16 +99,19 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+                    <!-- Includes mobile top header for small screens and main navigation bar. -->
                     {% include 'includes/mobile-top-header.html' %}
                     {% include 'includes/main-nav.html' %}
                 </nav>
             </div>
             <div id="delivery-banner" class="row text-center">
+                <!-- A small banner that is on all sides. -->
                 <div class="col bg-black text-success">
                     <h6 class=" font-little "><strong>Swedish Championships 2022-01-15</strong>{{ free_delivery_threshold }}!</h6>                
                 </div>            
             </div>
         </header>
+        <!-- Section for future extra content. -->
         {% if messages %}
             <div class="message-container"></div>
         {% endif %}

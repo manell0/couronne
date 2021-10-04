@@ -29,12 +29,12 @@ class UserForm(forms.ModelForm):
 
         # A user was found with this as a username, raise an error.
         raise forms.ValidationError('This email address is already in use.')
-    
+
 
 # Main form for registration of players
 class UserProfileInfoForm(forms.ModelForm):
     class Meta():
-        
+
         model = UserProfileInfo
         fields = ['club_location']
         labels = {"club_location": "Club/Loc"}
@@ -68,7 +68,7 @@ class UserMatchForm(forms.ModelForm):
 # Form for oponent when register match
 class UserMatchFormOpponent(forms.ModelForm):
     class Meta():
-        
+
         model = User
         fields = ['first_name']
 
