@@ -454,7 +454,7 @@ def succes_contact_us(request):
 # when user contact us we get a mail
 def successView(from_email, subject, message):
     sender = from_email
-    from_email = 'svante.magnell@gmail.com'
+    # from_email = 'svante.magnell@gmail.com'
 
     send_mail(subject, message, from_email,  [sender])
 
