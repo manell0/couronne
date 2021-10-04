@@ -429,7 +429,7 @@ def contact_us(request):
             subject = form.cleaned_data['subject']
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
-            message = 'Couronne will get back to you soon. Your Message: ' + message
+            message = 'Couronne will get back to you (' + from_email + ') soon. Your Message: ' + message
             try:
                 send_mail(subject, message, from_email, ['svante.magnell@gmail.com'])
                 #send_mail(subject, message, from_email, [from_email])
