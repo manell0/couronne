@@ -308,7 +308,7 @@ Each page on the website has a consistent, responsive navigation system through 
 
 - Change the logarithm of how the rating is calculated. Thought to use the same logarithm as chess.
 
-- A footer had been nice!
+- A footer would have been nice!
 
 - Pagination on pages that are likely to be long.
 

@@ -432,7 +432,6 @@ def contact_us(request):
             message = 'Couronne will get back to you (' + from_email + ') soon. Your Message: ' + message
             try:
                 send_mail(subject, message, from_email, ['svante.magnell@gmail.com'])
-                #send_mail(subject, message, from_email, [from_email])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             successView(from_email, subject, message)
