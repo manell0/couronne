@@ -386,6 +386,23 @@ def update(request):
         'reg': reg})
 
 
+# ------------------------------------------------------------
+@login_required
+def delete_user(request):
+    """ Delete profile user from the database """
+    if request.user:
+
+        user = request.user
+        user.delete()
+        messages.success(request, 'User deleted!')
+        
+        # return render(request, 'home/registration.html')
+        return HttpResponseRedirect('/accounts/login')
+# ------------------------------------------------------------
+@login_required
+def delete_user_profile(request):
+    return render(request, 'home/delete_user_profile.html')
+
 # The profile page where you can see your profile and update
 @login_required
 def profile(request):

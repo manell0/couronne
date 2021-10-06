@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_header %}
+<!-- information drop down button with information about the delete process. -->
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+            <p>
+                <a class="btn btn-outline-dark btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Delete information 
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <p class="text-danger h5">Your account ({{user}}) will disappear permanently! </p>
+                    If you want to be able to continue registering played matches, you must create a new account.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <div class="alert alert-secondary border-big">
+            <!-- Check if the Delete process is done and be redirected to the login section -->
+            {% if registered and reg %}
+            <h3>Delete complete.</h3>
+            <a href="{% url 'home:user_login' %}" class="nav-link main-logo-link">
+                <h4 class="text-black"><strong>Log</strong>In here...</h4>
+            </a>
+            {% elif registered %}
+            <h3>Delete is complete.</h3>
+            <a class="nav-item nav-link" href="{% url 'home:user_login' %}">☺ &#128566 Login</a>   
+            {% else %}
+            <div class="alert alert-danger">
+                <h4 class="rounded shadow bg-light pl-2">Delete {{user}}´s account?  </h4>
+            </div>
+            <div id="myDiv">
+                <a class="btn btn-outline-dark border-danger"  href="javascript:history.back()"> ← Back </a>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModalCenter">
+                Delete
+                </button>
+                <!-- Modal to verify deletion of the user's account. -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-danger" id="exampleModalLongTitle"> Are you sure you want to delete your account? </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body bg-light">
+                                <p class="text-danger">The deletion takes effect immediately and no further verifications are made!</p> 
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <a class="btn btn-outline-danger"href="{% url 'home:delete_user' %}">Delete Your Account</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
