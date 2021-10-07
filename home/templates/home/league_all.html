@@ -28,12 +28,16 @@
                         <th>Rating</th>
                         {% for person in all_objects %}
                         <tr>
-                            <td class="text-left">{{ forloop.counter }}. {{ person.user }}</td>
-                            <td class="hide-medium text-center text-info">{{ person.best_ranking }}</td>
-                            <td class="hides">{{ person.number_played_matches }}</td>
-                            <td class="hides text-success"><strong>{{ person.matches_won}}</strong></td>
-                            <td class="text-secondary">{{ person.average|floatformat:3 }}</td>
-                            <td><strong>{{person.ratingf|floatformat:3}}</strong></td>
+                            {% if person.club_location %}
+                                <td class="text-left" data-toggle="tooltip" data-placement="left" title="Club: {{ person.user }} is a member of: {{ person.club_location }}">{{ forloop.counter }}. {{ person.user }}  </td>
+                            {% else %}
+                                <td class="text-left" data-toggle="tooltip" data-placement="left" title="Club: {{ person.user }} does not belong to any club. ">{{ forloop.counter }}. {{ person.user }}  </td>
+                            {% endif %}
+                                <td class="hide-medium text-center text-info">{{ person.best_ranking }}</td>
+                                <td class="hides">{{ person.number_played_matches }}</td>
+                                <td class="hides text-success"><strong>{{ person.matches_won}}</strong></td>
+                                <td class="text-secondary">{{ person.average|floatformat:3 }}</td>
+                                <td><strong>{{person.ratingf|floatformat:3}}</strong></td>
                         </tr>
                         {% endfor %}
                     </table>

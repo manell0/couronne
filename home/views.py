@@ -17,7 +17,7 @@ from .forms import UserForm, UserProfileInfoForm, UppForm, UserMatchForm, \
     UserMatchFormOpponent
 from .models import User, UserProfileInfo
 
-
+# ----------------------------------------------------------------------
 # The home page.
 def index(request):
     """ A view to return the index page """
@@ -33,15 +33,17 @@ def index(request):
         'all_objects': all_objects,
         'played_matches': played_matches})
 
-
+# ----------------------------------------------------------------------
+# The Rules and Story page
 def rules_story(request):
     return render(request, 'home/rules_story.html')
 
-
+# ----------------------------------------------------------------------
+# The 404 page
 def wrong_404(request, exception):
     return render(request, 'home/404.html')
 
-
+# ----------------------------------------------------------------------
 # The All league page whit all registrated players listed
 # whit the highest ratingf on top
 def league_all(request):
@@ -49,27 +51,35 @@ def league_all(request):
     return render(request, 'home/league_all.html', {
         'all_objects': all_objects})
 
-
+# ----------------------------------------------------------------------
 # Club league page whit all registrated players who registered the same club
 @login_required
 def league_club(request):
     all_objects = UserProfileInfo.objects.order_by('-ratingf')
-
+    
     # Set club varable to avoid error message
     # (local variable 'club' referenced before assignment)
     # when try to access with admin or another user who is not in the league
     club = ' is not in the league and has no club affiliation!'
 
+    # All clubs in DB without duplicates sorted alphabetically
+    club_list_temp = []
+    for club in all_objects:
+        club_list_temp.append(club.club_location)
+    club_list = sorted(set(club_list_temp))
+
+    # User club
     for user in all_objects:
         if str(request.user) == str(user):
             club = user.club_location
 
     return render(request, 'home/league_club.html', {
         'all_objects': all_objects,
+        'club_list': club_list,
         'club': club})
 
-
-# The registration page where you can register matches that you have played
+# ----------------------------------------------------------------------
+# The match registration page where you can register matches that you have played
 @login_required
 def reg_match(request):
     user = request.user
@@ -170,7 +180,8 @@ def reg_match(request):
         'rating_four': rating_four,
         'rating_five': rating_five})
 
-
+# ----------------------------------------------------------------------
+# If the user enters an incorrect value when registering a played match 
 @login_required
 def reg_match_wrong(request, message, heading, final_text):
     return render(request, 'home/reg_match_wrong.html', {
@@ -178,7 +189,7 @@ def reg_match_wrong(request, message, heading, final_text):
         'heading': heading,
         'final_text': final_text})
 
-
+# ----------------------------------------------------------------------
 # Function that makes all checks when a user tries to register a played match.
 @login_required
 def edit(request):
@@ -326,6 +337,7 @@ def edit(request):
         return HttpResponseRedirect('/reg_match/')
 
 
+# ----------------------------------------------------------------------
 # The profile update page
 @login_required
 def update(request):
@@ -387,6 +399,7 @@ def update(request):
 
 
 # ------------------------------------------------------------
+# Delete user profile for complite CRUD
 @login_required
 def delete_user(request):
     """ Delete profile user from the database """
@@ -398,12 +411,15 @@ def delete_user(request):
         
         # return render(request, 'home/registration.html')
         return HttpResponseRedirect('/accounts/login')
+
 # ------------------------------------------------------------
+# Delete user template
 @login_required
 def delete_user_profile(request):
     return render(request, 'home/delete_user_profile.html')
 
-# The profile page where you can see your profile and update
+# ------------------------------------------------------------
+# The profile page where you can see your profile.
 @login_required
 def profile(request):
     all_objects = UserProfileInfo.objects.order_by('-ratingf')
@@ -414,6 +430,7 @@ def profile(request):
         'profile': profile})
 
 
+# ------------------------------------------------------------
 # Function for set the game flag for a user
 def change_game_flag(game_flag, request):
     user= request.user
@@ -436,6 +453,7 @@ def change_game_flag(game_flag, request):
     return game_flag
 
 
+# ------------------------------------------------------------
 # Contact page where user can send mail to couronne
 def contact_us(request):
     if request.method == 'GET':
@@ -457,17 +475,20 @@ def contact_us(request):
     return render(request, 'home/contact_us.html', {'form': form})
 
 
+# ------------------------------------------------------------
 # The couronne info page
 def couronne_info(request):
 
     return render(request, 'home/couronne_info.html')
 
 
+# ------------------------------------------------------------
 # Resive email success
 def succes_contact_us(request):
     return render(request, 'home/succes_contact_us.html')
 
 
+# ------------------------------------------------------------
 # when user contact us we get a mail
 def successView(from_email, subject, message):
     sender = from_email
@@ -475,10 +496,13 @@ def successView(from_email, subject, message):
     send_mail(subject, message, from_email, [sender, from_email])
 
 
+# ------------------------------------------------------------
+# Redirect user to the login page
 def user_login(request):
     return HttpResponseRedirect('/accounts/login')
 
 
+# ------------------------------------------------------------
 # Registration page that overwrites the original registration (all auth)
 # page for the connection between the DB (UserProfileInfo) tables to work.
 def register(request):

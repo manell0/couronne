@@ -6,21 +6,23 @@ has registered three matches -->
 <div class="container header-container">
     <div class="row">
         <div class="col">
+            {% if not club %}
             <p>
                 <a class="btn btn-outline-dark btn-sm" data-toggle="collapse" href="#collapseExample" role="button"
                     aria-expanded="false" aria-controls="collapseExample">
-                Information About Venue/Club:
+                Information About Club:
                 </a>
             </p>
+            {% endif %}
             <div class="collapse" id="collapseExample">
                 <div class="card card-body">
-                    <p> Here you have the opportunity to see results from only your own Club <span
+                    <p> Here you have the opportunity to see results from the club you belong to <span
                         class="text-success"><strong>{{ club }}</strong> </span>.
-                        Everyone who has registered with the same Venue/Club as you are is shown here.
-                        <strong class="text-danger">Keep in mind that the Venue/Club name you enter is case-sensitive.</strong>
+                        Everyone who has registered with the same club as you are is shown here.
+                        <strong class="text-danger"><br>If you join a club, keep in mind that the club name is case-sensitive.</strong>
                     </p>
                     <p>
-                        <strong>Update your profile with a venue/club </strong><a href="{% url 'home:update' %}">here...</a>
+                        <strong>Join or create your club </strong><a href="{% url 'home:update' %}">here...</a>
                     </p>
                 </div>
             </div>
@@ -37,16 +39,17 @@ has registered three matches -->
                     <div class="alert alert-success">
                         <!-- Logic to list only members hwo is in same club as you -->
                         {% if user.is_superuser %}  
-                            <h4 class="border-big bg-light text-dark shadow rounded px-3">Venue/Club:</h4> <h5><span class="text-danger"> {{ user }}{{ club }} </span></h5>
+                            <h4 class="border-big bg-light text-dark shadow rounded px-3">Club:</h4> <h5><span class="text-danger"> {{ user }}{{ club }} </span></h5>
                         {% elif club %}
-                        <h4 class="border-big bg-light text-dark shadow rounded px-3">Venue/Club: <span class="text-success h5"> {{ club }} </span></h4>
+                            <h4 class="border-big bg-light text-dark shadow rounded px-3">Club: <span class="text-success h5"> {{ club }} </span></h4>
                         {% else %}
-                            <span class="text-danger"><strong> Does not belong to any Club </strong></span>
-                            <span class="text-dark">Join or start a new Venue/Club <a href="{% url 'home:update' %}"></span>
+                            <span class="text-danger"><strong> Does not belong to any Club. </strong></span>
+                            <span class="text-dark">Join or create a new Club <a href="{% url 'home:update' %}"></span>
                             here...</a>
                         {% endif %}
                     </div>
-                    {% if all_objects %}
+                    
+                    {% if club and all_objects %}
                     <table class="table table-striped text-right font-size-small">
                         <th class="text-left">Player</th>
                         <th class="hides">Played</th>
@@ -54,18 +57,24 @@ has registered three matches -->
                         <th>Average</th>
                         <th>Rating</th>
                         {% for person in all_objects %}
-                        {% if person.club_location == club %}
-                        <tr>
-                            <td class="text-left">{{ forloop.counter }}. {{ person.user }}</td>
-                            <td class="hides">{{ person.number_played_matches }}</td>
-                            <td class="hides text-success"><strong>{{ person.matches_won}}</strong></td>
-                            <td>{{ person.average|floatformat:3 }}</td>
-                            <td><strong>{{person.ratingf|floatformat:3}}</strong></td>
-                        </tr>
-                        {% endif %}
+                            {% if person.club_location == club %}
+                                <tr>
+                                    <td class="text-left">{{ forloop.counter }}. {{ person.user }}</td>
+                                    <td class="hides">{{ person.number_played_matches }}</td>
+                                    <td class="hides text-success"><strong>{{ person.matches_won}}</strong></td>
+                                    <td>{{ person.average|floatformat:3 }}</td>
+                                    <td><strong>{{person.ratingf|floatformat:3}}</strong></td>
+                                </tr>
+                            {% endif %}
                         {% endfor %}
                     </table>
                     {% endif %}
+                </div>
+                <div class="text-center margins">
+                    <h5 class="text-dark"> All Clubs</span></h5>
+                    {% for club in club_list %}
+                        <span class="text-secondary">{{ club }}</span> <strong class="text-dark">|</strong>
+                    {% endfor %}
                 </div>
                 <div class="text-center">
                     <!-- Back and home buttons -->

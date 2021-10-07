@@ -41,8 +41,8 @@
             <div id="myDiv">
                 <form enctype="multipart/form-data" method="POST">
                     {% csrf_token %}
-                    {{ upp_form.as_ul }}
-                    {{ profile_form.as_ul }}
+                    {{ upp_form.as_p }}
+                    {{ profile_form.as_p }}
                     <br>
                     <a class="btn btn-outline-dark border-danger"  href="javascript:history.back()"> ← Back </a>
                     <!-- Button trigger modal -->

@@ -37,8 +37,8 @@ class UserProfileInfoForm(forms.ModelForm):
 
         model = UserProfileInfo
         fields = ['club_location']
-        labels = {"club_location": "Club/Loc"}
-        help_texts = {'club_location': _('<br>Club / Venue (home or school, work) / Location')}
+        labels = {"club_location": "The Club"}
+        help_texts = {'club_location': _('<br> Join or create your club.')}
         error_messages = {'club_location': {'max_length': _("Too long ... Max 40 characters!")}}
 
 
