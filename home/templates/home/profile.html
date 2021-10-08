@@ -29,42 +29,42 @@
                     <!-- Logic that produces the profile page -->
                     {% if all_objects %}
                         <h6><strong> Latest Match:</strong></h6>
-                    {% for person in all_objects %}
-                    {% if person.user == user %}
-                    <table class="table table-striped font-size-small bg-light">
-                        <abbr class="font-size-smallest" title="Your last registered match ...  👀 ">
-                        {{ person.match_uppdate }}
-                        </abbr>
-                        <tr>
-                            <th>User Name:</th>
-                            <td>{{ user }} </td>
-                        </tr>
-                        <tr>
-                            <th>Email:</th>
-                            <td>{{ user.email }} </td>
-                        </tr>
-                        <tr>
-                            <th>Venue / Club:</th>
-                            <td>{{ person.club_location }} </td>
-                        </tr>
-                        <tr>
-                            <th>Highest Ranking:</th>
-                            <td>{{ person.best_ranking }} </td>
-                        </tr>
-                    </table>
-                    <div class=" font-size-small bg-light">
-                        Played: <b>{{ person.number_played_matches }}</b>
-                        Won: <b>{{ person.matches_won }}</b>
-                        Average: <b>{{ person.average|floatformat:3 }}</b>
-                        <p class="text-success font-size-small"><b>Rating: {{ person.ratingf|floatformat:3 }}</b></p>
-                        <div class="float-right text-secondary p-1 col-md-7">
-                            <h6 class="font-size-small">Last logIn: {{ user.last_login }}</h6>
-                            <h6 class="font-size-small">You Joined: {{ user.date_joined }}</h6>
-                        </div>
-                    </div>
-                    <hr>
-                    {% endif %}  
-                    {% endfor %}
+                        {% for person in all_objects %}
+                            {% if person.user == user %}
+                            <table class="table table-striped font-size-small bg-light">
+                                <abbr class="font-size-smallest" title="Your last registered match ...  👀 ">
+                                {{ person.match_uppdate }}
+                                </abbr>
+                                <tr>
+                                    <th>User Name:</th>
+                                    <td>{{ user }} </td>
+                                </tr>
+                                <tr>
+                                    <th>Email:</th>
+                                    <td>{{ user.email }} </td>
+                                </tr>
+                                <tr>
+                                    <th>Venue / Club:</th>
+                                    <td>{{ person.club_location }} </td>
+                                </tr>
+                                <tr>
+                                    <th>Highest Ranking:</th>
+                                    <td>{{ person.best_ranking }} </td>
+                                </tr>
+                            </table>
+                            <div class=" font-size-small bg-light">
+                                Played: <b>{{ person.number_played_matches }}</b>
+                                Won: <b>{{ person.matches_won }}</b>
+                                Average: <b>{{ person.average|floatformat:3 }}</b>
+                                <p class="text-success font-size-small"><b>Rating: {{ person.ratingf|floatformat:3 }}</b></p>
+                                <div class="float-right text-secondary p-1 col-md-7">
+                                    <h6 class="font-size-small">Last logIn: {{ user.last_login }}</h6>
+                                    <h6 class="font-size-small">You Joined: {{ user.date_joined }}</h6>
+                                </div>
+                            </div>
+                            <hr>
+                            {% endif %}  
+                        {% endfor %}
                     {% endif %}  
                     <div class="text-center col-md-5">
                         <!-- Back and home buttons -->

@@ -15,12 +15,12 @@
     <div class="jumbotron">
         <div class="alert alert-dark ">
             {% if registered and reg %}
-            <h1>Updated and ready!</h1>
-            <meta http-equiv="REFRESH" content="{% url 'home:home' %}">
+                <h1>Updated and ready!</h1>
+                <meta http-equiv="REFRESH" content="{% url 'home:home' %}">
             {% elif registered %}
             <!-- Redirection to login after registration. -->
-            <h1>Thank you for registering!</h1>
-            <a class="nav-item nav-link" href="{% url 'account_login' %}">&#128566 Login</a>   
+                <h1>Thank you for registering!</h1>
+                <a class="nav-item nav-link" href="{% url 'account_login' %}">&#128566 Login</a>   
             {% else %}
             <h4>Register here</h4>
             <form enctype="multipart/form-data" method="POST">
