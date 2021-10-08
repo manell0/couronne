@@ -18,13 +18,28 @@ has registered three matches -->
             <div class="collapse" id="collapseExample">
                 <div class="card card-body">
                     <p>
-                        <strong>Couronne</strong>  is a website where you {% if not user.is_authenticated %} <a href="{% url 'home:register' %}">register</a>{% else %} register {% endif %} , 
+                        <strong>Couronne</strong>  is a website where you {% if not user.is_authenticated %} <a href="{% url 'home:register' %}">register</a>{% else %} register, {% endif %} 
                         play a match <a href="{% url 'home:rules_story' %}">couronne</a> with your friend/opponent 
                         and then report the  <a href="{% url 'home:reg_match' %}" data-toggle="tooltip" data-placement="right" title="You must be logged in.">result here</a> on the couronne site!
                         The <a href="{% url 'home:league_all' %}">League</a> functions as <strong>"King of the Hill"</strong> and the players 
                         who are ranked highest have the privilege of participating in 
                         selected <a href="couronne_info/#EVENT">tournaments and events!</a><br>
                     <p class="text-success"><u> This information box stops appearing after you have registered three matches!</u></p>
+                    <!-- Here the video linked for youtube -->
+                    <div class="row ">
+                        <div class="col sm-6 movie">
+                            <h4>The Classic Board Game From Sweden!</h4>
+                        </div>
+                        <div class="col sm-6 movie border-big">
+                            <iframe
+                                width="250"
+                                src="https://www.youtube.com/embed/vBPb4YcOW-4"
+                                title="YouTube video player"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                ></iframe>
+                        </div>
+                    </div>
                     </p>
                 </div>
             </div>

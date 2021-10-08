@@ -23,6 +23,12 @@ body {
     padding-left: 1em;
 } 
 
+.movie {
+	margin: auto;
+	margin-top: 0em;
+	margin-bottom: 0;
+}
+
 /*------------------ Colors -------------*/
 .bg-black {
     background: #000 !important;
