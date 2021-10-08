@@ -29,19 +29,22 @@ But as Linus Torvalds (author of the operating system core Linux.) Said, if the 
 ---
 
 - For testing, please use the following login information for admin privileged pages 
-   - Username: admin/Password: code-institute
-
+   - Username: admin
+   - Password: code-institute
+---
 - For regular users. Just register an account and
    register some matches aginst a registred players, see registated players here: 
       
    https://manello-couronne.herokuapp.com/league_all/
+---
 
 - Or try the user: sally
 
    who leads the league and is a member of Venue/Club: Couronne Killers, on this page you can see players/friends who are members of the same club like yourself!
 
       
-   - Username: sally/Password: sally
+   - Username: sally
+   - Password: sally
 
 # Introduction
 
@@ -87,6 +90,8 @@ But as Linus Torvalds (author of the operating system core Linux.) Said, if the 
 #### 5. User Interaction: Include at least one form with validation that will allow users to create and edit models in the backend (in addition to the authentication mechanism).
    - [x] **Done/Checked.**
       - In the profile template, users can create (club) and update their profile content.
+
+      - CRUD functionality is implemented
 #
 #### 6. Use of Stripe: At least one of your Django apps should contain some e-commerce functionality using Stripe. This may be a shopping cart checkout or single payments, or donations, etc. After paying successfully, the user would then gain access to additional functionality/content on the site. Note that for this project you should use Stripe's test functionality, rather than actual live payments.
    - [x] **Done/Checked.**
@@ -289,7 +294,7 @@ Each page on the website has a consistent, responsive navigation system through 
    - is a page where you register played matches. After registration, you will end up on a verification page for information.
 
 - ### My Profile (Klick on the user icon in top right):
-   - Here you can see and update your profile.
+   - Here you can see, update and delete your profile.
 
 - ### 404 page (404.html):
   - 404 has a simple text with a link back to the index.
@@ -306,7 +311,7 @@ Each page on the website has a consistent, responsive navigation system through 
 
 - Develop donate page so that you can donate any amount.
 
-- Change the logarithm of how the rating is calculated. Thought to use the same logarithm as chess.
+- Change the logarithm of how the rating is calculated. Thought to use the same logarithm as chess uses for their rating.
 
 - A footer would have been nice!
 

@@ -75,6 +75,8 @@ which is displayed to the user has registered three matches, in order to then di
 
 ### All Players (LEADER BOARD):
 
+- [x] Hover over the players name to see which club they belong to. 
+
 - [x] Back, Home, Your Club buttons
 
 ### Your Club Result (LEADER BOARD)
@@ -94,6 +96,10 @@ which is displayed to the user has registered three matches, in order to then di
 ### Contact Us (ABOUT)
 - [x] Form for contact us
 
+- [x] Email sent to users
+
+- [x] Email sent to Couronne (svante.magnell@gmail.com)
+
 - [x] Back, Home buttons
 
 ### RULES & STORY
@@ -101,6 +107,10 @@ which is displayed to the user has registered three matches, in order to then di
 
 ### DONATE
 - [x] Donation with webhook, stripe event, mail verification
+
+- [x] Email sent to users
+
+- [x] Email sent to Couronne (svante.magnell@gmail.com)
 
 - [x] Back, Home buttons
 
@@ -127,11 +137,19 @@ which is displayed to the user has registered three matches, in order to then di
 
 - [x] Update your Profile button
 
+- [x] Delete your Profile button
+
 - [x] Back, Home buttons
 
 ### Update (My profile)
 
 - [x] Update Modal (verification)
+
+- [x] Back, Home buttons
+
+### Delete (My profile)
+
+- [x] Delete Modal (verification)
 
 - [x] Back, Home buttons
 
