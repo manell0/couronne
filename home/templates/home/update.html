@@ -39,7 +39,7 @@
                 <h3 class="rounded shadow bg-light pl-2">Update: <span class="h5"> {{user}} </span></h3>
             </div>
             <div id="myDiv">
-                <form enctype="multipart/form-data" method="POST">
+                <form enctype="multipart/form-data" method="POST" size="18">
                     {% csrf_token %}
                     {{ upp_form.as_p }}
                     {{ profile_form.as_p }}

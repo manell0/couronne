@@ -20,7 +20,7 @@
                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
             {% endif %}
             {% if not request.user.is_superuser %}
-                <a href="{% url 'home:profile' %}" class="dropdown-item">My Profile</a>
+                <a href="{% url 'home:profile' %}" class="dropdown-item">Profile</a>
                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
             {% endif %}
     {% else %}

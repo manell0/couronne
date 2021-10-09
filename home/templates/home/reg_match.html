@@ -54,7 +54,7 @@ If the user is not registered, he will be redirected to the sign in page -->
                         misspelled or if user enters their own name. -->
                     <form action="{% url 'home:edit' %}" method="post">
                         {% csrf_token %}    
-                        <strong class="text-success">&#129094; </strong><input id="search" name="search" type="text" class="query-search" Placeholder="Winner's name here ...">	<strong class="text-success"> &#129092;</strong>
+                        <strong class="text-success">&#129094; </strong><input size="16" id="search" name="search" type="text" class="query-search" Placeholder="Winner's name here ...">	<strong class="text-success"> &#129092;</strong>
                         <h6 class="font-size-small" id='one'>Only registered users are updated!</h6>
                         <input class="btn btn-lg btn-outline-dark border-red strong" type="submit" value="Register Match">
                     </form>
