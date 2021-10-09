@@ -12,9 +12,10 @@
             </p>
             <div class="collapse" id="collapseExample">
                 <div class="card card-body">
-                    <p class="text-danger">The update will take effect immediately! </p>
-                    The password you enter here will be your new password. After you have updated your information, 
-                    you will be <strong> logged out and need to log in again for the update to take effect.</strong>
+                    <p class="text-danger"><strong> The update will take effect immediately! </strong></p>
+                    <p><strong> You must enter a password to update!</strong></p>
+                    <span class="text-danger"> The password you enter here will be your new password.</span> After you have updated your information, 
+                    you will be logged out and need to log in again for the update to take effect.
                 </div>
             </div>
         </div>
@@ -24,7 +25,7 @@
 {% block content %}
 <div class="container">
     <div class="jumbotron">
-        <div class="alert alert-secondary border-big">
+        <div class="alert alert-secondary">
             <!-- Check if the update process is done and be redirected to the login section -->
             {% if registered and reg %}
             <h3>Update complete.</h3>
@@ -39,7 +40,7 @@
                 <h3 class="rounded shadow bg-light pl-2">Update: <span class="h5"> {{user}} </span></h3>
             </div>
             <div id="myDiv">
-                <form enctype="multipart/form-data" method="POST" size="18">
+                <form enctype="multipart/form-data" method="POST">
                     {% csrf_token %}
                     {{ upp_form.as_p }}
                     {{ profile_form.as_p }}
