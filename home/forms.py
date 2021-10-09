@@ -44,7 +44,7 @@ class UserProfileInfoForm(forms.ModelForm):
 
 # Modelform for the player update
 class UppForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput(), label='Password', help_text='<br>Enter your new password (or the old password)')
+    password = forms.CharField(widget=forms.PasswordInput(), label='Password', help_text='<br>Enter your new password (or your current password)')
 
     class Meta():
 

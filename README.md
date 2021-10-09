@@ -6,7 +6,7 @@
 
 ## Project Milestone 4 (Code Institute)
 
-### This is a medium advanced website that has most of the features needed to make the website feel comfortable and easy to navigate.
+#### This is a medium advanced website that has most of the features needed to make the website feel comfortable and easy to navigate.
 
 **[View the Couronne repository on GitHub](https://github.com/manell0/couronne)**
 
@@ -21,16 +21,16 @@ This site uses Amazon Web Services (AWS) to store static files. Stripe for webho
 This site uses both FBV (Function Based View
 ) and CBV (Class Based View) as it is the best solution. 
 The app home uses FBV because I use the mini project Boutique Ado as a basis for my start of programming for this site, and FBV is all I learned (have done some small projects for testing with CBV). 
-CBV is used in my other app (donate) and it is largely copied from stripe programming recommendations. 
+CBV is used in my other app (donate) and it is largely copied from [**stripe**](https://stripe.com/docs) programming recommendations. 
 
-All functions in the apps work as they should, but some code in the home app is not so "nice" and probably not completely DRY. 
+All functions in the apps work, but some code in the home app is not so "nice" and probably not completely DRY. 
 But as Linus Torvalds (author of the operating system core Linux.) Said, if the code works, let it be, we will fix it when we have a lot of time left over and the project is published and finished ...
 
 ---
 
 - For testing, please use the following login information for admin privileged pages 
-   - Username: admin
-   - Password: code-institute
+   - Username: **admin**
+   - Password: **code-institute**
 ---
 - For regular users. Just register an account and
    register some matches aginst a registred players, see registated players here: 
@@ -43,8 +43,8 @@ But as Linus Torvalds (author of the operating system core Linux.) Said, if the 
    who leads the league and is a member of Venue/Club: Couronne Killers, on this page you can see players/friends who are members of the same club like yourself!
 
       
-   - Username: sally
-   - Password: sally
+   - Username: **sally**
+   - Password: **sally**
 
 # Introduction
 
@@ -226,7 +226,7 @@ Wireframe mockup was created in a Figma Workspace with providing a positive user
 
 ### Color Scheme
 
-The main colors used throughout the website are grey, black text, white and a tuouch of info-blue and success-green (bootstrap colors).
+The main colors used throughout the website are grey, black text, white and a tuouch of info(blue), success(green) and danger(red) (bootstrap colors).
 
 The chosen color scheme is chosen to get a clear and nice view to integrate with.
 
