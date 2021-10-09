@@ -48,7 +48,7 @@ has registered three matches -->
                             here...</a>
                         {% endif %}
                     </div>
-                    {% if club and all_objects %}
+                    {% if club and all_objects and not user.is_superuser%}
                     <table class="table table-striped text-right font-size-small">
                         <th class="text-left">Player</th>
                         <th class="hides">Played</th>

@@ -17,11 +17,12 @@ has registered three matches -->
                     <p>
                         {% if user.is_superuser %}
                             <p><strong> {{ user }}</strong> you are not in the league.</p>
-                                Create an account ... Or log in with an established player, like sally.<br><br>
-                                Username: sally<br>
-                                password: sally
-                                <p class="margins"><a class="btn btn-outline-dark btn-sm border-danger" href="javascript:history.back()"> ← BACK </a>
-                                <a class="btn btn-outline-dark btn-sm border-info" href="{% url 'home:home' %}"> HOME </a></p>
+                            To be able to register matches played:<br>
+                            <strong>Create an account ... Or log in with an established player, like sally.</strong>
+                            Username: sally<br>
+                            password: sally
+                            <p class="margins"><a class="btn btn-outline-dark btn-sm border-danger" href="javascript:history.back()"> ← BACK </a>
+                            <a class="btn btn-outline-dark btn-sm border-info" href="{% url 'home:home' %}"> HOME </a></p>
                         {% else %}
                             <strong>To register a match</strong> , enter the name of the person who won the match. 
                             It is thus the loser who needs to humble himself and register the match. 
