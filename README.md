@@ -251,7 +251,9 @@ Font font-family: Prompt is used throughout the website with Sans Serif as the f
 ### Design Features
 
 Each page on the website has a consistent, responsive navigation system through a navigation bar on the top of the site.
-- At the top of the page, we find our navbar which turns into a burger for smaller screen sizes..
+- Couronne logo in top left is clickable and goes to the start page.
+- At the top of the page, we find our navbar which turns into a burger for smaller screen sizes.
+- All sides have back and home buttons at the bottom of the page.
 
 ### Existing Features
 
@@ -270,31 +272,43 @@ Each page on the website has a consistent, responsive navigation system through 
    - Log In, log out and register
   
 - ### Start Page (Home):
-   - Couronne logo in top left goes to the start page.
+   - At the top left of the page is a drop-down button that provides different information depending on the user (Logged in or not logged in). And disappears to appear after the user registered 3 played matches.
+      - Page information and a video showing a match of the game couronne.
 
-   - The home page is divided into two columns, the left one is for news and gadgets. The right for the league top 5.
+   - The home page is divided into two columns, the left one is for news and gadgets. 
+    - Launches shows some new (fictitious) products (modal).
+    - Ghost of the Month is linked to the couronne info page for further information 
+   - The right for the league top 5.
+      - Shows the 5 highest ranked players in the league. 
+      An  info icon with hover effect for league information. All names in the list have hover effect for more info.
+      - At the bottom a button that goes to the page register match (must be logged in).
     
 - ### Leader Board:
   - All Players page is a table with all registered players, sorted by highest ranking/rating score.
+   - All names have a hover effect to show which club the user belongs to.
 
   - Your Club Result page is a table of all registered players, who have updated their Venue/Club with the same club as yourself, sorted by highest ranking/rating score.
+      - Different information depending on which user is logged in (Admin, whether a member of a club or not a member of any club).
+      - At the bottom a horizontal list of all registered clubs.
     
 - ### About:
    - About & Info page has a navigation button at the top for easier navigation on the page which is quite long. The page contains things like, events, explanation of the ranking system, cheating, FAQ, about us, terms and a little curiosity.
 
    - Contact Us page where you can contact Couronne.
+      - Verification emails to the user and to couronne (svante.magnell@gmail.com) are sent.
 
 - ### Rules & Story:
    - The page is divided into two columns, the left one is for Rules and the right for Story.
 
 - ### Donate:
-   - The donate page is a page with an information drop-down button at the top left. As well as a section where you can donate $ 10 to Couronne. The rest is handled by Stripe! ..
+   - The donate page is a page with an information drop-down button at the top left for information. As well as a section where you can donate $ 10 to Couronne. The rest is handled by Stripe! ..
 
-- ### Reg Match:
+- ### Reg Match (Must be logged in): 
+   - At the top left of the page is a drop-down button that provides different information depending on the user (Logged in or Admin). And disappears to appear after the user registered 3 played matches.
    - is a page where you register played matches. After registration, you will end up on a verification page for information.
 
 - ### My Profile (Klick on the user icon in top right):
-   - Here you can see, update and delete your profile.
+   - Here you can create, read, update and delete (CRUD) your profile.
 
 - ### 404 page (404.html):
   - 404 has a simple text with a link back to the index.
@@ -307,7 +321,7 @@ Each page on the website has a consistent, responsive navigation system through 
 
 - Be able to easily create your own tournaments and events.
 
-- Be able to register draws as well. Easily done but unfortunately not in this edition of the site.
+- Be able to register draws as well. Easily done but not in this edition of the site.
 
 - Develop donate page so that you can donate any amount.
 
@@ -426,7 +440,7 @@ To reproduce this project within a local deployement, use the following steps an
 1. Have the following installed in your IDE of choice:
    - Git (for version control)
 
-   - pip (package installer for Python; pip3 was used at the time of production: Juli 2021)
+   - pip (package installer for Python; pip3 was used at the time of production: September 2021)
 
    - Python3 (the programming language used to produce the backend logic of this project) using the following command:
       - pip3 install dnspython
@@ -434,7 +448,7 @@ To reproduce this project within a local deployement, use the following steps an
 - Django (the library used to add special features and functionalities to this Python application) using the following command:
       - pip3 install django
 
-2. Create an mysql DB, and connect your database server with your django application via the models:
+2. Create an sqlite3 DB, and connect your database server with your django application via the models:
 
 3. Install additional packages:
    - pip3 install boto3
